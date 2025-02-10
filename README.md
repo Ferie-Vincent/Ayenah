@@ -31,22 +31,6 @@ The AYENAH platform is part of a broader initiative funded by the French Develop
 - Database: [Specify technology]
 - Authentication: [Specify technology]
 
-## Installation
-
-```bash
-# Clone repository
-git clone https://github.com/[organization]/ayenah-platform
-
-# Install dependencies
-npm install
-
-# Configure environment variables
-cp .env.example .env
-
-# Run development server
-npm run dev
-```
-
 ## Contributing
 
 This project is managed by the General Directorate of Ivorians Abroad (DGIE) in collaboration with Expertise France. For contribution guidelines, please contact the project maintainers.
