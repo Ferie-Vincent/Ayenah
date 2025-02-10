@@ -33,7 +33,6 @@ class MessageController extends Controller
         // dd($validated);
 
         Message::create($validated);
-
         return redirect()->route('contact')->with("success", "Message envoyé avec succès");
     }
 

@@ -35,9 +35,6 @@
     <div class="banner-bg">
         <img src=" {{asset('front/assets/images/pics/bg.jpg')}} " alt="Image" class="parallax-image">
     </div>
-    <div class="bottom-shape">
-        <img src="assets/images/banner/banner-one-shape.png" alt="Image">
-    </div>
     <div class="alter-shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
     <div class="circle-shape"></div>
 </section>
@@ -262,7 +259,7 @@
 <!-- ==== / Présentation AYENAH end ==== -->
 
 <!-- ==== Liste de Projets start ==== -->
-<!-- <section class="cause cause-three" id="causeSection">
+ <!-- <section class="cause cause-three" id="causeSection">
     <div class="container">
         <div class="row gutter-30 align-items-center">
             <div class="col-12 col-md-8 col-xl-7">

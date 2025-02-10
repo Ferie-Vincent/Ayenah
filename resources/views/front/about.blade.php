@@ -81,7 +81,7 @@
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 <a href="{{route('fiche-technique.download')}}" download>
                                     <span>
-                                        Fiche technique
+                                        Formulaire de requête 
                                     </span>
                                 </a>
                             </li>

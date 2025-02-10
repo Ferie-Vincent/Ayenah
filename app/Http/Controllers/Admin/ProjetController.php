@@ -36,8 +36,8 @@ class ProjetController extends Controller
        $validatedData['fichier_presentation'] = $this->handleFileUpload($request->file('fichier_presentation'), 'fichier_presentation');
 
         Projet::create($validatedData);
-
-        return redirect()->route('dashboard')->with('success', 'Projet ajouté avec succès');
+        session()->flash('success', 'Projet ajouté avec succès !');
+        return redirect()->route('dashboard');
     }
 
     public function edit(string $id)
@@ -78,8 +78,8 @@ class ProjetController extends Controller
         $validatedData['fichier_presentation'] = $this->handleFileUpload($request->file('fichier_presentation'), 'fichier_presentation', $projet->fichier_presentation);
 
         $projet->update($validatedData);
-
-        return redirect()->route('dashboard')->with('success', 'Le projet a été mis à jour avec succès.');
+        session()->flash('success', 'Projet mis à jour avec succès !');
+        return redirect()->route('dashboard');
     }
 
     public function destroy(string $id)
@@ -91,8 +91,8 @@ class ProjetController extends Controller
         $this->deleteOldFile($projet->fichier_presentation);
 
         $projet->delete();
-
-        return redirect()->route('dashboard')->with('success', 'Le projet a été supprimé avec succès.');
+        session()->flash('error', 'Projet supprimé avec succès !');
+        return redirect()->route('dashboard');
     }
 
     private function handleFileUpload($file, $directory, $oldFile = null)

@@ -94,7 +94,7 @@
                                     <td> {{ $index + 1 }} </td>
                                     <td>{{$projet->structure_porteuse}}</td>
                                     <td>{{$projet->interlocuteur_local}}</td>
-                                    <td>{{$projet->telephone_local}}/td>
+                                    <td>{{$projet->telephone_local}}</td>
                                     <td>{{$projet->courriel_local}}</td>
                                     <td>{{$projet->partenaire_diaspora}}</td>
                                     <td>{{$projet->interlocuteur_diaspora}}</td>

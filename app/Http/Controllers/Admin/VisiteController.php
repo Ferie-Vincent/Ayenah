@@ -46,9 +46,9 @@ class VisiteController extends Controller
 
         // Création de la visite
         Visite::create($validated);
-
+        session()->flash('success', 'Projet mis à jour avec succès !');
         // Redirection avec message de succès
-        return redirect()->route('visit')->with('success', 'Visite ajoutée avec succès.');
+        return redirect()->route('visit');
     }
 
     /**
@@ -104,7 +104,7 @@ class VisiteController extends Controller
 
         // Mise à jour de la visite
         $visite->update($validated);
-
+        session()->flash('success', 'Projet mis à jour avec succès !');
         // Redirection avec message de succès
         return redirect()->route('visit')->with('success', 'Visite mise à jour avec succès.');
     }
@@ -129,9 +129,11 @@ class VisiteController extends Controller
             // Suppression de la visite
             $visite->delete();
     
-            return redirect()->route('visit')->with('success', 'Visite supprimée avec succès.');
+            session()->flash('error', 'Visite supprimée avec succès !');
+            return redirect()->route('visit');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Erreur lors de la suppression de la visite.');
+            session()->flash('error', 'Erreur lors de la suppression de la visite !');
+            return redirect()->back();
         }
     }
 }
