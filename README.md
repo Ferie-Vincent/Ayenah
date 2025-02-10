@@ -1,15 +1,67 @@
-# Ayenah
+# AYENAH Platform
 
-## Description
+Digital platform connecting the Ivorian diaspora with local development initiatives.
 
-Ayenah est un projet web utilisant Laravel. Ce projet vise à fournir une application web robuste et élégante avec une syntaxe expressive.
+## Overview
 
-## Fonctionnalités
+The AYENAH platform is part of a broader initiative funded by the French Development Agency (AFD) to mobilize the Ivorian diaspora's expertise and support local development projects in Côte d'Ivoire.
 
-- Moteur de routage simple et rapide
-- Conteneur d'injection de dépendances puissant
-- Plusieurs back-ends pour le stockage des sessions et des caches
-- ORM de base de données intuitif et expressif
-- Migrations de schéma agnostiques à la base de données
-- Traitement des tâches en arrière-plan robuste
-- Diffusion d'événements en temps réel
+## Features
+
+- Diaspora expertise mapping
+- Project submission and tracking
+- Digital communication hub for DGIE
+- Support for Ivorian Diaspora Council (CDI) France
+- Gender-sensitive project management tools
+
+## Target Regions
+
+- Sud-Comoé
+- Nawa
+- Tchologo
+- Agneby-Tiassa
+- ME
+- Gbeke
+- Kabadougou
+
+## Technical Stack
+
+- Backend: [Specify technology]
+- Frontend: [Specify technology]
+- Database: [Specify technology]
+- Authentication: [Specify technology]
+
+## Installation
+
+```bash
+# Clone repository
+git clone https://github.com/[organization]/ayenah-platform
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env
+
+# Run development server
+npm run dev
+```
+
+## Contributing
+
+This project is managed by the General Directorate of Ivorians Abroad (DGIE) in collaboration with Expertise France. For contribution guidelines, please contact the project maintainers.
+
+## Project Timeline
+
+- Duration: 24 months (2025-2026)
+- Budget: 450,000 €
+
+## License
+
+[Specify license]
+
+## Partners
+
+- MDIAIE (DGIE)
+- Expertise France
+- French Development Agency (AFD)
