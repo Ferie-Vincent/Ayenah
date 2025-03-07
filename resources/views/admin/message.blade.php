@@ -39,7 +39,7 @@
                             <tr>
                                 <td>{{$index + 1}}</td>
                                 <td>{{$message->nom}}</td>
-                                <td>{{$message->email}}/td>
+                                <td>{{$message->email}}</td>
                                 <td>{{$message->telephone}}</td>
                                 <td>{{$message->created_at}}</td>
                                 <td>
