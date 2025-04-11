@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Visite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class VisiteController extends Controller
 {
@@ -14,8 +15,8 @@ class VisiteController extends Controller
      */
     public function index()
     {
-        $visites = Visite::all();
-        return view('visit', compact('visites'));
+        $visites = Visite::orderBy('created_at', 'desc');
+        return view('admin.visit', compact('visites'));
     }
 
     /**
@@ -29,11 +30,11 @@ class VisiteController extends Controller
             'region' => 'required|string|max:255',
             'dateVisited' => 'required|string',
             'description' => 'required|string',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'image1' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'image2' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'image3' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'image4' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg',
+            'image1' => 'required|image|mimes:jpeg,png,jpg',
+            'image2' => 'required|image|mimes:jpeg,png,jpg',
+            'image3' => 'required|image|mimes:jpeg,png,jpg',
+            'image4' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
         // Traitement des images
@@ -44,9 +45,10 @@ class VisiteController extends Controller
             }
         }
 
+
         // Création de la visite
         Visite::create($validated);
-        session()->flash('success', 'Projet mis à jour avec succès !');
+        session()->flash('success', 'Visite ajoutée avec succès !');
         // Redirection avec message de succès
         return redirect()->route('visit');
     }
@@ -57,7 +59,7 @@ class VisiteController extends Controller
     public function show(string $id)
     {
         $visite = Visite::findOrFail($id);
-        return view('visit', compact('visite'));
+        return view('front.visit', compact('visite'));
     }
 
     /**
@@ -83,11 +85,11 @@ class VisiteController extends Controller
             'region' => 'required|string|max:255',
             'dateVisited' => 'required|string',
             'description' => 'required|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image2' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image3' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'image4' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg',
+            'image1' => 'nullable|image|mimes:jpeg,png,jpg',
+            'image2' => 'nullable|image|mimes:jpeg,png,jpg',
+            'image3' => 'nullable|image|mimes:jpeg,png,jpg',
+            'image4' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
 
         // Traitement des images
@@ -104,7 +106,7 @@ class VisiteController extends Controller
 
         // Mise à jour de la visite
         $visite->update($validated);
-        session()->flash('success', 'Projet mis à jour avec succès !');
+        session()->flash('success', 'Visite mise à jour avec succès !');
         // Redirection avec message de succès
         return redirect()->route('visit')->with('success', 'Visite mise à jour avec succès.');
     }
@@ -117,7 +119,7 @@ class VisiteController extends Controller
         try {
             // Récupération de la visite
             $visite = Visite::findOrFail($id);
-    
+
             // Suppression des fichiers associés
             $imageFields = ['cover_image', 'image1', 'image2', 'image3', 'image4'];
             foreach ($imageFields as $field) {
@@ -125,14 +127,14 @@ class VisiteController extends Controller
                     Storage::disk('public')->delete($visite->$field);
                 }
             }
-    
+
             // Suppression de la visite
             $visite->delete();
-    
-            session()->flash('error', 'Visite supprimée avec succès !');
+
+            session()->flash('error', 'Actualité supprimée avec succès !');
             return redirect()->route('visit');
         } catch (\Exception $e) {
-            session()->flash('error', 'Erreur lors de la suppression de la visite !');
+            session()->flash('error', 'Erreur lors de la suppression de l\'actualité !');
             return redirect()->back();
         }
     }

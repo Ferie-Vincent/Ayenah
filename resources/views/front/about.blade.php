@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="thumb-sm" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                                 <i class="fa fa-download" aria-hidden="true"></i>
                                 <a href="{{route('fiche-technique.download')}}" download>
                                     <span>
-                                        Formulaire de requête 
+                                        Formulaire de requête
                                     </span>
                                 </a>
                             </li>
@@ -194,8 +194,8 @@
                     <p style="text-align:justify">
                         Pour cela, la Direction Générale des Ivoiriens de l'Étranger mets en place un programme pilote, <span class="colorOrange", >Le Projet Ayenah</span>, pour mobiliser son expertise et accompagner les initiatives des associations de la diaspora dans le développement local.
                     </p>
-                    
-                   
+
+
                     <div class="help__content-cta cta">
                         <div class="contact-btn">
                             <div class="contact-icon">

@@ -136,8 +136,18 @@
             <iframe class="rounded shadow" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1152.717239161406!2d-3.998393907643332!3d5.358218478860687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb003e053339%3A0x76542d19f9855e1f!2sDirection%20G%C3%A9n%C3%A9rale%20des%20Ivoiriens%20de%20l&#39;Ext%C3%A8rieur%20(DGIE)!5e0!3m2!1sfr!2sci!4v1739058308094!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    
+
 </section>
 <!-- ==== / contact section end ==== -->
+
+@if(session('success'))
+<script>
+    Swal.fire({
+        title: "🎉 Succès",
+        text: "{{ session('success') }}",
+        icon: "success"
+    });
+</script>
+@endif
 
 @endsection

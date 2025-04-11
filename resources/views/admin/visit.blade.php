@@ -42,7 +42,7 @@
                                 <td>{{ $visite->region }}</td>
                                 <td>{{ $visite->dateVisited }}</td>
                                 <td class="d-flex align-items-center gap-2">
-                                    <button data-bs-toggle="modal" data-bs-target="#read-article" class="btn btn-primary btn-xs">
+                                    <button data-bs-toggle="modal" data-bs-target="#read-article-{{ $visite->id }}" class="btn btn-primary btn-xs">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </button>
                                     <button class="btn btn-warning btn-xs" data-bs-toggle="modal" data-bs-target="#update-visite-{{ $visite->id }}">
@@ -95,7 +95,7 @@
 
                     <div class="mb-3">
                         <label for="date" class="form-label">Date :</label>
-                        <input class="form-control" type="string" id="date" name="dateVisited" required>
+                        <input class="form-control" type="date" id="date" name="dateVisited" required>
                     </div>
 
                     <div class="mb-3">
@@ -113,21 +113,21 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="image1_left" class="form-label">Image 1 :</label>
-                                    <input class="form-control" type="file" id="image1_left" name="image1" required accept="image/*">
+                                    <input class="form-control" type="file" id="image1_left" name="image1" accept="image/*">
                                 </div>
                                 <div class="mb-3">
                                     <label for="image2_left" class="form-label">Image 2 :</label>
-                                    <input class="form-control" type="file" id="image2_left" name="image2" required accept="image/*">
+                                    <input class="form-control" type="file" id="image2_left" name="image2" accept="image/*">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="image1_right" class="form-label">Image 3 :</label>
-                                    <input class="form-control" type="file" id="image1_right" name="image3" required accept="image/*">
+                                    <input class="form-control" type="file" id="image1_right" name="image3" accept="image/*">
                                 </div>
                                 <div class="mb-3">
                                     <label for="image2_right" class="form-label">Image 4 :</label>
-                                    <input class="form-control" type="file" id="image2_right" name="image4" required accept="image/*">
+                                    <input class="form-control" type="file" id="image2_right" name="image4" accept="image/*">
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
 </div><!-- /.modal -->
 
 @foreach($visites as $visite)
-<!-- modal content -->
+
 <div id="update-visite-{{$visite->id}}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -228,7 +228,7 @@
 
 @foreach($visites as $visite)
 <!-- modal content -->
-<div class="modal fade" id="read-article" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade" id="read-article-{{ $visite->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">

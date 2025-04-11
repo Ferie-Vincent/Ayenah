@@ -64,6 +64,8 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- ==== js dependencies start ==== -->
     <!-- jquery -->
     <script src="{{ asset ('front/assets/js/jquery-3.7.1.min.js') }}"></script>
@@ -98,7 +100,7 @@
     <!-- main js -->
     <script src="{{ asset ('front/assets/js/custom.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <script>
     function inscription() {
         const RegisterRoute = "{{ route('register') }}";

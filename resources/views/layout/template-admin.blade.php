@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <title>Ayenah - Utilisateur | Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Project Ayenah, Projet Ayenah" name="description" />
+    <meta content="Project Ayenah, Projet Ayenah, CRPM, Coopération Régionale des Politiques de Migrations, DGIE, Direction Générale des Ivoiriens de l'Extérieur, GAOUSSOU KARAMOKO, BAMADI SANOKHO, DIABATÉ OMIGNAN, JEAN PIERROT, DIASPORA IVOIRIENNE, EKISSI VINCENT FÉRIE EKISSI, CÔTE D'IVOIRE, AYENAH, OPPORTUNITÉS ÉCONOMIQUES, EXPERTISE FRANCE, AFD, AGENCE DE DÉVELOPPEMENT FRANÇAISE" name="description" />
     <meta content="Level-si" name="author" />
 
     <!-- App favicon -->
@@ -71,7 +71,7 @@
                 <li class="menu-item">
                     <a class='menu-link waves-effect' href="{{route('visit')}}">
                         <span class="menu-icon"><i class="bx bx-car"></i></span>
-                        <span class="menu-text"> Visite des lieux</span>
+                        <span class="menu-text"> Actualités</span>
                     </a>
                 </li>
 
@@ -80,7 +80,7 @@
                         <span class="menu-icon"><i class="bx bx-message-rounded"></i></span>
                         <span class="menu-text"> Messages Reçus
                             @if($total_messages !== 0)
-                                <sup><kbd class="bg-danger text-white rounded-circle">{{$total_messages}}</kbd></sup> 
+                                <sup><kbd class="bg-danger text-white rounded-circle">{{$total_messages}}</kbd></sup>
                             @endif
                         </span>
                     </a>
@@ -137,6 +137,12 @@
                                     <span>Profil</span>
                                 </a>
 
+                                <!-- item-->
+                                <a href="{{route('home')}}" class="dropdown-item notify-item" target="_blank">
+                                    <i data-lucide="home" class="font-size-16 me-2"></i>
+                                    <span>Visiter le site</span>
+                                </a>
+
                                 <div class="dropdown-divider"></div>
 
                                 <!-- item-->
@@ -150,7 +156,7 @@
                                             <i data-lucide="log-out" class="font-size-16 me-2"></i> {{ __('Déconnexion') }}
                                         </x-dropdown-link>
                                     </form>
-                                    
+
                                 </a>
 
                             </div>

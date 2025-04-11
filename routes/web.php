@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProjetController;
 use App\Http\Controllers\Admin\VisiteController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\ContributionController;
 
 /**
  * Front
@@ -14,9 +15,11 @@ use App\Http\Controllers\MessageController;
 Route::get('/', [FrontController::class, 'index'])->name('home');
 Route::get('/about', [FrontController::class, 'about'])->name('about');
 Route::get('/events', [FrontController::class, 'events'])->name('events');
-Route::get('/event', [FrontController::class, 'event'])->name('event');
+Route::get('/faqs', [FrontController::class, 'faqs'])->name('faqs');
+Route::get('/event/{id}', [FrontController::class, 'event'])->name('event');
 Route::get('/projects', [FrontController::class, 'projects'])->name('projects');
 Route::get('/contribution', [FrontController::class, 'contribution'])->name('contribution');
+Route::post('/contribution', [ContributionController::class, 'store'])->name('contribution.store');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
 
@@ -53,8 +56,8 @@ Route::get('/download/fiche-instruction', function () {
 
 
 /**
- * @Route 
- * 
+ * @Route
+ *
  */
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

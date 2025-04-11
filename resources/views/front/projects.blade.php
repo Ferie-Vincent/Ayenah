@@ -1,6 +1,6 @@
 @extends('layout/template')
 
-@section('title', 'AYENAH | Contribution - Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')
+@section('title', 'AYENAH | Les Projets AYENAH - Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')
 
 @section('content')
 
@@ -25,120 +25,47 @@
 <section class="cause cause-three-alt">
     <div class="container">
         <div class="row gutter-30">
+            @foreach ($projects as $project)
             <div class="col-12 col-md-6 col-xl-4 col-xxl-4">
                 <div class="cause__slider-inner" data-aos="fade-up" data-aos-duration="1000">
                     <div class="cause__slider-single van-tilt">
                         <div class="thumb">
-                            <a >
-                                <img src="https://placehold.co/291x212" alt="Image">
+                            <a>
+                                <img src="{{asset('storage/' . $project->photo_logo)}}" alt="Image">
                             </a>
                             <div class="tag">
-                                <a>Agriculture</a>
+                                <a>{{ $project->thematique_projet }}</a>
                             </div>
                         </div>
                         <div class="content">
-                            <h6><a>Vente d'huile de Coco</a></h6>
-                            <p>Lorem ipsum dolor sit amet, consete
+                            <h6><a>{{ $project->intitule_projet }}</a></h6>
+                            <!-- <p>Lorem ipsum dolor sit amet, consete
                                 sadipscing elitr, sed diam nonum
-                            </p>
+                            </p> -->
                         </div>
                         <div class="cause__slider-cta">
-                                            <div class="cause__progress progress-bar-single">
-                                                <div class="cause-progress__intro">
-                                                    <p>
-                                                        <span>Montant demandé</span>
-                                                    </p>
-                                                </div>
-                                                <div class="cause-progress__goal">
-                                                    <span class="goal">30,000,000 Fr CFA</span></p>
-                                                </div>
-                                                <hr>
-                                                <div class="cause-progress__bar">
-                                                    <p>
-                                                        <span>Porteur : </span> M. KOUAMÉ
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-xl-4 col-xxl-4">
-                <div class="cause__slider-inner" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="cause__slider-single van-tilt">
-                        <div class="thumb">
-                            <a >
-                                <img src="https://placehold.co/291x212" alt="Image">
-                            </a>
-                            <div class="tag">
-                                <a>Agriculture</a>
+                            <div class="cause__progress progress-bar-single">
+                                <div class="cause-progress__intro">
+                                    <p>
+                                        <span>Montant demandé</span>
+                                    </p>
+                                </div>
+                                <div class="cause-progress__goal">
+                                    <span class="goal">{{ $project->cout_total }} Fr CFA</span></p>
+                                </div>
+                                <hr>
+                                <div class="cause-progress__bar">
+                                    <p>
+                                        <span>Porteur : </span> {{ $project->structure_porteuse }}
+                                    </p>
+                                </div>
                             </div>
+
                         </div>
-                        <div class="content">
-                            <h6><a>Vente d'huile de Coco</a></h6>
-                            <p>Lorem ipsum dolor sit amet, consete
-                                sadipscing elitr, sed diam nonum
-                            </p>
-                        </div>
-                        <div class="cause__slider-cta">
-                                            <div class="cause__progress progress-bar-single">
-                                                <div class="cause-progress__intro">
-                                                    <p>
-                                                        <span>Montant demandé</span>
-                                                    </p>
-                                                </div>
-                                                <div class="cause-progress__goal">
-                                                    <span class="goal">30,000,000 Fr CFA</span></p>
-                                                </div>
-                                                <hr>
-                                                <div class="cause-progress__bar">
-                                                    <p>
-                                                        <span>Porteur : </span> M. KOUAMÉ
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-xl-4 col-xxl-4">
-                <div class="cause__slider-inner" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="cause__slider-single van-tilt">
-                        <div class="thumb">
-                            <a >
-                                <img src="https://placehold.co/291x212" alt="Image">
-                            </a>
-                            <div class="tag">
-                                <a>Agriculture</a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h6><a>Vente d'huile de Coco</a></h6>
-                            <p>Lorem ipsum dolor sit amet, consete
-                                sadipscing elitr, sed diam nonum
-                            </p>
-                        </div>
-                        <div class="cause__slider-cta">
-                                            <div class="cause__progress progress-bar-single">
-                                                <div class="cause-progress__intro">
-                                                    <p>
-                                                        <span>Montant demandé</span>
-                                                    </p>
-                                                </div>
-                                                <div class="cause-progress__goal">
-                                                    <span class="goal">30,000,000 Fr CFA</span></p>
-                                                </div>
-                                                <hr>
-                                                <div class="cause-progress__bar">
-                                                    <p>
-                                                        <span>Porteur : </span> M. KOUAMÉ
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>

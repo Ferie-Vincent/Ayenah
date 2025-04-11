@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Projet;
+use App\Models\Visite;
+use Intervention\Image\Facades\Image;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        return view('front.index');
+        $visites = Visite::all();
+        return view('front.index', compact('visites'));
     }
 
     public function about()
@@ -17,19 +21,28 @@ class FrontController extends Controller
     }
 
     public function events(){
-        return view('front.events');
+        $visites = Visite::all();
+        return view('front.events', compact('visites'));
     }
 
-    public function event(){
-        return view('front.event');
+    public function event($id){
+        $visites = Visite::all()->random(1);
+        $visite = Visite::findOrFail($id);
+        return view('front.event', compact('visite', 'visites'));
     }
 
     public function projects(){
-        return view('front.projects');
+        $projects = Projet::all();
+        return view('front.projects', compact('projects'));
+    }
+
+    public function faqs(){
+        return view('front.faqs');
     }
 
     public function contribution(){
-        return view('front.contribution');
+        $projets = Projet::all();
+        return view('front.contribution', compact('projets'));
     }
 
     public function contact(){

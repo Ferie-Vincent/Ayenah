@@ -37,6 +37,8 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -48,6 +50,8 @@
     <link rel="stylesheet" href="{{ asset ('front/assets/css/sticky-header.css') }}">
     <link rel="stylesheet" href="{{ asset ('front/assets/css/box-layout.css') }}">
     <link rel="stylesheet" href="{{ asset ('front/assets/css/rtl.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -101,6 +105,10 @@
                                     title="linkedin">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
+                                <a href="{{route('login')}}" aria-label="Connect to account"
+                                    title="Connect to account">
+                                    <i class="fa-brands fa-user"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -145,10 +153,17 @@
                                             </a>
                                         </li>
                                         <li class="navbar__item nav-fade">
+                                            <a href="{{ route('faqs') }}">
+                                                <span class="menu-form">
+                                                    FAQs
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="navbar__item nav-fade">
                                             <a href="{{ route('contact') }}">
                                                 <span class="menu-form">
                                                     CONTACT
-                                                </span> 
+                                                </span>
                                             </a>
                                         </li>
                                     </ul>

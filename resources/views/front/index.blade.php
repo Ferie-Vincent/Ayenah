@@ -20,10 +20,10 @@
                                     <a href="{{route('contribution')}}" aria-label="Contribution" title="Contribuez"
                                         class="btn--tertiary">Contribuez <i
                                             class="fa-solid fa-arrow-right"></i></a>
-                                    <a onclick="inscription()" aria-label="Projet" title="Projet" class="btn--primary">
+                                    <!-- <a onclick="inscription()" aria-label="Projet" title="Projet" class="btn--primary">
                                         Présentez votre projet
                                         <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
+                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -102,14 +102,14 @@
                             <br> Chef de Projet <span style="text-transform: uppercase !important;">CRPM2</span>
                         </h2>
                         <p style="text-align : justify;">
-                        Le projet <span class="colorOrange" style="font-weight: bold">CRPM2</span> (Coopération Régionale des Politiques Migratoires - Phase 2), 
+                        Le projet <span class="colorOrange" style="font-weight: bold">CRPM2</span> (Coopération Régionale des Politiques Migratoires - Phase 2),
                         financé par l'AFD et mis en œuvre par Expertise France, soutient la DGIE dans le déploiement du projet AYENAH. <br>
-                        Son ambition ? Mettre en place un outil innovant et opérationnel pour mobiliser la diaspora ivoirienne au service du développement économique, 
+                        Son ambition ? Mettre en place un outil innovant et opérationnel pour mobiliser la diaspora ivoirienne au service du développement économique,
                         culturel et social de la Côte d'Ivoire.
                         </p>
                         <p>
-                        Avec CRPM2, la DGIE bénéficie d'un appui stratégique et financier sur mesure, 
-                        tout en s'inspirant des bonnes pratiques des pays pairs du projet tels que - Cameroun, Comores, Guinée, Madagascar et Sénégal - 
+                        Avec CRPM2, la DGIE bénéficie d'un appui stratégique et financier sur mesure,
+                        tout en s'inspirant des bonnes pratiques des pays pairs du projet tels que - Cameroun, Comores, Guinée, Madagascar et Sénégal -
                         tous engagés dans une dynamique commune de mobilisation de leurs diasporas.
                         </p>
                     </div>
@@ -149,7 +149,7 @@
                 <div class="difference-three__thumb d-none d-lg-block">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="https://placehold.co/510x688" alt="Image" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Image" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                         </div>
                         <div class="line">
                             <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="Image">
@@ -298,7 +298,7 @@
                                         </div>
                                         <div class="content">
                                             <h6><a>Production bio d'Huile de Coco</a></h6>
-                                            <p>La production et la Commercialisation de produits biologiques à base d'huile de coco 
+                                            <p>La production et la Commercialisation de produits biologiques à base d'huile de coco
                                             </p>
                                         </div>
                                         <div class="cause__slider-cta">
@@ -314,15 +314,15 @@
                                                 <hr>
                                                 <div class="cause-progress__bar">
                                                     <p>
-                                                        Nom de la structure porteur de projet : <span class="goal"> COVEFAH </span> 
+                                                        Nom de la structure porteur de projet : <span class="goal"> COVEFAH </span>
                                                     </p>
                                                     <p>
-                                                        Partenaire de la DIASPORA : <span class="goal"> NOVAIS COSMETICS </span> 
+                                                        Partenaire de la DIASPORA : <span class="goal"> NOVAIS COSMETICS </span>
                                                     </p>
-                                                    
+
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -343,7 +343,7 @@
                                             <h6><a></a></h6>
                                             <p>Optimisation de la Filière Manioc : Production, Transformation
 et Commercialisation Modernes dans la Région du Grand Est et
-à l'International" 
+à l'International"
                                             </p>
                                         </div>
                                         <div class="cause__slider-cta">
@@ -359,15 +359,15 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                                 <hr>
                                                 <div class="cause-progress__bar">
                                                     <p>
-                                                        Nom de la structure porteur de projet : <span class="goal"> SK GROUP AFRICA </span> 
+                                                        Nom de la structure porteur de projet : <span class="goal"> SK GROUP AFRICA </span>
                                                     </p>
                                                     <p>
-                                                        Partenaire de la DIASPORA: <span class="goal"> DIASPERE PER LA PACE </span> 
+                                                        Partenaire de la DIASPORA: <span class="goal"> DIASPERE PER LA PACE </span>
                                                     </p>
-                                                    
+
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -387,7 +387,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
             </div>
         </div>
     </div>
-   
+
     <div class="spade">
         <img src="{{asset('front/assets/images/help/spade.png')}}" alt="Image">
     </div>
@@ -471,7 +471,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
             <div class="col-12">
                 <div class="section__cta cta text-center">
                     <a href="{{route('contact')}}" aria-label="contact" title="contact"
-                        class="btn--primary">Écrivez nous si vous voulez en faire partir 
+                        class="btn--primary">Écrivez nous si vous voulez en faire partir
                         <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -590,7 +590,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 </div>
             </div>
 
-            
+
         </div>
     </div>
     <div class="help-three-bg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
@@ -780,21 +780,45 @@ et Commercialisation Modernes dans la Région du Grand Est et
             </div>
         </div>
         <div class="row gutter-24">
+        @foreach ($visites as $visite)
             <div class="col-12 col-lg-6">
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
-                        <a href="{{route('event')}}">
+                        <a href="{{route('event', $visite->id)}}">
+                            <img src="{{asset('storage/' .$visite->cover_image)}}" alt="Image" >
+                        </a>
+                    </div>
+                    <div class="content">
+                        <div class="award__content">
+                            <h5><a href="{{route('event', $visite->id)}}">{{ $visite->title }}</a></h5>
+                            <!-- <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>{{ $visite->created_at->format('d/m/Y') }}</span> -->
+                            <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>{{ $visite->dateVisited }}</span>
+                                | <i class="fa-solid fa-location-dot"></i> {{ $visite->region }}</p>
+                        </div>
+                        <div class="award__thumb">
+                            <a href="{{route('event', $visite->id)}}">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <!-- <div class="col-12 col-lg-6">
+                <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="thumb">
+                        <a href="{{route('event', $visites->first()->id)}}">
                             <img src="https://placehold.co/870x400" alt="Image">
                         </a>
                     </div>
                     <div class="content">
                         <div class="award__content">
-                            <h5><a href="{{route('event')}}">Lorem ipsum dolor sit amet.</a></h5>
+                            <h5><a href="{{route('event', $visites->first()->id)}}">Lorem ipsum dolor sit amet.</a></h5>
                             <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
                                 | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
                         </div>
                         <div class="award__thumb">
-                            <a href="{{route('event')}}">
+                            <a href="{{route('event', $visites->first()->id)}}">
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -804,18 +828,18 @@ et Commercialisation Modernes dans la Région du Grand Est et
             <div class="col-12 col-lg-6">
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
-                        <a href="{{route('event')}}">
+                        <a href="{{route('event', $visites->first()->id)}}">
                             <img src="https://placehold.co/870x400" alt="Image">
                         </a>
                     </div>
                     <div class="content">
                         <div class="award__content">
-                            <h5><a href="{{route('event')}}">Lorem ipsum dolor sit amet.</a></h5>
+                            <h5><a href="{{route('event', $visites->first()->id)}}">Lorem ipsum dolor sit amet.</a></h5>
                             <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
                                 | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
                         </div>
                         <div class="award__thumb">
-                            <a href="{{route('event')}}">
+                            <a href="{{route('event', $visites->first()->id)}}">
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
@@ -825,45 +849,24 @@ et Commercialisation Modernes dans la Région du Grand Est et
             <div class="col-12 col-lg-6">
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
-                        <a href="{{route('event')}}">
+                        <a href="{{route('event', $visites->first()->id)}}">
                             <img src="https://placehold.co/870x400" alt="Image">
                         </a>
                     </div>
                     <div class="content">
                         <div class="award__content">
-                            <h5><a href="{{route('event')}}">Lorem ipsum dolor sit amet.</a></h5>
+                            <h5><a href="{{route('event', $visites->first()->id)}}">Lorem ipsum dolor sit amet.</a></h5>
                             <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
                                 | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
                         </div>
                         <div class="award__thumb">
-                            <a href="{{route('event')}}">
+                            <a href="{{route('event', $visites->first()->id)}}">
                                 <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="thumb">
-                        <a href="{{route('event')}}">
-                            <img src="https://placehold.co/870x400" alt="Image">
-                        </a>
-                    </div>
-                    <div class="content">
-                        <div class="award__content">
-                            <h5><a href="{{route('event')}}">Lorem ipsum dolor sit amet.</a></h5>
-                            <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
-                                | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
-                        </div>
-                        <div class="award__thumb">
-                            <a href="{{route('event')}}">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-12">

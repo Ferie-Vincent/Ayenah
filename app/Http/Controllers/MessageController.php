@@ -29,11 +29,8 @@ class MessageController extends Controller
             'message' => 'required|string|max:1000',
         ]);
 
-        // Pour débugger pendant le développement
-        // dd($validated);
-
         Message::create($validated);
-        return redirect()->route('contact')->with("success", "Message envoyé avec succès");
+        return redirect()->route('contact')->with("success", "Message envoyé avec succès !");
     }
 
     /**
