@@ -24,11 +24,11 @@ jobs:
       - name: Install Composer Dependencies
         run: composer install --no-dev --prefer-dist --no-interaction
 
+      - name: Dump Autoload
+        run: composer dump-autoload --optimize
+
       - name: Install Node.js Dependencies
         run: npm install
-
-      - name: Install Laravel Mix
-        run: npm install laravel-mix --save-dev
 
       - name: Build Assets
         run: npm run build
@@ -39,10 +39,11 @@ jobs:
       - name: Create Storage Link
         run: php artisan storage:link
 
-      - name: Generate Laravel Key
-        run: php artisan key:generate
-        env:
-          APP_ENV: production
+      - name: Cache Laravel Configuration
+        run: php artisan config:cache
+
+      - name: Cache Laravel Routes
+        run: php artisan route:cache
 
       - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
@@ -53,8 +54,8 @@ jobs:
           local-dir: ./
           server-dir: ./httpdocs/
           exclude: |
-           .git*
+            .git*
             node_modules/
-            vendor/
             storage/*.key
             .env
+            
