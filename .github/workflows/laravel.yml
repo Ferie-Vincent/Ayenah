@@ -39,10 +39,31 @@ jobs:
       - name: Create Storage Link
         run: php artisan storage:link
 
+      - name: Copy .env file
+        run: |
+          echo "APP_NAME=Laravel" > .env
+          echo "APP_ENV=production" >> .env
+          echo "APP_KEY=" >> .env
+          echo "APP_DEBUG=false" >> .env
+          echo "APP_URL=https://ayenah.ci" >> .env
+          echo "IMAGE_PATH=storage/app/public/uploads/" >> .env
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=localhost" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=db_ayenah" >> .env
+          echo "DB_USERNAME=ayenah" >> .env
+          echo "DB_PASSWORD='Azertyuiop1234.'" >> .env
+
       - name: Generate Laravel Key
         run: php artisan key:generate
         env:
           APP_ENV: production
+          DB_CONNECTION: mysql
+          DB_HOST: localhost
+          DB_PORT: 3306
+          DB_DATABASE: db_ayenah
+          DB_USERNAME: ayenah
+          DB_PASSWORD: 'Azertyuiop1234.'
 
       - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
@@ -51,7 +72,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /httpdocs/
+          server-dir: ./httpdocs/
           exclude: |
             **/.git*
             **/.git*/**
