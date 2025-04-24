@@ -10,41 +10,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Récupère le code depuis le repo
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
+      # 2. Installe PHP + extensions requises
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
           extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, pdo_mysql, dom, filter, gd, json
 
+      # 3. Installe les dépendances Laravel (en local pour les déployer)
       - name: Install Composer Dependencies
-        run: composer install --no-dev --prefer-dist --no-interaction
+        run: composer install --no-dev --optimize-autoloader --no-interaction
 
-      - name: Dump Autoload
-        run: composer dump-autoload --optimize
-
+      # 4. Installe les dépendances JS
       - name: Install Node.js Dependencies
         run: npm install
 
+      # 5. Compile les assets avec Laravel Mix
       - name: Build Assets
         run: npm run build
 
+      # 6. Fixe les permissions nécessaires
       - name: Set Directory Permissions
-        run: chmod -R 777 storage bootstrap/cache
+        run: chmod -R 775 storage bootstrap/cache
 
+      # 7. Crée le lien symbolique vers /storage
       - name: Create Storage Link
         run: php artisan storage:link
 
-      - name: Cache Laravel Configuration
-        run: php artisan config:cache
+      # 8. Génère la clé d'application Laravel
+      - name: Generate Laravel Key
+        run: php artisan key:generate
+        env:
+          APP_ENV: production
 
-      - name: Cache Laravel Routes
-        run: php artisan route:cache
-
+      # 9. Déploie tout via FTP
       - name: Deploy to FTP Server
         uses: SamKirkland/FTP-Deploy-Action@4.3.1
         with:
@@ -58,4 +63,5 @@ jobs:
             node_modules/
             storage/*.key
             .env
-            
+          timeout: 300000 # 5 minutes
+          retries: 3
