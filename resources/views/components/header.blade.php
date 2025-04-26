@@ -10,6 +10,8 @@
     })(window,document,'script','dataLayer','GTM-NV2KZ3T6');</script>
     <!-- End Google Tag Manager -->
 
+    <script type="text/javascript" src="https://app.secureprivacy.ai/script/680d6825f5321fce8fa53ee9.js"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
