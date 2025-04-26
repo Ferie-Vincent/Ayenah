@@ -2,6 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NV2KZ3T6');</script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,6 +46,19 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.css">
 
+    <link rel="canonical" href="https://ayenah.ci">
+    <meta name="language" content="French">
+    <meta name="geo.region" content="CI">
+
+    <!-- Open Graph / Partage social -->
+    <meta property="og:title" content="AYENAH.ci | La diaspora ivoirienne actrice du développement">
+    <meta property="og:description" content="Investissez dans des projets locaux ou partagez votre expertise avec la Côte d'Ivoire.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ayenah.ci">
+    <meta property="og:image" content="https://ayenah.ci/front/assets/images/pics/bg.jpg">
+    <meta property="og:locale" content="fr_CI">
+    <meta property="og:site_name" content="AYENAH">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -55,6 +75,11 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2KZ3T6"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <!--[if lt IE 9]>
         <p class="browserupgrade">
             You are using an <strong>outdated</strong> browser. Please
