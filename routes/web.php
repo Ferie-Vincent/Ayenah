@@ -8,6 +8,16 @@ use App\Http\Controllers\Admin\ProjetController;
 use App\Http\Controllers\Admin\VisiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ContributionController;
+use Spatie\Sitemap\SitemapGenerator;
+
+
+
+Route::get('/sitemap.xml', function() {
+    SitemapGenerator::create('https://ayenah.ci')
+        ->writeToFile(public_path('sitemap.xml'));
+
+    return response()->file(public_path('sitemap.xml'));
+});
 
 /**
  * Front

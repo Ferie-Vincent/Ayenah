@@ -6,6 +6,9 @@ use Illuminate\Foundation\Configuration\Middleware;
 use Sentry\Laravel\Integration;
 
 return Application::configure(basePath: dirname(__DIR__))
+    ->withCommands([
+        \App\Console\Commands\GenerateSitemap::class,
+    ])
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
