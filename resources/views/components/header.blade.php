@@ -10,6 +10,16 @@
     })(window,document,'script','dataLayer','GTM-NV2KZ3T6');</script>
     <!-- End Google Tag Manager -->
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9ML8S804V"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G9ML8S804V');
+    </script>
+
     <script type="text/javascript" src="https://app.secureprivacy.ai/script/680d6825f5321fce8fa53ee9.js"></script>
 
     <meta charset="UTF-8">
