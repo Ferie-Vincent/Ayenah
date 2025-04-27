@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="banner-bg">
-        <img src=" {{asset('front/assets/images/pics/bg.jpg')}} " alt="Image" class="parallax-image">
+        <img src=" {{asset('front/assets/images/pics/bg.jpg')}} " alt="Ayenah Background Picture" class="parallax-image">
     </div>
     <div class="alter-shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
     <div class="circle-shape"></div>
@@ -48,7 +48,7 @@
                 <div class="difference-three__thumb d-none d-lg-block">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/gaoussou.jpg')}}" alt="Image" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                            <img src="{{ asset ('front/assets/images/gaoussou.jpg')}}" alt="Dr. Gaoussou Karamoko - Directeur Général des Ivoiriens de l'Extérieur" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                         </div>
                         <div class="line">
                             <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="Image">
@@ -127,7 +127,7 @@
                 <div class="difference-three__thumb d-none d-lg-block">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/bamadi.jpg')}}" alt="Image" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                            <img src="{{ asset ('front/assets/images/bamadi.jpg')}}" alt="M. Bamadi Sanokho - Chef de Projet CRPM2" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                 <div class="difference-three__thumb d-none d-lg-block">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Image" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Mme Diabaté Omignan. - Directrice Opérationnel du Projet AYENAH" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                         </div>
                         <div class="line">
                             <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="Image">
@@ -612,12 +612,12 @@ et Commercialisation Modernes dans la Région du Grand Est et
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Agence Française de Développement (AFD)">
                             </div>
                         </div>
                         <div class="swiper-slide">
