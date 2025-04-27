@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Ferie-Vincent_Ayenah&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Ferie-Vincent_Ayenah)  [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=Ferie-Vincent_Ayenah&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=Ferie-Vincent_Ayenah)   [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Ferie-Vincent_Ayenah&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=Ferie-Vincent_Ayenah)
+
 # AYENAH Platform
 
 Digital platform connecting the Ivorian diaspora with local development initiatives.
