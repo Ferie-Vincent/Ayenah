@@ -1,2 +1,25 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+Disallow: /storage/
+Disallow: /api/
+Disallow: /nova/
+Disallow: /horizon/
+Disallow: /telescope/
+Disallow: /.env
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.lock
+Disallow: /*.log
+Allow: /public/
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /sitemap.xml
+
+Crawl-delay: 10
+
+Sitemap: https://ayenah.ci/sitemap.xml

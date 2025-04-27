@@ -19,6 +19,17 @@ Route::get('/sitemap.xml', function() {
     return response()->file(public_path('sitemap.xml'));
 });
 
+Route::get('robots.txt', function () {
+    $content = "User-agent: *\n";
+    $content .= "Disallow: /admin/\n";
+    $content .= "Disallow: /login\n";
+    $content .= "Disallow: /register\n";
+    $content .= "Sitemap: " . url('sitemap.xml') . "\n";
+
+    return response($content, 200)
+        ->header('Content-Type', 'text/plain');
+});
+
 /**
  * Front
  */
