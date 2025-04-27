@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Contribution extends Model
 {
-    use HasFactory;
-
+    //
     protected $fillable = [
         'lastname',
         'firstname',
@@ -18,6 +17,11 @@ class Contribution extends Model
         'location',
         'amount',
         'projet_id',
-        'message'
+        'message',
     ];
+
+    public function projet()
+    {
+        return $this->belongsTo(Projet::class);
+    }
 }

@@ -622,32 +622,32 @@ et Commercialisation Modernes dans la Région du Grand Est et
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Coopération Régionale des Politiques Migratoires - Ayenah">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Agence Française de Développement (AFD)">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Coopération Régionale des Politiques Migratoires - Ayenah">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah">
                             </div>
                         </div>
                     </div>
@@ -755,7 +755,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="faq__thumb d-none d-lg-block">
                     <div class="faq__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                            <img src="{{asset('front/assets/images/faq.png')}}" alt="Image">
+                            <img src="{{asset('front/assets/images/faq.png')}}" alt="FAQs - Ayenah">
                         </div>
                     </div>
                 </div>
@@ -785,7 +785,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
                         <a href="{{route('event', $visite->id)}}">
-                            <img src="{{asset('storage/' .$visite->cover_image)}}" alt="Image" >
+                            <img src="{{asset('storage/' .$visite->cover_image)}}" alt="{{ $visite->title }}" >
                         </a>
                     </div>
                     <div class="content">
