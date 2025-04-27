@@ -76,13 +76,34 @@
                 </li>
 
                 <li class="menu-item">
+                    <a class='menu-link waves-effect' href="{{route('contributors')}}">
+                        <span class="menu-icon"><i class="bx bx-user"></i></span>
+                        <span class="menu-text"> Contibuteurs</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
                     <a class='menu-link waves-effect' href="{{route('message')}}">
-                        <span class="menu-icon"><i class="bx bx-message-rounded"></i></span>
+                        <span class="menu-icon"><i class="bx bx-message"></i></span>
                         <span class="menu-text"> Messages Reçus
                             @if($total_messages !== 0)
                                 <sup><kbd class="bg-danger text-white rounded-circle">{{$total_messages}}</kbd></sup>
                             @endif
                         </span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class='menu-link waves-effect' target="_blank" href="https://tawk.io">
+                        <span class="menu-icon"><i class="bx bx-message-rounded"></i></span>
+                        <span class="menu-text"> Chatbox</span>
+                    </a>
+                </li>
+
+                <li class="menu-item">
+                    <a class='menu-link waves-effect' target="_blank" href="https://analytics.google.com/analytics/web/">
+                        <span class="menu-icon"><i class="bx bx-chart"></i></span>
+                        <span class="menu-text"> Statistiques</span>
                     </a>
                 </li>
 
