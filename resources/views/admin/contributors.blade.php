@@ -34,23 +34,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($contributors as $contributor)
                             <tr>
-                                <td>1</td>
-                                <td>Yao</td>
-                                <td>Marie</td>
-                                <td>yaomarie@gmail.com</td>
-                                <td>01-02-30-04</td>
-                                <td>Enseignant</td>
-                                <td>Abidjan</td>
-                                <td>4.000 €</td>
-                                <td>Vente d'huile de coco</td>
                                 <td>
-                                    <ul>
-                                        <li>Réalisation d'une campagne de promotion pour la vente d'huile de coco</li>
-                                        <li>Création d'une page Facebook pour la promotion de la vente d'huile de coco</li>
-                                        <li>Création d'une page Instagram pour la promotion de la vente d'huile de coco</li>
-                                    </ul>
+                                    {{ $loop->iteration }}
                                 </td>
+                                <td>{{ $contributor->lastname }}</td>
+                                <td>{{ $contributor->firstname }}</td>
+                                <td>{{ $contributor->email }}</td>
+                                <td>{{ $contributor->phone }}</td>
+                                <td>{{ $contributor->profession }}</td>
+                                <td>{{ $contributor->location }}</td>
+                                <td>{{ $contributor->amount }}</td>
+                                <td>
+                                @isset($projets)
+                                    @foreach ($projets as $projet)
+                                        @if ($projet->id == $contributor->projet_id)
+                                            {{ $projet->intitule_projet }}
+                                        @endif
+                                    @endforeach
+                                @endisset
+                                </td>
+                                <td>{{ $contributor->message }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
                     </table>
 
                 </div> <!-- end card body-->

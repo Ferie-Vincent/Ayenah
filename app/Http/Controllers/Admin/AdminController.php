@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Projet;
 use App\Models\Visite;
 use App\Models\Message;
+use App\Models\Contribution;
 
 class AdminController extends Controller
 {
@@ -25,7 +26,10 @@ class AdminController extends Controller
     }
 
     public function contributors(){
-        return view('admin.contributors');
+        $projets = Projet::all();
+        $contributors = Contribution::all();
+        $total_messages = Message::where('status', 0)->count();
+        return view('admin.contributors', compact('projets', 'contributors', 'total_messages'));
     }
 
     public function message(){
