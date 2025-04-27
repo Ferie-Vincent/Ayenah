@@ -3,38 +3,46 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Spatie\Sitemap\SitemapGenerator; // N'oubliez pas d'importer la classe
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 
 class GenerateSitemap extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'sitemap:generate'; // Changé pour une convention plus standard
+    protected $signature = 'sitemap:generate';
+    protected $description = 'Generate the sitemap.xml file';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Generate sitemap.xml file for the website';
-
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
         $this->info('Starting sitemap generation...');
+        Log::info('Sitemap generation started'); // Debug
+
+        $sitemap = Sitemap::create();
 
         try {
-            SitemapGenerator::create(config('app.url')) // Utilisez la config au lieu d'une URL en dur
-                ->writeToFile(public_path('sitemap.xml'));
+            $routes = Route::getRoutes()->getRoutes();
+            $this->info('Found ' . count($routes) . ' routes'); // Debug
 
-            $this->info('Sitemap generated successfully at '.public_path('sitemap.xml'));
+            foreach ($routes as $route) {
+                if (
+                    in_array('GET', $route->methods()) &&
+                    !str_starts_with($route->uri(), 'api/') &&
+                    !str_starts_with($route->uri(), 'admin/')
+                ) {
+                    $url = url($route->uri());
+                    $sitemap->add(Url::create($url));
+                    $this->line('Added: ' . $url); // Debug
+                }
+            }
+
+            $sitemap->writeToFile(public_path('sitemap.xml'));
+            $this->info('Sitemap generated successfully!');
+            Log::info('Sitemap generated'); // Debug
+
         } catch (\Exception $e) {
-            $this->error('Sitemap generation failed: '.$e->getMessage());
+            $this->error('Error: ' . $e->getMessage());
+            Log::error('Sitemap error: ' . $e->getMessage()); // Debug
         }
     }
 }
