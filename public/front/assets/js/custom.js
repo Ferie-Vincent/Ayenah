@@ -1,100 +1,3 @@
-/* ==============
- ========= js documentation ==========================
-
- * template name: Charifund
- * version: 1.0
- * description: Nonprofit NGO Fundraising HTML5 Template
- * author: wowtheme7
- * author-url: https://themeforest.net/user/wowtheme7
-
-    ==================================================
-
-     01. preloader
-     -------------------------------------------------
-     02. background image
-     -------------------------------------------------
-     03. custom cursor
-     -------------------------------------------------
-     04. scroll to top with progress
-     -------------------------------------------------
-     05. add active class to the current link
-     -------------------------------------------------
-     06. open search box
-     -------------------------------------------------
-     07. mobile menu
-     -------------------------------------------------
-     08. fixed header on scroll
-     -------------------------------------------------
-     09. nice select
-     -------------------------------------------------
-     10. open sidebar info
-     -------------------------------------------------
-     11. off canvas cart
-     -------------------------------------------------
-     12. banner one slider
-     -------------------------------------------------
-     13. banner two slider
-     -------------------------------------------------
-     14. banner three slider
-     -------------------------------------------------
-     15. partner slider
-     -------------------------------------------------
-     16. difference slider
-     -------------------------------------------------
-     17. video popup
-     -------------------------------------------------
-     18. cause slider
-     -------------------------------------------------
-     19. donate amount
-     -------------------------------------------------
-     20. testimonial slider
-     -------------------------------------------------
-     21. cause two slider content
-     -------------------------------------------------
-     22. difference tab
-     -------------------------------------------------
-     23. odometer counter
-     -------------------------------------------------
-     24. testimonial two slider
-     -------------------------------------------------
-     25. testimonial three slider
-     -------------------------------------------------
-     26. coming soon
-     -------------------------------------------------
-     27. countdown
-     -------------------------------------------------
-     28. product details slider
-     -------------------------------------------------
-     29. product details tab
-     -------------------------------------------------
-     30. social link active on hover
-     -------------------------------------------------
-     31. footer copyright year
-     -------------------------------------------------
-     32. aos initialization
-     -------------------------------------------------
-     33. vanilla tilt animation
-     -------------------------------------------------
-     34. register gsap
-     -------------------------------------------------
-     35. gsap null config
-     -------------------------------------------------
-     36. target section with gsap
-     -------------------------------------------------
-     37. parallax image with gsap
-     -------------------------------------------------
-     38. title animation
-     -------------------------------------------------
-     39. banner three image animation
-     -------------------------------------------------
-     40. progress bar
-     -------------------------------------------------
-     41. circular progress bar
-     -------------------------------------------------
-     42. banner animation
-
-    ==================================================
-============== */
 
 (function ($) {
   "use strict";
@@ -873,70 +776,70 @@
         marker.classList.add('hour-marker');
         const rotation = i * 30;
         marker.style.transform = `rotate(${rotation}deg) translateY(-216.25px)`;
-    
+
         const hourText = document.createElement('span');
         hourText.textContent = i === 0 ? '12' : i;
         hourText.style.transform = `rotate(-${rotation}deg)`;
         marker.appendChild(hourText);
-    
+
         hourMarkersContainer.appendChild(marker);
       }
-    
+
       const hourHand = document.querySelector(".hour-hand");
       const minuteHand = document.querySelector(".minute-hand");
       const secondHand = document.querySelector(".second-hand");
-    
+
       function setClock() {
         const now = new Date();
         const seconds = now.getSeconds() + now.getMilliseconds() / 1000;
         const minutes = now.getMinutes() + seconds / 60;
         const hours = now.getHours() % 12 + minutes / 60;
-    
+
         const secondsDeg = (seconds / 60) * 360;
         const minutesDeg = (minutes / 60) * 360;
         const hoursDeg = (hours / 12) * 360;
-    
+
         hourHand.style.transform = `rotate(${hoursDeg}deg)`;
         minuteHand.style.transform = `rotate(${minutesDeg}deg)`;
         secondHand.style.transform = `rotate(${secondsDeg}deg)`;
       }
-    
+
       setInterval(setClock, 50);
       setClock();
-    
+
       const countdownElement = document.querySelector('.time-countdown');
       const dayElement = countdownElement.querySelector('.day');
       const hourElement = countdownElement.querySelector('.hour');
       const minuteElement = countdownElement.querySelector('.minute');
       const secondElement = countdownElement.querySelector('.second');
-    
+
       const endDate = new Date();
       endDate.setDate(endDate.getDate() + 100);
-    
+
       function updateCountdown() {
         const now = new Date();
         const timeRemaining = endDate - now;
-    
+
         if (timeRemaining <= 0) {
           endDate.setDate(endDate.getDate() + 100);
         }
-    
+
         const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-    
+
         dayElement.textContent = days;
         hourElement.textContent = hours < 10 ? `0${hours}` : hours;
         minuteElement.textContent = minutes < 10 ? `0${minutes}` : minutes;
         secondElement.textContent = seconds < 10 ? `0${seconds}` : seconds;
       }
-    
+
       setInterval(updateCountdown, 1000);
       updateCountdown();
-    
+
     }
-    
+
 
     /**
      * ======================================
@@ -1045,7 +948,7 @@
 
 
 
-    
+
 
 
 
