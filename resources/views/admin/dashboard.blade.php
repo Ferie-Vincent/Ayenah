@@ -32,6 +32,7 @@
             </div>
 
             <div class="col-xl-4 col-md-4">
+                <a href="{{route('visit')}}">
                 <div class="card">
                     <div class="card-body">
                         <i class="bx bx-layer float-end m-0 h2 text-muted"></i>
@@ -41,16 +42,21 @@
                         </h3>
                     </div>
                 </div>
+                </a>
             </div>
 
             <div class="col-xl-4 col-md-4">
+                <a href="{{route('contributors')}}">
                 <div class="card">
                     <div class="card-body">
                         <i class="bx bx-user float-end m-0 h2 text-muted"></i>
                         <h3 class="text-muted text-uppercase mt-0">Contributeurs</h3>
-                        <h3 class="mb-3 text-danger"><span data-plugin="counterup">0</span></h3>
+                        <h3 class="mb-3 text-danger"><span data-plugin="counterup">
+                            {{$total_contributors}}
+                        </span></h3>
                     </div>
                 </div>
+                </a>
             </div>
 
         </div>

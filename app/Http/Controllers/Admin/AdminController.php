@@ -15,8 +15,9 @@ class AdminController extends Controller
     {
         $projets = Projet::orderBy('created_at', 'desc')->get();
         $total_projets = Projet::count();
+        $total_contributors = Contribution::count();
         $total_messages = Message::where('status', 0)->count();
-        return view('admin.dashboard', compact('projets', 'total_projets', 'total_messages'));
+        return view('admin.dashboard', compact('projets', 'total_projets', 'total_contributors', 'total_messages'));
     }
 
     public function visit(){
