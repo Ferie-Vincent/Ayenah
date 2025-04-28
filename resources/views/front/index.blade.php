@@ -17,8 +17,8 @@
                                     <span>Diaspora</span> Pour le développement de la <span>Côte d'Ivoire</span>
                                 </h1>
                                 <div class="banner__content-cta cta">
-                                    <a href="{{route('contribution')}}" aria-label="Contribution" title="Contribuez"
-                                        class="btn--tertiary">Contribuez <i
+                                    <a href="{{route('enregistrement')}}" aria-label="Enregistrement" title="Enregistrez-vous"
+                                        class="btn--tertiary">J'ai un Projet 🎉<i
                                             class="fa-solid fa-arrow-right"></i></a>
                                     <!-- <a onclick="inscription()" aria-label="Projet" title="Projet" class="btn--primary">
                                         Présentez votre projet

@@ -1,6 +1,6 @@
 @extends('layout/template')
 
-@section('title', 'AYENAH | Contribution - Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')
+@section('title', 'AYENAH | Enregistrement - Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')
 
 @section('content')
 
@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row">
             <div class="common-banner__content text-center">
-                <h2 class="title-animation">Ma contribution</h2>
+                <h2 class="title-animation">Enregistrement</h2>
             </div>
         </div>
     </div>
@@ -26,16 +26,18 @@
 <div class="cm-details donate-us community checkout faq">
     <div class="container">
         <div class="row gutter-60">
-            <div class="col-12 col-xl-8">
+            <div class="col-12 col-xl-12">
                 <div class="cm-details__content">
                     <div class="cm-details__poster" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-delay="100">
-                        <img src="https://placehold.co/973x475" alt="Image">
+                        <img src="{{asset('front/assets/images/idea.jpg')}}" alt="Image">
                     </div>
                     <div class="donate-inner" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                         <div class="cm-group">
-                            <h3 class="title-animation">Lorem, ipsum dolor.</h3>
-                            <p>Lorem Ipsum is simply dummy a of the printing and type setting industry Lorem Ipsum has been the industry's standard dummy
+                            <h3 class="title-animation">Un Projet Innovant ? N'hésitez pas à vous inscrire !</h3>
+                            <p class="text-justify">
+                                Présentez vous, et enregistrez-vous sur le site. Nous rentrerons en contact avec vous afin de mieux pouvoir vous assistez ! <br>
+                                Nous vous assurons que vos données seront traitées avec la plus grande confidentialité.
                             </p>
                         </div>
                         <div class="cta">
@@ -44,7 +46,7 @@
                                     <div class="intro">
                                         <h5>Détails de vos Informations</h5>
                                     </div>
-                                    <form action="{{ route('contribution.store') }}" method="POST">
+                                    <form action="{{ route('enregistrement.store') }}" method="POST">
                                         @csrf
                                         <div class="input-group">
                                             <div class="input-single">
@@ -76,11 +78,21 @@
                                                 <i class="fa-solid fa-location-dot"></i>
                                             </div>
                                         </div>
-                                        <div class="input-single">
-                                            <input type="number" name="amount" id="amount" placeholder="Proposition de contribution en €" required>
-                                            <i class="fa-solid fa-coins"></i>
+                                        <div class="input-group">
+                                            <div class="input-single">
+                                                <input type="text" name="project_name" id="project_name" placeholder="Nom du projet" required>
+                                            </div>
+                                            <div class="input-single">
+                                                <input type="number" name="amount" id="amount" placeholder="Montant de départ" required>
+                                                <i class="fa-solid fa-coins"></i>
+                                            </div>
                                         </div>
                                         <div class="input-single">
+                                            <input type="text" name="thematique" id="thematique" placeholder="Thématique du projet" required>
+                                            <i class="fa-solid fa-credit-card"></i>
+                                        </div>
+
+                                        <!-- <div class="input-single">
                                             <label>Projet d'intérêt :</label>
                                             <select name="projet_id" id="project_id">
                                             @isset($projets)
@@ -92,9 +104,9 @@
                                             @endisset
                                             </select>
                                             <i class="fa-solid fa-project-diagram"></i>
-                                        </div>
+                                        </div> -->
                                         <div class="input-single alter-input">
-                                            <textarea name="message" id="message" placeholder="Vos raisons"></textarea>
+                                            <textarea name="message" id="message" placeholder="Vos motivations"></textarea>
                                             <i class="fa-solid fa-envelope"></i>
                                         </div>
                                         <div class="form-cta">
@@ -102,8 +114,8 @@
                                         </div>
                                     </form>
                                     <div class="text-center mt-5">
-                                        <p>
-                                            Nous rentrerons en contact avec vous pour vous assistez, pour la suite!
+                                        <p class="text-danger">
+                                            ⚠️ Nous rentrerons en contact avec vous pour vous assistez, pour la suite!
                                         </p>
                                     </div>
                                 </div>
@@ -112,6 +124,7 @@
                     </div>
                 </div>
             </div>
+            <!--
             <div class="col-12 col-xl-4">
                 <div class="cm-details__sidebar">
                     <div class="cm-sidebar-widget" data-aos="fade-up" data-aos-duration="1000"
@@ -159,6 +172,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </div>
 </div>
