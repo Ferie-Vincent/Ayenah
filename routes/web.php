@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProjetController;
 use App\Http\Controllers\Admin\VisiteController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ContributionController;
+use App\Http\Controllers\EnregistrementController;
 use Spatie\Sitemap\SitemapGenerator;
 
 
@@ -39,8 +40,10 @@ Route::get('/events', [FrontController::class, 'events'])->name('events');
 Route::get('/faqs', [FrontController::class, 'faqs'])->name('faqs');
 Route::get('/event/{id}', [FrontController::class, 'event'])->name('event');
 Route::get('/projects', [FrontController::class, 'projects'])->name('projects');
-Route::get('/enregistrement', [FrontController::class, 'contribution'])->name('enregistrement');
-Route::post('/enregistrement', [ContributionController::class, 'store'])->name('enregistrement.store');
+Route::get('/contribution', [FrontController::class, 'contribution'])->name('contribution');
+Route::post('/contribution', [ContributionController::class, 'store'])->name('contribution.store');
+Route::get('/enregistrement', [EnregistrementController::class, 'create'])->name('enregistrement');
+Route::post('/enregistrement', [EnregistrementController::class, 'store'])->name('enregistrement.store');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
 

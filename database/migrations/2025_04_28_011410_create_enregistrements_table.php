@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contributions', function (Blueprint $table) {
+        Schema::create('enregistrements', function (Blueprint $table) {
             $table->id();
             $table->string('lastname');
             $table->string('firstname');
@@ -19,10 +19,11 @@ return new class extends Migration
             $table->string('phone');
             $table->string('profession');
             $table->string('location');
-            $table->decimal('amount', 10, 2); // Montant avec 2 décimales
-            $table->foreignId('projet_id')->constrained(); // Clé étrangère vers la table projects
+            $table->string('project_name');
+            $table->decimal('amount', 10, 2);
+            $table->string('thematique');
             $table->text('message')->nullable();
-            $table->timestamps(); // Crée created_at et updated_at
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contributions');
+        Schema::dropIfExists('enregistrements');
     }
 };

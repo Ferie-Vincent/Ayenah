@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Projet;
 use App\Models\Visite;
+use App\Models\Enregistrement;
 use Intervention\Image\Facades\Image;
 
 class FrontController extends Controller
@@ -34,6 +35,10 @@ class FrontController extends Controller
     public function projects(){
         $projects = Projet::all();
         return view('front.projects', compact('projects'));
+    }
+
+    public function enregistrement(){
+        return view('front.contribution');
     }
 
     public function faqs(){
