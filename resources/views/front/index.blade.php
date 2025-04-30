@@ -509,17 +509,19 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                 <div class="help-three__single" data-aos="fade-up" data-aos-duration="1000">
                                     <div class="help-three__thumb">
                                         <div class="thumb">
-                                            <i class="icon-pack"></i>
+                                            <i class="icon-credit-card"></i>
                                         </div>
                                         <div class="help-three__tag">
                                             <h6>Étape- 01</h6>
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Lorem, ipsum.</h6>
-                                        <p>Pellentesque habitant morbi trist
-                                            fames ac turp egestas. Aliquam
-                                            enim feugiat mattis.
+                                        <h6>Porteur du Projet</h6>
+                                        <p>
+                                            <ul>
+                                                <li>Doit-être ivoirien</li>
+                                                <li>Avoir un partenaire local (Mairie, ONG, ...)</li>
+                                            </ul>
                                         </p>
                                     </div>
                                 </div>
@@ -529,17 +531,19 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     data-aos-delay="300">
                                     <div class="help-three__thumb">
                                         <div class="thumb">
-                                            <i class="icon-credit-card"></i>
+                                            <i class="icon-pack"></i>
                                         </div>
                                         <div class="help-three__tag">
                                             <h6>Étape - 02</h6>
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Percel Information</h6>
-                                        <p>Pellentesque habitant morbi trist
-                                            fames ac turp egestas. Aliquam
-                                            enim feugiat mattis.
+                                        <h6>Le Projet Proposé</h6>
+                                        <p>
+                                            <ul>
+                                                <li>Budget inférieur à 50 000 € de subvention</li>
+                                                <li>Impact collectif obligatoire (pas de projets personnels)</li>
+                                            </ul>
                                         </p>
                                     </div>
                                 </div>
@@ -556,10 +560,12 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Transportation</h6>
-                                        <p>Pellentesque habitant morbi trist
-                                            fames ac turp egestas. Aliquam
-                                            enim feugiat mattis.
+                                        <h6>Financement/Participation</h6>
+                                        <p>
+                                            <ul>
+                                                <li>Minimum 30% apporté par la Diaspora</li>
+                                                <li>Maximum 70% financé par AYENAH</li>
+                                            </ul>
                                         </p>
                                     </div>
                                 </div>
@@ -576,10 +582,14 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Takeover Products</h6>
-                                        <p>Pellentesque habitant morbi trist
-                                            fames ac turp egestas. Aliquam
-                                            enim feugiat mattis.
+                                        <h6>Zone d'intervention</h6>
+                                        <p>
+                                            <ul>
+                                                <li>Nawa</li>
+                                                <li>Tchologo</li>
+                                                <li>Sud-Comoé</li>
+                                                <li>...</li>
+                                            </ul>
                                         </p>
                                     </div>
                                 </div>
@@ -676,17 +686,16 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true"
                                         aria-controls="collapseOne">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit ?
+                                        1. Qui peut soumettre un projet ?
                                     </button>
                                 </h6>
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-                                            asperiores obcaecati? Qui obcaecati, dicta recusandae corporis
-                                            quisquam alias dolores ab accusamus molestiae.
-                                        </p>
+                                        <ul>
+                                            <li>Tout Ivoirien résidant à l’étranger (diaspora)</li>
+                                            <li>Les associations de diaspora légalement enregistrées</li>
+                                            <li>En partenariat avec une structure locale (mairie, ONG, coopérative)</li>
                                     </div>
                                 </div>
                             </div>
@@ -695,17 +704,18 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo"
                                         aria-expanded="false" aria-controls="collapseTwo">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit ?
+                                        2. Quels types de projets sont financés ?
                                     </button>
                                 </h6>
                                 <div id="collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="headingTwo" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                                            quidem cumque saepe perferendis quaerat? Eligendi suscipit officiis
-                                            beatae delectus sapiente, nihil consectetur?
-                                        </p>
+                                    <ul>
+                                            <li>Santé (cliniques, campagnes de sensibilisation)</li>
+                                            <li>Éducation (écoles, bibliothèques, formations)</li>
+                                            <li>Agriculture durable (équipements, coopératives)</li>
+                                            <li>Énergies renouvelables (solaire, biogaz)</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -714,17 +724,17 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                         aria-expanded="false" aria-controls="collapseThree">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit ?
+                                        3. Comment soumettre un projet ?
                                     </button>
                                 </h6>
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>
-                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim est
-                                            ratione tempore, ab doloribus veritatis delectus praesentium
-                                            consequuntur omnis nisi harum a, dicta accusantium.
-                                        </p>
+                                        <ul>
+                                            <li>S'inscrire sur le site via <a target="_blank" href="{{ route('enregistrement') }}" class="text-warning">le lien</a></li>
+                                            <li>Remplir le formulaire + convention de partenariat local</li>
+                                            <li>Envoyer à la DGIE pour évaluation, au mail <a href="mailto:infos@ayenah.ci" class="text-warning">infos@ayenah.ci</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -733,7 +743,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                         aria-expanded="false" aria-controls="collapseFour">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit ?
+                                        4. Lorem ipsum dolor sit amet, consectetur adipisicing elit ?
                                     </button>
                                 </h6>
                                 <div id="collapseFour" class="accordion-collapse collapse"

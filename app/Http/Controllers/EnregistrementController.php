@@ -42,7 +42,7 @@ class EnregistrementController extends Controller
 
         Enregistrement::create($validated);
 
-        return redirect()->route('contribution')->with('success', 'Merci, Nous vous contacterons bientôt !');
+        return redirect()->route('enregistrement')->with('success', 'Merci, Nous vous contacterons bientôt !');
 
     }
 }
