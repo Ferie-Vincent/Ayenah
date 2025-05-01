@@ -160,8 +160,8 @@
             <div class="col-12 col-lg-7">
                 <div class="difference-three__content">
                     <div class="section__content">
-                        <h2 class="title-animation"><span class="colorOrange">Directrice  Mme DIABATÉ O.</span>
-                        <br> Chef de la cellule Opération du Projet <span style="text-transform: uppercase !important;">AYENAH</span>
+                        <h2 class="title-animation"><span class="colorVert">Coordinatrice Mme DIABATÉ Omignan</span>
+                        <br> Chef de la cellule Opérationnelle du Projet <span style="text-transform: uppercase !important;">AYENAH</span>
                         </h2>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deserunt fugit

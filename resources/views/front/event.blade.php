@@ -94,19 +94,19 @@
                             <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Image">
                         </div>
                         <div class="cm-content">
-                            <h4 class="title-animation">
-                                Les Promesses tenues de l' A F D
+                            <h4 class="title-animation ">
+                                <span style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">Les Promesses tenues de l' A F D</span>
                             </h4>
                         </div>
                         <div class="cm-cta">
                             <a href="https://www.afd.fr/fr" aria-label="contact us"
-                                title="contact us" class="btn--primary text-white"> Tout savoir <i class="fa-solid fa-arrow-right"></i>
+                                title="Agence Française de Développement" class="btn--primary text-white"> Tout savoir <i class="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
-                        <img src="https://placehold.co/150x90"
+                        <img src="{{asset('front/assets/images/afd.jpg')}}"
                             alt="Image"
-                            class="parallax-image"
-                            style="filter: grayscale(200%); transition: filter 0.3s ease;">
+                            class="parallax-image
+                            gray">
 
                     </div>
                 </div>
