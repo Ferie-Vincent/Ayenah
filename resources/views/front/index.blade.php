@@ -497,7 +497,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                             <div class="col-12 col-lg-4 col-xxl-5">
                                 <div class="help-cta">
                                     <a href="{{route('about')}}" aria-label="about" title="about"
-                                        class="btn--primary">Lire plus<i
+                                        class="btn--primary">En savoir plus<i
                                             class="fa-solid fa-arrow-right"></i>
                                     </a>
                                 </div>
@@ -513,17 +513,11 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                             <i class="icon-credit-card"></i>
                                         </div>
                                         <div class="help-three__tag">
-                                            <h6>Étape- 01</h6>
+                                            <h6> 01</h6>
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Porteur du Projet</h6>
-                                        <p>
-                                            <ul>
-                                                <li>Doit-être ivoirien</li>
-                                                <li>Avoir un partenaire local (Mairie, ONG, ...)</li>
-                                            </ul>
-                                        </p>
+                                        <h6>Statut juridique valide du demandeur</h6>
                                     </div>
                                 </div>
                             </div>
@@ -532,20 +526,14 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     data-aos-delay="300">
                                     <div class="help-three__thumb">
                                         <div class="thumb">
-                                            <i class="icon-pack"></i>
+                                            <i class="icon-ship"></i>
                                         </div>
                                         <div class="help-three__tag">
-                                            <h6>Étape - 02</h6>
+                                            <h6> 02</h6>
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Le Projet Proposé</h6>
-                                        <p>
-                                            <ul>
-                                                <li>Budget inférieur à 50 000 € de subvention</li>
-                                                <li>Impact collectif obligatoire (pas de projets personnels)</li>
-                                            </ul>
-                                        </p>
+                                        <h6>Partenariat effectif entre diaspora et acteur local</h6>
                                     </div>
                                 </div>
                             </div>
@@ -554,20 +542,14 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     data-aos-delay="600">
                                     <div class="help-three__thumb">
                                         <div class="thumb">
-                                            <i class="icon-ship"></i>
+                                            <i class="icon-pack"></i>
                                         </div>
                                         <div class="help-three__tag">
-                                            <h6>Étape - 03</h6>
+                                            <h6> 03</h6>
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Financement/Participation</h6>
-                                        <p>
-                                            <ul>
-                                                <li>Minimum 30% apporté par la Diaspora</li>
-                                                <li>Maximum 70% financé par AYENAH</li>
-                                            </ul>
-                                        </p>
+                                        <h6>Montant demandé <br> ≤ 50.000 €</h6>
                                     </div>
                                 </div>
                             </div>
@@ -579,19 +561,11 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                             <i class="icon-truck"></i>
                                         </div>
                                         <div class="help-three__tag">
-                                            <h6>Étape - 04</h6>
+                                            <h6> 04</h6>
                                         </div>
                                     </div>
                                     <div class="help-three__content">
-                                        <h6>Zone d'intervention</h6>
-                                        <p>
-                                            <ul>
-                                                <li>Nawa</li>
-                                                <li>Tchologo</li>
-                                                <li>Sud-Comoé</li>
-                                                <li>...</li>
-                                            </ul>
-                                        </p>
+                                        <h6>Participation des bénéficiaires ≥ 30 %</h6>
                                     </div>
                                 </div>
                             </div>
