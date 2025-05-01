@@ -149,7 +149,7 @@
                 <div class="difference-three__thumb d-none d-lg-block">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Mme Diabaté Omignan. - Directrice Opérationnel du Projet AYENAH" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Mme Diabaté Omignan. - Coordinatrice du Projet AYENAH" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                         </div>
                         <div class="line">
                             <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="Image">
@@ -481,7 +481,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
 <!-- ==== / Diasporique end ==== -->
 
 <!-- ==== help section start ==== -->
-<section class="help-three">
+<section class="help-three mt-5 pb-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -494,13 +494,14 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     </h2>
                                 </div>
                             </div>
-                            <!-- <div class="col-12 col-lg-4 col-xxl-5">
+                            <div class="col-12 col-lg-4 col-xxl-5">
                                 <div class="help-cta">
-                                    <a href="about-us.html" aria-label="our team" title="our team"
+                                    <a href="{{route('about')}}" aria-label="about" title="about"
                                         class="btn--primary">Lire plus<i
-                                            class="fa-solid fa-arrow-right"></i></a>
+                                            class="fa-solid fa-arrow-right"></i>
+                                    </a>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="help-three__wrapper">
@@ -642,6 +643,11 @@ et Commercialisation Modernes dans la Région du Grand Est et
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
+                                <img src="{{asset('front/assets/images/sponsor/dgie.png')}}" alt="Direction Générale des Ivoiriens de l'Extérieur - Ayenah">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__slider-single">
                                 <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah">
                             </div>
                         </div>
@@ -658,6 +664,11 @@ et Commercialisation Modernes dans la Région du Grand Est et
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
                                 <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="partner__slider-single">
+                                <img src="{{asset('front/assets/images/sponsor/dgie.png')}}" alt="Direction Générale des Ivoiriens de l'Extérieur - Ayenah">
                             </div>
                         </div>
                     </div>

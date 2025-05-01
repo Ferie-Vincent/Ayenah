@@ -50,6 +50,10 @@ body, p, h1, h2, h3, span, div {
   color: #ff7f00 !important;
 }
 
+.colorVert{
+    color: #009E60 !important;
+}
+
 .menu-form{
   font-weight: bolder;
   font-size: larger;
