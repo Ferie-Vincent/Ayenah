@@ -26,13 +26,6 @@ The AYENAH platform is part of a broader initiative funded by the French Develop
 - Gbeke
 - Kabadougou
 
-## Technical Stack
-
-- Backend: [Specify technology]
-- Frontend: [Specify technology]
-- Database: [Specify technology]
-- Authentication: [Specify technology]
-
 ## Contributing
 
 This project is managed by the General Directorate of Ivorians Abroad (DGIE) in collaboration with Expertise France. For contribution guidelines, please contact the project maintainers.
@@ -44,10 +37,10 @@ This project is managed by the General Directorate of Ivorians Abroad (DGIE) in 
 
 ## License
 
-[Specify license]
+MIT License
 
 ## Partners
 
-- MDIAIE (DGIE)
+- Direction Générale des Ivoiriens de l’Extérieur (DGIE)
 - Expertise France
 - French Development Agency (AFD)
