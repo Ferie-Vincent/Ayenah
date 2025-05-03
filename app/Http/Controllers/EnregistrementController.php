@@ -26,17 +26,19 @@ class EnregistrementController extends Controller
      */
     public function store(Request $request)
     {
-        // Validation des données
+
+        define('REQUIRED_STRING_MAX_255', 'required|string|max:255');
+
         $validated = $request->validate([
-            'lastname' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
+            'lastname' => REQUIRED_STRING_MAX_255,
+            'firstname' => REQUIRED_STRING_MAX_255,
             'email' => 'required|email|max:255|unique:enregistrements,email',
             'phone' => 'required|string|max:20|unique:enregistrements,phone',
-            'profession' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'project_name' => 'required|string|max:255',
+            'profession' => REQUIRED_STRING_MAX_255,
+            'location' => REQUIRED_STRING_MAX_255,
+            'project_name' => REQUIRED_STRING_MAX_255,
             'amount' => 'required|numeric|min:0',
-            'thematique' => 'required|string|max:255',
+            'thematique' => REQUIRED_STRING_MAX_255,
             'message' => 'nullable|string',
         ]);
 

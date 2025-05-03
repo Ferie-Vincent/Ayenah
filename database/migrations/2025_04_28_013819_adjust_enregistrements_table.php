@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('enregistrements', function (Blueprint $table) {
+        Schema::table('enregistrements', function () {
             //
         });
     }

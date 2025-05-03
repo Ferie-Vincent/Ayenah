@@ -24,10 +24,10 @@
         </div>
     </div>
     <div class="banner-bg">
-        <img src="{{asset('front/assets/images/contribution.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/contribution.png')}}" alt="Ayenah Project">
     </div>
     <div class="shape">
-        <img src="{{asset('front/assets/images/shape.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/shape.png')}}" alt="Ayenah Project">
     </div>
 </section>
 <!-- ==== / banner section end ==== -->
@@ -40,7 +40,7 @@
                 <div class="cm-details__content">
                     <div class="cm-details__poster" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-delay="100">
-                        <img src="{{asset('front/assets/images/idea.jpg')}}" alt="Image">
+                        <img src="{{asset('front/assets/images/idea.jpg')}}" alt="Ayenah Project">
                     </div>
                     <div class="donate-inner" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                         <div class="cm-group">
