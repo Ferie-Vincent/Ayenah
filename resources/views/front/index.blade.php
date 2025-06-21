@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-5">
-                <div class="donation-future__thumb" data-background="https://placehold.co/1920x572"
+                <div class="donation-future__thumb" data-background=""
                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                     <h4>Apport du Projet AYENAH</h4>
                     <div class="cause__progress progress-bar-single">
@@ -395,7 +395,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
 <!-- ==== / Liste de Projets end ==== -->
 
 <!-- ==== Diasporique start ==== -->
-<!-- <section class="team" data-background="{{asset('front/assets/images/bg-one.png')}}" id="teamSection">
+<!-- <section class="team" data-background="{{asset('front/assets/images/https://placehold.co/1920x1080')}}" id="teamSection">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-6">
@@ -579,7 +579,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
         </div>
     </div>
     <div class="help-three-bg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-        <img src="assets/images/bg-one.png" alt="Image" class="bg-help">
+        <!-- <img src="assets/images/bg-one.png" alt="Image" class="bg-help"> -->
         <div class="poor-boy">
             <img src="{{asset('front/assets/images/critere.png')}}" alt="Image" class="poor">
             <img src="{{asset('front/assets/images/shape-three.png')}}" alt="Image" class="shape">
