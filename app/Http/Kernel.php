@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Closure;
+use Illuminate\Http\Request;
 
 class Kernel extends HttpKernel
 {
@@ -10,7 +12,16 @@ class Kernel extends HttpKernel
      * The application's global HTTP middleware stack.
      */
     protected $middleware = [
+        // 🔧 Middleware de test pour vérifier l'exécution
+        function (Request $request, Closure $next) {
+            dd('test middleware inline');
+            return $next($request);
+        },
+
+        // Ton middleware personnalisé
         \App\Http\Middleware\SecureHeaders::class,
+
+        // Middlewares Laravel par défaut
         \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \App\Http\Middleware\PreventRequestsDuringMaintenance::class,

@@ -13,6 +13,8 @@ class SecureHeaders
      */
     public function handle(Request $request, Closure $next): Response
     {
+
+        dd('middleware exécuté');
         $response = $next($request);
 
         $response->headers->set('X-Content-Type-Options', 'nosniff');
