@@ -107,17 +107,13 @@
                         Son ambition ? Mettre en place un outil innovant et opérationnel pour mobiliser la diaspora ivoirienne au service du développement économique,
                         culturel et social de la Côte d'Ivoire.
                         </p>
-                        <p>
-                        Avec CRPM2, la DGIE bénéficie d'un appui stratégique et financier sur mesure,
-                        tout en s'inspirant des bonnes pratiques des pays pairs du projet tels que - Cameroun, Comores, Guinée, Madagascar et Sénégal -
-                        tous engagés dans une dynamique commune de mobilisation de leurs diasporas.
-                        </p>
                     </div>
                     <div class="differnce-quote">
                         <blockquote>
-                            <q><span>Lorem ipsum dolor</span>
-                                sit amet consectetur adipisicing elit. Officiis consequatur aperiam laborum
-                                tempore ipsum officia dolorum omnis.
+                            <q style="text-align : justify;">Avec <span>CRPM2</span>
+                            la DGIE bénéficie d'un appui stratégique et financier sur mesure,
+                        tout en s'inspirant des bonnes pratiques des pays pairs du projet tels que - Cameroun, Comores, Guinée, Madagascar et Sénégal -
+                        tous engagés dans une dynamique commune de mobilisation de leurs diasporas.
                             </q>
                         </blockquote>
                     </div>
@@ -161,24 +157,28 @@
                 <div class="difference-three__content">
                     <div class="section__content">
                         <h2 class="title-animation"><span class="colorVert">Coordinatrice Mme DIABATÉ Omignan</span>
-                        <br> Chef de la cellule Opérationnelle du Projet <span style="text-transform: uppercase !important;">AYENAH</span>
+                        <br> Sous-Directrice
                         </h2>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deserunt fugit
-                            molestias ipsum ad incidunt consequatur, necessitatibus, delectus quia atque, nulla
-                            veniam reprehenderit culpa rem aliquam. Nulla quae molestias neque.
+                            Chers membre de la diaspora, <br>
+                            Un projet innovant et unique vous est dédié : <span style="font-weight: bold; font-size: 18px; text-align: justify; color: green;">AYENAH</span> <br>
+                            Devenez de véritables acteurs du développement durable de la Côte d’Ivoire !
                         </p>
                         <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, dolores, eum
-                            amet, dolor rerum reprehenderit rem quibusdam perspiciatis sit repellat numquam
-                            ratione porro illo aliquam incidunt id similique. Veniam, incidunt?
+                            AYENAH, c’est un dispositif pilote lancé par la Direction Générale des Ivoiriens de l’Extérieur (DGIE),
+                            conçu pour mobiliser les compétences et les initiatives de la diaspora autour de deux grands axes : <br>
+                            <span style="">
+                            <ol style="margin-left: 5% !important; margin-top: -15px !important;">
+                                <li>1. La valorisation des talents de la Diaspora dans les secteurs clés du développement national</li>
+                                <li>2. L'appui financier aux projets de développement local, portés par les associations de la diaspora, en collaboration avec les acteurs locaux</li>
+                            </ol>
+                            </span>
                         </p>
                     </div>
                     <div class="differnce-quote">
                         <blockquote>
-                            <q><span>Lorem ipsum dolor</span>
-                                sit amet consectetur adipisicing elit. Officiis consequatur aperiam laborum
-                                tempore ipsum officia dolorum omnis iste natus.
+                            <q>Avec <span>AYENAH</span>
+                            Prenez part à une nouvelle dynamique de DÉVELOPPEMENT
                             </q>
                         </blockquote>
                     </div>

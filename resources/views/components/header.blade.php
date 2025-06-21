@@ -26,8 +26,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="{{ asset ('front/assets/images/favicon.svg ') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset ('front/assets/images/favicon.svg ') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset ('front/assets/images/icone.png ') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset ('front/assets/images/icone.png ') }}" type="image/x-icon">
 
     <title>@yield('title')</title>
 
@@ -104,7 +104,7 @@
 
         <!-- ==== preloader start ==== -->
         <div class="preloader">
-            <img src="{{ asset ('front/assets/images/preloader.png') }}" alt="" width="20%">
+            <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="" width="20%">
         </div>
         <!-- ==== / preloader end ==== -->
 
@@ -163,7 +163,7 @@
                             <nav class="navbar p-0">
                                 <div class="navbar-logo">
                                     <a href="{{route('home')}}" aria-label="home page" title="logo">
-                                        <img src="{{ asset ('front/assets/images/logo.png') }}" alt="Image">
+                                        <img src="{{ asset ('front/assets/images/logo_ayenah.png') }}" alt="Image" style="width: 400px !important;">
                                     </a>
                                 </div>
                                 <div class="navbar__menu d-none d-xl-block">
@@ -255,7 +255,7 @@
                 <div class="mobile-menu__header nav-fade">
                     <div class="logo">
                         <a href="{{route('home')}}" aria-label="home page" title="logo">
-                            <img src="{{ asset ('front/assets/images/logo.png') }}" alt="Image">
+                            <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="Image">
                         </a>
                     </div>
                     <button aria-label="close mobile menu" class="close-mobile-menu">
@@ -285,8 +285,8 @@
         <div class="off-canvas d-none d-xl-block">
             <div class="off-canvas__inner">
                 <div class="off-canvas__head">
-                    <a href="./">
-                        <img src="{{ asset ('front/assets/images/logo.png') }}" alt="Logo">
+                    <a href="{{route('home')}}">
+                        <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="Logo">
                     </a>
                     <button aria-label="close off canvas" class="off-canvas-close">
                         <i class="fa-solid fa-xmark"></i>

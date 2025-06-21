@@ -6,7 +6,7 @@
                     <div class="col-12 col-lg-3">
                         <div class="footer-three__logo" data-aos="fade-up" data-aos-duration="1000">
                             <a href="{{ route('home') }}">
-                                <img src="{{asset('front/assets/images/preloader.png')}}" alt="Image">
+                                <img src="{{asset('front/assets/images/logo_ayenah.png')}}" alt="Image">
                             </a>
                         </div>
                     </div>
