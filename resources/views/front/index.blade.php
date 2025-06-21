@@ -214,7 +214,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-5">
-                <div class="donation-future__thumb" data-background="https://placehold./1920x572"
+                <div class="donation-future__thumb" data-background="https://placehold.co/1920x572"
                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
                     <h4>Apport du Projet AYENAH</h4>
                     <div class="cause__progress progress-bar-single">

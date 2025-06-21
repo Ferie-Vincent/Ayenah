@@ -3,30 +3,22 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Closure;
-use Illuminate\Http\Request;
 
 class Kernel extends HttpKernel
 {
     /**
      * The application's global HTTP middleware stack.
+     * These middlewares run during every request to your application.
      */
     protected $middleware = [
-        // 🔧 Middleware de test pour vérifier l'exécution
-        function (Request $request, Closure $next) {
-            dd('test middleware inline');
-            return $next($request);
-        },
-
-        // Ton middleware personnalisé
-        \App\Http\Middleware\SecureHeaders::class,
-
-        // Middlewares Laravel par défaut
-        \App\Http\Middleware\TrustProxies::class,
+        // Middlewares de sécurité et infrastructure
+        \Illuminate\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
-        \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        \Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \App\Http\Middleware\TrimStrings::class,
+
+        // Middlewares de traitement de la requête
+        \Illuminate\Foundation\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -50,9 +42,10 @@ class Kernel extends HttpKernel
     ];
 
     /**
-     * The application's route middleware.
+     * The application's middleware aliases.
+     * These middlewares may be assigned to groups or used individually.
      */
-    protected $routeMiddleware = [
+    protected $middlewareAliases = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
@@ -62,5 +55,6 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'secure.headers' => \App\Http\Middleware\SecureHeaders::class,
     ];
 }

@@ -9,20 +9,20 @@ use Symfony\Component\HttpFoundation\Response;
 class SecureHeaders
 {
     /**
-     * Handle an incoming request.
+     * Add security-related HTTP headers to all responses.
      */
     public function handle(Request $request, Closure $next): Response
     {
-
-        dd('middleware exécuté');
         $response = $next($request);
 
+        // Add security headers
         $response->headers->set('X-Content-Type-Options', 'nosniff');
+        $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
         $response->headers->set('X-XSS-Protection', '1; mode=block');
-        $response->headers->set('X-Frame-Options', 'DENY');
+        $response->headers->set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+        $response->headers->set('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;");
         $response->headers->set('Referrer-Policy', 'strict-origin-when-cross-origin');
-        $response->headers->set('Permissions-Policy', 'microphone=(), camera=()');
-        $response->headers->set('Content-Security-Policy', 'default-src https:; script-src https: ');
+        $response->headers->set('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
 
         return $response;
     }
