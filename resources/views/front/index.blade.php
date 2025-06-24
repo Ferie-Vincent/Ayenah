@@ -177,8 +177,8 @@
                     </div>
                     <div class="differnce-quote">
                         <blockquote>
-                            <q>Avec <span>AYENAH</span>
-                            Prenez part à une nouvelle dynamique de DÉVELOPPEMENT
+                            <q>Avec <span> AYENAH</span>
+                            Prenez part à une nouvelle dynamique de DÉVELOPPEMENT LOCALE
                             </q>
                         </blockquote>
                     </div>
