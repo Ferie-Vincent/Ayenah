@@ -40,8 +40,10 @@ class SetupController extends Controller
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'is_admin' => true,
         ]);
+
+        $user->is_admin = true;
+        $user->save();
 
         Auth::login($user);
 
