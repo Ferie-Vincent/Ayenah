@@ -20,7 +20,7 @@
     gtag('config', 'G-G9ML8S804V');
     </script>
 
-    <script type="text/javascript" src="https://app.secureprivacy.ai/script/680d6825f5321fce8fa53ee9.js"></script>
+    <script type="text/javascript" src="https://app.secureprivacy.ai/script/68b7630d1c0b8edf76f578c6.js" defer></script>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,44 +33,33 @@
 
 
     <meta name="keywords" content="diaspora, développement, Côte d'Ivoire, fundraising, mobilisation, investissement, Diaspora Ivoirienne, DGIE, Direction Générale des Ivoiriens de la Diaspora, Gaoussou KARAMOKO, CRPM, CRPM2, EXPERTISE FRANCE, AFD, Guichet Unique de la Diaspora Ivoirienne, Ministère des Affaires Étrangères Ivoirienne">
-    <meta name="description" content="Découvrez le Projet Ayenah : une initiative visant à mobiliser la diaspora ivoirienne pour contribuer au développement durable et socio-économique de la Côte d'Ivoire.">
+    <meta name="description" content="@yield('meta_description', 'Découvrez le Projet Ayenah : une initiative visant à mobiliser la diaspora ivoirienne pour contribuer au développement durable et socio-économique de la Côte d\'Ivoire.')">
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="AYENAH | Mobiliser la diaspora pour le développement de la Côte d'Ivoire">
-    <meta property="og:description" content="Le Projet Ayenah mobilise les compétences et ressources de la diaspora ivoirienne pour transformer les communautés locales et stimuler le développement durable en Côte d'Ivoire.">
-    <meta property="og:url" content="https://ayenah.ci">
-    <meta property="og:image" content="https://ayenah.ci/assets/images/banner/1.jpg">
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:title" content="@yield('og_title', 'AYENAH | Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')">
+    <meta property="og:description" content="@yield('og_description', 'Le Projet Ayenah mobilise les compétences et ressources de la diaspora ivoirienne pour transformer les communautés locales et stimuler le développement durable en Côte d\'Ivoire.')">
+    <meta property="og:url" content="@yield('og_url', url()->current())">
+    <meta property="og:image" content="@yield('og_image', asset('front/assets/images/banner/1.jpg'))">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <meta property="og:site_name" content="Projet Ayenah">
     <meta property="og:locale" content="fr_FR">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AYENAH | Mobiliser la diaspora pour le développement de la Côte d'Ivoire">
-    <meta name="twitter:description" content="Découvrez comment la diaspora ivoirienne contribue au développement durable et socio-économique de la Côte d'Ivoire grâce au Projet Ayenah.">
-    <meta name="twitter:image" content="https://ayenah.ci/assets/images/social-share.jpg">
+    <meta name="twitter:title" content="@yield('og_title', 'AYENAH | Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')">
+    <meta name="twitter:description" content="@yield('og_description', 'Découvrez comment la diaspora ivoirienne contribue au développement durable et socio-économique de la Côte d\'Ivoire grâce au Projet Ayenah.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('front/assets/images/banner/1.jpg'))">
 
     <meta name="twitter:site" content="@ayenah_project">
 
-    <link rel="canonical" href="https://ayenah.ci">
+    <link rel="canonical" href="{{ url()->current() }}">
 
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8/dist/sweetalert2.min.css">
-
-    <link rel="canonical" href="https://ayenah.ci">
     <meta name="language" content="French">
     <meta name="geo.region" content="CI">
-
-    <!-- Open Graph / Partage social -->
-    <meta property="og:title" content="AYENAH.ci | La diaspora ivoirienne actrice du développement">
-    <meta property="og:description" content="Investissez dans des projets locaux ou partagez votre expertise avec la Côte d'Ivoire.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ayenah.ci">
-    <meta property="og:image" content="https://ayenah.ci/front/assets/images/pics/bg.jpg">
-    <meta property="og:locale" content="fr_CI">
-    <meta property="og:site_name" content="AYENAH">
-
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -82,9 +71,41 @@
     <link rel="stylesheet" href="{{ asset ('front/assets/css/sticky-header.css') }}">
     <link rel="stylesheet" href="{{ asset ('front/assets/css/box-layout.css') }}">
     <link rel="stylesheet" href="{{ asset ('front/assets/css/rtl.css') }}">
-    <link rel="stylesheet" href="{{ asset ('front/assets/css/custom-responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset ('front/assets/css/ayenah-custom.css') }}?v={{ filemtime(public_path('front/assets/css/ayenah-custom.css')) }}">
+    <link rel="stylesheet" href="{{ asset ('front/assets/css/custom-responsive.css') }}?v={{ filemtime(public_path('front/assets/css/custom-responsive.css')) }}">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Données structurées JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AYENAH",
+        "url": "https://ayenah.ci",
+        "logo": "https://ayenah.ci/front/assets/images/logo_ayenah.png",
+        "description": "Programme de mobilisation de la diaspora ivoirienne pour le développement de la Côte d'Ivoire",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Cocody, 2 Plateaux, Chambre Nationale des Métiers",
+            "addressLocality": "Abidjan",
+            "addressCountry": "CI"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+225-27-21-32-27-42",
+            "email": "infos@ayenah.ci",
+            "contactType": "customer service",
+            "availableLanguage": "French"
+        },
+        "sameAs": [
+            "https://www.facebook.com/",
+            "https://x.com/",
+            "https://www.linkedin.com/"
+        ]
+    }
+    </script>
+    @stack('structured-data')
 </head>
 
 <body>
@@ -105,7 +126,7 @@
 
         <!-- ==== preloader start ==== -->
         <div class="preloader">
-            <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="" width="20%">
+            <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="AYENAH - Chargement" width="20%">
         </div>
         <!-- ==== / preloader end ==== -->
 
@@ -122,8 +143,8 @@
                                         Cocody, 2 Plateaux, Chambre National des Métiers
                                     </a>
                                 </li>
-                                <li><a href="mailto:infos@ayenah.ci"><i
-                                            class="fa-regular fa-envelope"></i>infos@ayenah.ci</a>
+                                <li><a href="mailto:{{ App\Models\Setting::get('contact_email', 'infos@ayenah.ci') }}"><i
+                                            class="fa-regular fa-envelope"></i>{{ App\Models\Setting::get('contact_email', 'infos@ayenah.ci') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -131,20 +152,20 @@
                     <div class="col-12 col-lg-6">
                         <div class="topbar__items justify-content-end">
                             <div class="social">
-                                <a href="https://www.facebook.com/" target="_blank" aria-label="share us on facebook"
-                                    title="facebook">
+                                <a href="{{ App\Models\Setting::get('facebook_url', 'https://www.facebook.com/') }}" target="_blank" aria-label="suivez-nous sur Facebook"
+                                    title="Facebook">
                                     <i class="fa-brands fa-facebook-f"></i>
                                 </a>
-                                <a href="https://x.com/" target="_blank" aria-label="share us on twitter"
-                                    title="twitter">
+                                <a href="{{ App\Models\Setting::get('twitter_url', 'https://x.com/') }}" target="_blank" aria-label="suivez-nous sur Twitter"
+                                    title="Twitter">
                                     <i class="fa-brands fa-twitter"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/" target="_blank" aria-label="share us on linkedin"
-                                    title="linkedin">
+                                <a href="{{ App\Models\Setting::get('linkedin_url', 'https://www.linkedin.com/') }}" target="_blank" aria-label="suivez-nous sur LinkedIn"
+                                    title="LinkedIn">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
-                                <a href="{{route('login')}}" aria-label="Connect to account"
-                                    title="Connect to account">
+                                <a href="{{route('login')}}" aria-label="se connecter"
+                                    title="Se connecter">
                                     <i class="fa-brands fa-user"></i>
                                 </a>
                             </div>
@@ -163,8 +184,8 @@
                         <div class="main-header__menu-box">
                             <nav class="navbar p-0">
                                 <div class="navbar-logo">
-                                    <a href="{{route('home')}}" aria-label="home page" title="logo">
-                                        <img src="{{ asset ('front/assets/images/logo_ayenah.png') }}" alt="Image" style="width: 400px !important;">
+                                    <a href="{{route('home')}}" aria-label="accueil" title="accueil">
+                                        <img src="{{ asset ('front/assets/images/logo_ayenah.png') }}" alt="Logo AYENAH" style="width: 300px; max-width: 100%;">
                                     </a>
                                 </div>
                                 <div class="navbar__menu d-none d-xl-block">
@@ -176,10 +197,33 @@
                                                 </span>
                                             </a>
                                         </li>
+                                        <li class="navbar__item navbar__item--has-children nav-fade">
+                                            <button aria-label="sous-menu programme" class="navbar__dropdown-label">
+                                                <span class="menu-form" style="color: #000 !important; font-weight: bolder !important;">LE PROGRAMME</span>
+                                            </button>
+                                            <ul class="navbar__sub-menu">
+                                                <li>
+                                                    <a href="{{ route('programme') }}">AYENAH</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('piliers') }}">Les Piliers d'AYENAH</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('financement') }}">Le Financement</a>
+                                                </li>
+                                            </ul>
+                                        </li>
                                         <li class="navbar__item nav-fade">
-                                            <a href="{{ route('about') }}">
+                                            <a href="{{ route('eligibilite') }}">
                                                 <span class="menu-form">
-                                                    LE PROJET AYENAH
+                                                    ÉLIGIBILITÉ
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="navbar__item nav-fade">
+                                            <a href="{{ route('soumettre-projet') }}">
+                                                <span class="menu-form">
+                                                    SOUMETTRE UN PROJET
                                                 </span>
                                             </a>
                                         </li>
@@ -193,7 +237,7 @@
                                         <li class="navbar__item nav-fade">
                                             <a href="{{ route('faqs') }}">
                                                 <span class="menu-form">
-                                                    FAQs
+                                                    FAQ
                                                 </span>
                                             </a>
                                         </li>
@@ -209,8 +253,8 @@
                                 <div class="navbar__options">
                                     <div class="navbar__mobile-options ">
                                         <div class="sidenav-box d-none d-xl-block">
-                                            <button class="open-sidenav" aria-label="sidenav" title="open sidenav"
-                                                style="margin-right: 100px !important;">
+                                            <button class="open-sidenav" aria-label="ouvrir le panneau latéral" title="ouvrir le panneau latéral"
+                                                style="margin-right: 20px !important;">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
                                                     viewBox="0 0 28 26" fill="none">
                                                     <ellipse cx="2.39023" cy="2.39022" rx="2.39023" ry="2.39022"
@@ -235,8 +279,8 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <button class="open-offcanvas-nav d-flex d-xl-none" aria-label="toggle mobile menu"
-                                        title="open offcanvas menu">
+                                    <button class="open-offcanvas-nav d-flex d-xl-none" aria-label="ouvrir le menu mobile"
+                                        title="ouvrir le menu mobile">
                                         <span class="icon-bar top-bar"></span>
                                         <span class="icon-bar middle-bar"></span>
                                         <span class="icon-bar bottom-bar"></span>
@@ -255,25 +299,25 @@
             <nav class="mobile-menu__wrapper">
                 <div class="mobile-menu__header nav-fade">
                     <div class="logo">
-                        <a href="{{route('home')}}" aria-label="home page" title="logo">
-                            <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="Image">
+                        <a href="{{route('home')}}" aria-label="accueil" title="accueil">
+                            <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="Logo AYENAH">
                         </a>
                     </div>
-                    <button aria-label="close mobile menu" class="close-mobile-menu">
+                    <button aria-label="fermer le menu mobile" class="close-mobile-menu">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="mobile-menu__list"></div>
                 <div class="mobile-menu__social social nav-fade">
-                    <a href="https://www.facebook.com/" target="_blank" aria-label="share us on facebook"
-                        title="facebook">
+                    <a href="{{ App\Models\Setting::get('facebook_url', 'https://www.facebook.com/') }}" target="_blank" aria-label="suivez-nous sur Facebook"
+                        title="Facebook">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-                    <a href="https://x.com/" target="_blank" aria-label="share us on twitter" title="twitter">
+                    <a href="{{ App\Models\Setting::get('twitter_url', 'https://x.com/') }}" target="_blank" aria-label="suivez-nous sur Twitter" title="Twitter">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
-                    <a href="https://www.linkedin.com/" target="_blank" aria-label="share us on linkedin"
-                        title="linkedin">
+                    <a href="{{ App\Models\Setting::get('linkedin_url', 'https://www.linkedin.com/') }}" target="_blank" aria-label="suivez-nous sur LinkedIn"
+                        title="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                 </div>
@@ -289,7 +333,7 @@
                     <a href="{{route('home')}}">
                         <img src="{{ asset ('front/assets/images/ayenah-logo.png') }}" alt="Logo">
                     </a>
-                    <button aria-label="close off canvas" class="off-canvas-close">
+                    <button aria-label="fermer le panneau latéral" class="off-canvas-close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -299,33 +343,33 @@
                         <span>
                             <i class="fa-solid fa-phone-volume"></i>
                         </span>
-                        <a href="tel:253-556-7777">(+225) 27 21 32 27 42</a>
+                        <a href="tel:+22527213227242">{{ App\Models\Setting::get('contact_phone', '(+225) 27 21 32 27 42') }}</a>
                     </div>
                     <div class="single">
                         <span>
                             <i class="fa-solid fa-envelope"></i>
                         </span>
-                        <a href="mailto:infos@ayenah.ci">infos@ayenah.ci</a>
+                        <a href="mailto:{{ App\Models\Setting::get('contact_email', 'infos@ayenah.ci') }}">{{ App\Models\Setting::get('contact_email', 'infos@ayenah.ci') }}</a>
                     </div>
                     <div class="single">
                         <span>
                             <i class="fa-solid fa-location-dot"></i>
                         </span>
                         <a target="_blank" href="https://maps.app.goo.gl/Kw8yJBQC28xGXQ7J9">
-                            Cocody, 2 Plateaux, Chambre National des Métiers
+                            {{ App\Models\Setting::get('contact_address', 'Cocody, 2 Plateaux, Chambre National des Métiers') }}
                         </a>
                     </div>
                 </div>
                 <div class="social">
-                    <a href="https://www.facebook.com/" target="_blank" aria-label="find us on facebook"
-                        title="facebook">
+                    <a href="{{ App\Models\Setting::get('facebook_url', 'https://www.facebook.com/') }}" target="_blank" aria-label="suivez-nous sur Facebook"
+                        title="Facebook">
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
-                    <a href="https://x.com/" target="_blank" aria-label="find us on twitter" title="twitter">
+                    <a href="{{ App\Models\Setting::get('twitter_url', 'https://x.com/') }}" target="_blank" aria-label="suivez-nous sur Twitter" title="Twitter">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
-                    <a href="https://www.linkedin.com/" target="_blank" aria-label="find us on linkedin"
-                        title="linkedin">
+                    <a href="{{ App\Models\Setting::get('linkedin_url', 'https://www.linkedin.com/') }}" target="_blank" aria-label="suivez-nous sur LinkedIn"
+                        title="LinkedIn">
                         <i class="fa-brands fa-linkedin-in"></i>
                     </a>
                 </div>
