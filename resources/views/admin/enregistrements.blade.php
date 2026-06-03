@@ -57,6 +57,19 @@
                                         <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#detail-{{ $enregistrement->id }}" title="Voir">
                                             <i data-lucide="eye" style="width:14px;height:14px;"></i>
                                         </button>
+                                        @if($enregistrement->isValidated())
+                                            <span class="badge rounded-pill px-2 py-1" style="background:#ecfdf5;color:#059669;font-size:11px;" title="Validé le {{ $enregistrement->validated_at->format('d/m/Y') }}">
+                                                <i data-lucide="check-circle" style="width:11px;height:11px;"></i> Validé
+                                            </span>
+                                        @else
+                                            <form action="{{ route('admin.enregistrements.validate', $enregistrement->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success btn-sm" title="Valider et envoyer le lien de candidature"
+                                                    onclick="return confirm('Valider et envoyer le lien /demande-financement à {{ $enregistrement->email }} ?')">
+                                                    <i data-lucide="check-circle" style="width:14px;height:14px;"></i>
+                                                </button>
+                                            </form>
+                                        @endif
                                         <form action="{{ route('admin.enregistrements.destroy', $enregistrement->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
