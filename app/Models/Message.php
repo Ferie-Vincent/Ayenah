@@ -3,10 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Message extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
-        'nom', 'email', 'telephone','message', 'status' => '0',
+        'nom', 'email', 'telephone', 'message', 'status',
+    ];
+
+    protected $attributes = [
+        'status' => '0',
     ];
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreContributionRequest;
 use App\Models\Projet;
 use App\Models\Contribution;
-use Illuminate\Http\Request;
 
 class ContributionController extends Controller
 {
@@ -14,19 +14,9 @@ class ContributionController extends Controller
         return view('front.contribution', compact('projets'));
     }
 
-    public function store(Request $request)
+    public function store(StoreContributionRequest $request)
     {
-        $validated = $request->validate([
-            'lastname' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
-            'email' => 'required|email',
-            'phone' => 'required|string',
-            'profession' => 'required|string',
-            'location' => 'required|string',
-            'amount' => 'required|numeric',
-            'projet_id' => 'required|integer',
-            'message' => 'nullable|string',
-        ]);
+        $validated = $request->validated();
 
         Contribution::create($validated);
 

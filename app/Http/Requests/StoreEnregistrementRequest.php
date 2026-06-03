@@ -21,17 +21,20 @@ class StoreEnregistrementRequest extends FormRequest
      */
     public function rules(): array
     {
+        $isVolet1 = $this->input('volet') === 'volet_1_financement';
+
         return [
-            'lastname' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:enregistrements,email',
-            'phone' => ['required', 'regex:/^[0-9\+\-\s\(\)]{10,20}$/', 'unique:enregistrements,phone'],
-            'profession' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
+            'lastname'     => 'required|string|max:255',
+            'firstname'    => 'required|string|max:255',
+            'email'        => 'required|email|max:255|unique:enregistrements,email',
+            'phone'        => ['required', 'regex:/^[0-9\+\-\s\(\)]{10,20}$/', 'unique:enregistrements,phone'],
+            'profession'   => 'required|string|max:255',
+            'location'     => 'required|string|max:255',
+            'volet'        => 'required|in:volet_1_financement,volet_2_expertise',
             'project_name' => 'required|string|max:255',
-            'amount' => 'required|numeric|min:10000|max:50000',
-            'thematique' => 'required|string|max:255',
-            'message' => 'nullable|string|max:2000',
+            'amount'       => $isVolet1 ? 'required|numeric|max:50000' : 'nullable|numeric',
+            'thematique'   => 'required|in:Agriculture et développement rural,Transformation de produits agricoles,Artisanat et production locale,Numérique et nouvelles technologies,Santé,Éducation et formation,Environnement et énergies renouvelables,Autre',
+            'message'      => 'nullable|string|max:2000',
         ];
     }
 
@@ -65,10 +68,11 @@ class StoreEnregistrementRequest extends FormRequest
             'project_name.required' => 'Le nom du projet est obligatoire.',
             'project_name.string' => 'Le nom du projet doit être une chaîne de caractères.',
             'project_name.max' => 'Le nom du projet ne doit pas dépasser 255 caractères.',
-            'amount.required' => 'Le montant est obligatoire.',
-            'amount.numeric' => 'Le montant doit être un nombre.',
-            'amount.min' => 'Le montant minimum est de 10 000.',
-            'amount.max' => 'Le montant maximum est de 50 000.',
+            'volet.required' => 'Veuillez sélectionner le type de contribution.',
+            'volet.in'       => 'Type de contribution invalide.',
+            'amount.required' => 'Le budget estimé est obligatoire pour le Volet 1.',
+            'amount.numeric'  => 'Le montant doit être un nombre.',
+            'amount.max'      => 'Le budget ne peut pas dépasser 50 000 €.',
             'thematique.required' => 'La thématique est obligatoire.',
             'thematique.string' => 'La thématique doit être une chaîne de caractères.',
             'thematique.max' => 'La thématique ne doit pas dépasser 255 caractères.',

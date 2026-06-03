@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEnregistrementRequest;
+use App\Mail\EnregistrementConfirmation;
 use App\Models\Enregistrement;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class EnregistrementController extends Controller
 {
@@ -21,30 +23,27 @@ class EnregistrementController extends Controller
     /**
      * Traite la soumission du formulaire
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreEnregistrementRequest $request)
     {
+        $validated = $request->validated();
 
-        define('REQUIRED_STRING_MAX_255', 'required|string|max:255');
+        // Création de l'enregistrement
+        $enregistrement = Enregistrement::create($validated);
 
-        $validated = $request->validate([
-            'lastname' => REQUIRED_STRING_MAX_255,
-            'firstname' => REQUIRED_STRING_MAX_255,
-            'email' => 'required|email|max:255|unique:enregistrements,email',
-            'phone' => 'required|string|max:20|unique:enregistrements,phone',
-            'profession' => REQUIRED_STRING_MAX_255,
-            'location' => REQUIRED_STRING_MAX_255,
-            'project_name' => REQUIRED_STRING_MAX_255,
-            'amount' => 'required|numeric|min:0',
-            'thematique' => REQUIRED_STRING_MAX_255,
-            'message' => 'nullable|string',
-        ]);
+        // Envoi de l'email de confirmation avec les pièces jointes
+        try {
+            Mail::to($validated['email'])->queue(new EnregistrementConfirmation($enregistrement));
+        } catch (\Exception $e) {
+            Log::error('Erreur lors de l\'envoi de l\'email de confirmation: '.$e->getMessage());
 
-        Enregistrement::create($validated);
+            return redirect()->route('enregistrement')
+                ->with('warning', 'Votre candidature au projet AYENAH a bien été enregistrée, mais l\'email de confirmation n\'a pas pu être envoyé. Veuillez contacter infos@ayenah.ci.');
+        }
 
-        return redirect()->route('enregistrement')->with('success', 'Merci, Nous vous contacterons bientôt !');
+        return redirect()->route('enregistrement')
+            ->with('success', 'Votre candidature au projet AYENAH a bien été reçue. Un accusé de réception vous a été envoyé par email. Votre dossier sera instruit par la Cellule de Coordination de la DGIE.');
 
     }
 }

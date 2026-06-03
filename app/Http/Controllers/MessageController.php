@@ -2,63 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreMessageRequest;
 use App\Models\Message;
+use App\Traits\LogsActivity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class MessageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    use LogsActivity;
+
     public function index()
     {
-        $messages = Message::all();
+        $messages = Message::orderBy('created_at', 'desc')->get();
         return view("admin.message", compact("messages"));
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreMessageRequest $request)
     {
-        $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'telephone' => 'required|string|max:255',
-            'message' => 'required|string|max:1000',
-        ]);
+        $validated = $request->validated();
 
         Message::create($validated);
         return redirect()->route('contact')->with("success", "Message envoyé avec succès !");
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        $message = Message::findOrFail($id);
-        return view("contact", compact('message'));
+        $messages = Message::orderBy('created_at', 'desc')->get();
+        return view("admin.message", compact('messages'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
+        $validated = $request->validate([
+            'status' => 'required|integer|in:0,1',
+        ]);
+
         $message = Message::findOrFail($id);
-        $message->status = $request->status;
-        $message->save();
+        $message->update($validated);
+        Cache::forget('total_unread_messages');
+        $this->logAction('update', $message, 'Changement de statut du message de : ' . $message->nom);
 
         return redirect()->route('message')->with("success", "Statut du message modifié avec succès");
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $message = Message::findOrFail($id);
+        $this->logAction('delete', $message, 'Suppression du message de : ' . $message->nom);
+        $message->delete();
+        Cache::forget('total_unread_messages');
+
+        return redirect()->route('message')->with("success", "Message supprimé avec succès");
     }
 }

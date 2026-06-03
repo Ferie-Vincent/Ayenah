@@ -3,138 +3,91 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjetRequest;
+use App\Http\Requests\UpdateProjetRequest;
 use App\Models\Projet;
-use Illuminate\Http\Request;
+use App\Traits\LogsActivity;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ProjetController extends Controller
 {
-    public function store(Request $request)
+    use LogsActivity;
+
+    public function index()
     {
-        $validatedData = $request->validate([
-            'structure_porteuse' => 'required|string|max:255',
-            'interlocuteur_local' => 'required|string|max:255',
-            'telephone_local' => 'required|string|max:20',
-            'courriel_local' => 'required|email|max:255',
-            'partenaire_diaspora' => 'required|string|max:255',
-            'interlocuteur_diaspora' => 'required|string|max:255',
-            'telephone_diaspora' => 'required|string|max:20',
-            'courriel_diaspora' => 'required|email|max:255',
-            'intitule_projet' => 'required|string|max:255',
-            'lieu_intervention' => 'required|string|max:255',
-            'thematique_projet' => 'required|string|max:255',
-            'autres_partenaires' => 'nullable|string',
-            'duree_totale' => 'required|string|max:50',
-            'cout_total' => 'required|numeric',
-            'participation_ayenah' => 'nullable|numeric',
-            'fichier_presentation' => 'nullable|file|mimes:pdf,docx',
-            'photo_logo' => 'nullable|image|mimes:jpg,jpeg,png'
-        ]);
-
-        // Gestion des fichiers
-        if ($request->hasFile('fichier_presentation')) {
-            $validatedData['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'public');
-        }
-
-        if ($request->hasFile('photo_logo')) {
-            $validatedData['photo_logo'] = $request->file('photo_logo')->store('projets/images', 'public');
-        }
-
-        // Conversion des noms de champs pour correspondre à la base
-        $dbData = [
-            'nom_projet' => $validatedData['intitule_projet'],
-            'porteur_projet' => $validatedData['structure_porteuse'],
-            'telephone' => $validatedData['telephone_local'],
-            'email' => $validatedData['courriel_local'],
-            'thematique' => $validatedData['thematique_projet'],
-            'description' => $validatedData['autres_partenaires'] ?? null,
-            'montant_souhaite' => $validatedData['participation_ayenah'] ?? 0,
-            'illustration' => $validatedData['photo_logo'] ?? null,
-            'type_entreprise' => 'Personne morale', // Valeur par défaut ou à adapter
-            'statut' => 'En attente' // Valeur par défaut
-        ];
-
-        Projet::create($validatedData);
-
-        return redirect()->route('dashboard')
-               ->with('success', 'Projet créé avec succès !');
+        $projets = Projet::orderBy('created_at', 'desc')->get();
+        return view('admin.projets.index', compact('projets'));
     }
 
-    public function update(Request $request, $id)
+    public function store(StoreProjetRequest $request)
     {
-        // Trouver le projet ou échouer
+        $validated = $request->validated();
+
+        DB::transaction(function () use ($request, &$validated) {
+            $validated['inscription_active'] = $request->boolean('inscription_active');
+
+            if ($request->hasFile('fichier_presentation')) {
+                $validated['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'public');
+            }
+
+            if ($request->hasFile('photo_logo')) {
+                $validated['photo_logo'] = $request->file('photo_logo')->store('projets/images', 'public');
+            }
+
+            $projet = Projet::create($validated);
+            $this->logAction('create', $projet, 'Création du projet : ' . $projet->intitule_projet);
+        });
+
+        return redirect()->route('admin.projets.index')->with('success', 'Projet créé avec succès !');
+    }
+
+    public function update(UpdateProjetRequest $request, $id)
+    {
         $projet = Projet::findOrFail($id);
+        $validated = $request->validated();
 
-        // Validation des données
-        $validatedData = $request->validate([
-            'structure_porteuse' => 'required|string|max:255',
-            'interlocuteur_local' => 'required|string|max:255',
-            'telephone_local' => 'required|string|max:20',
-            'courriel_local' => 'required|email|max:255',
-            'partenaire_diaspora' => 'required|string|max:255',
-            'interlocuteur_diaspora' => 'required|string|max:255',
-            'telephone_diaspora' => 'required|string|max:20',
-            'courriel_diaspora' => 'required|email|max:255',
-            'intitule_projet' => 'required|string|max:255',
-            'lieu_intervention' => 'required|string|max:255',
-            'thematique_projet' => 'required|string|max:255',
-            'autres_partenaires' => 'nullable|string',
-            'duree_totale' => 'required|string|max:50',
-            'cout_total' => 'required|numeric',
-            'participation_ayenah' => 'nullable|numeric',
-            'fichier_presentation' => 'nullable|file|mimes:pdf,docx',
-            'photo_logo' => 'nullable|image|mimes:jpg,jpeg,png'
-        ]);
+        DB::transaction(function () use ($request, $projet, &$validated) {
+            $validated['inscription_active'] = $request->boolean('inscription_active');
 
-        // Gestion des fichiers
-        if ($request->hasFile('fichier_presentation')) {
-            if ($projet->fichier_presentation) {
-                Storage::disk('public')->delete($projet->fichier_presentation);
+            if ($request->hasFile('fichier_presentation')) {
+                if ($projet->fichier_presentation) {
+                    Storage::disk('public')->delete($projet->fichier_presentation);
+                }
+                $validated['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'public');
             }
-            $validatedData['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'public');
-        }
 
-        if ($request->hasFile('photo_logo')) {
-            if ($projet->photo_logo) {
-                Storage::disk('public')->delete($projet->photo_logo);
+            if ($request->hasFile('photo_logo')) {
+                if ($projet->photo_logo) {
+                    Storage::disk('public')->delete($projet->photo_logo);
+                }
+                $validated['photo_logo'] = $request->file('photo_logo')->store('projets/images', 'public');
             }
-            $validatedData['photo_logo'] = $request->file('photo_logo')->store('projets/images', 'public');
-        }
 
-        // Mise à jour des données
-        $projet->update([
-            'nom_projet' => $validatedData['intitule_projet'],
-            'telephone' => $validatedData['telephone_local'],
-            'email' => $validatedData['courriel_local'],
-            'thematique' => $validatedData['thematique_projet'],
-            'description' => $validatedData['autres_partenaires'] ?? null,
-            'montant_souhaite' => $validatedData['participation_ayenah'] ?? 0,
-            'illustration' => $validatedData['photo_logo'] ?? null,
-            'type_entreprise' => 'Personne morale',
-            'statut' => 'En attente'
-        ]);
+            $projet->update($validated);
+            $this->logAction('update', $projet, 'Modification du projet : ' . $projet->intitule_projet);
+        });
 
-        // Retour avec un message de succès
-        return redirect()->route('dashboard')->with('success', 'Projet mis à jour avec succès !');
+        return redirect()->route('admin.projets.index')->with('success', 'Projet mis à jour avec succès !');
     }
-
 
     public function destroy($id)
     {
         $projet = Projet::findOrFail($id);
 
-        // Suppression des fichiers
-        if ($projet->fichier_presentation) {
-            Storage::disk('public')->delete($projet->fichier_presentation);
-        }
+        DB::transaction(function () use ($projet) {
+            if ($projet->fichier_presentation) {
+                Storage::disk('public')->delete($projet->fichier_presentation);
+            }
 
-        if ($projet->photo_logo) {
-            Storage::disk('public')->delete($projet->photo_logo);
-        }
+            if ($projet->photo_logo) {
+                Storage::disk('public')->delete($projet->photo_logo);
+            }
 
-        $projet->delete();
+            $this->logAction('delete', $projet, 'Suppression du projet : ' . $projet->intitule_projet);
+            $projet->delete();
+        });
 
-        return redirect()->route('dashboard')
-               ->with('success', 'Projet supprimé avec succès !');
+        return redirect()->route('admin.projets.index')->with('success', 'Projet supprimé avec succès !');
     }
 }

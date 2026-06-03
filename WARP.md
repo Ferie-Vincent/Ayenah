@@ -127,6 +127,24 @@ app/
 - **Laravel Pint**: Automated code formatting following Laravel conventions
 - **SonarCloud Integration**: Quality gates with metrics for code smells and duplicates
 
+## Product Specification
+
+The full product specification (feature roadmap, business rules, copy guidelines, data models) is maintained at:
+
+```
+docs/SPEC-PLATEFORME.md
+```
+
+This document covers:
+- Cadre institutionnel AYENAH (DGIE / AFD / CRPM II) — NON NÉGOCIABLE
+- État actuel de la plateforme (fonctionnalités implémentées)
+- Spécification complète du Mur d'Opportunités (à implémenter)
+- Règles de copy et vocabulaire obligatoire
+- Périmètre V1 (hors scope explicite)
+- Index des décisions prises
+
+**Always read `docs/SPEC-PLATEFORME.md` before working on new features.**
+
 ## Special Considerations
 
 ### Multilingual Support

@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('enregistrements', function (Blueprint $table) {
             $table->id();
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('email');
-            $table->string('phone');
-            $table->string('profession');
-            $table->string('location');
-            $table->string('project_name');
-            $table->decimal('amount', 10, 2);
-            $table->string('thematique');
+            $table->string('lastname')->nullable(false);
+            $table->string('firstname')->nullable(false);
+            $table->string('email')->unique();
+            $table->string('phone', 20)->unique();
+            $table->string('profession')->nullable(false);
+            $table->string('location')->nullable(false);
+            $table->string('project_name')->nullable(false);
+            $table->decimal('amount', 10, 2)->default(0);
+            $table->string('thematique')->nullable(false);
             $table->text('message')->nullable();
             $table->timestamps();
         });

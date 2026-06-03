@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Message;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer(['layout.*', 'admin.*'], function ($view) {
+            $total = Cache::remember('total_unread_messages', 300, function () {
+                return Message::where('status', 0)->count();
+            });
+            $view->with('total_messages', $total);
+        });
     }
 }
