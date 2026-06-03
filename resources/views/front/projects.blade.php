@@ -14,10 +14,10 @@
         </div>
     </div>
     <div class="banner-bg">
-        <img src="https://placehold.co/1920x476" alt="Image">
+        <img src="https://placehold.co/1920x476" alt="AYENAH">
     </div>
     <div class="shape">
-        <img src="{{asset('front/assets/images/shape.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/shape.png')}}" alt="AYENAH">
     </div>
 </section>
 <!-- ==== / banner section end ==== -->
@@ -30,15 +30,13 @@
                 <div class="cause__slider-inner" data-aos="fade-up" data-aos-duration="1000">
                     <div class="cause__slider-single van-tilt">
                         <div class="thumb">
-                            <a>
-                                <img src="{{asset('storage/' . $project->photo_logo)}}" alt="Image">
-                            </a>
+                            <img src="{{asset('storage/' . $project->photo_logo)}}" alt="{{ $project->intitule_projet }}" loading="lazy">
                             <div class="tag">
-                                <a>{{ $project->thematique_projet }}</a>
+                                <span>{{ $project->thematique_projet }}</span>
                             </div>
                         </div>
                         <div class="content">
-                            <h6><a>{{ $project->intitule_projet }}</a></h6>
+                            <h6>{{ $project->intitule_projet }}</h6>
                             <!-- <p>Lorem ipsum dolor sit amet, consete
                                 sadipscing elitr, sed diam nonum
                             </p> -->
@@ -66,6 +64,13 @@
                 </div>
             </div>
             @endforeach
+            @if ($projects->hasPages())
+            <div class="row mt-4">
+                <div class="col-12 d-flex justify-content-center">
+                    {{ $projects->links() }}
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </section>

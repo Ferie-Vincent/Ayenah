@@ -82,6 +82,7 @@
     <link rel="stylesheet" href="{{ asset ('front/assets/css/sticky-header.css') }}">
     <link rel="stylesheet" href="{{ asset ('front/assets/css/box-layout.css') }}">
     <link rel="stylesheet" href="{{ asset ('front/assets/css/rtl.css') }}">
+    <link rel="stylesheet" href="{{ asset ('front/assets/css/custom-responsive.css') }}">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

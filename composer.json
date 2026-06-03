@@ -11,6 +11,7 @@
         "laravel/breeze": "^2.3",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
+        "mews/purifier": "^3.4",
         "sentry/sentry-laravel": "^4.13",
         "spatie/laravel-csp": "^3.13",
         "spatie/laravel-sitemap": "^7.3"
