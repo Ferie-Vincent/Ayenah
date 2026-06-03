@@ -25,7 +25,9 @@ class SettingController extends Controller
 
     public function index()
     {
-        $settings = Setting::all()->groupBy('group');
+        $grouped = Setting::all()->groupBy('group');
+        $settings = collect(['contact', 'social', 'general'])
+            ->mapWithKeys(fn($g) => [$g => $grouped->get($g, collect())]);
         return view('admin.settings', compact('settings'));
     }
 
