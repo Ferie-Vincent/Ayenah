@@ -1,315 +1,218 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-layout="horizontal" data-menu-color="dark" data-topbar-color="light">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-sidenav-color="dark" data-bs-theme="light" data-topbar-color="light" data-layout-position="fixed" data-sidenav-size="default">
 
 <head>
-    <meta charset="utf-8" />
-    <title>Ayenah - Utilisateur | Dashboard</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Project Ayenah, Projet Ayenah, CRPM, Coopération Régionale des Politiques de Migrations, DGIE, Direction Générale des Ivoiriens de l'Extérieur, GAOUSSOU KARAMOKO, BAMADI SANOKHO, DIABATÉ OMIGNAN, JEAN PIERROT, DIASPORA IVOIRIENNE, EKISSI VINCENT FÉRIE EKISSI, CÔTE D'IVOIRE, AYENAH, OPPORTUNITÉS ÉCONOMIQUES, EXPERTISE FRANCE, AFD, AGENCE DE DÉVELOPPEMENT FRANÇAISE" name="description" />
-    <meta content="Level-si" name="author" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'AYENAH') — Administration</title>
 
-    <!-- App favicon -->
-    <link rel="icon" href="{{ asset ('front/assets/images/favicon.svg ') }}" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('front/assets/images/favicon.svg') }}" type="image/x-icon">
 
-    <link href="{{ asset ('admin/assets/libs/morris.js/morris.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Plugins css -->
-    <link href="{{ asset ('admin/assets/libs/dropzone/min/dropzone.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- third party css -->
-    <link href="{{ asset ('admin/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- third party css end -->
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" rel="stylesheet">
 
-    <link href="{{asset('admin/assets/libs/quill/quill.core.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/assets/libs/quill/quill.bubble.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{asset('admin/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Summernote (éditeur riche) -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.css" rel="stylesheet">
 
-    <link href="{{ asset ('admin/assets/libs/mohithg-switchery/switchery.min.css')}}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/multiselect/css/multi-select.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/selectize/css/selectize.bootstrap3.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset ('admin/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
-    <!-- App css -->
-    <link href="{{ asset ('admin/assets/css/style.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset ('admin/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css">
-    <script src="{{ asset ('admin/assets/js/config.js')}}"></script>
+    <!-- Admin Custom CSS -->
+    <link href="{{ asset('admin/assets/css/admin-custom.css') }}" rel="stylesheet">
 
+    @stack('styles')
 </head>
 
 <body>
 
-    <!-- Begin page -->
-    <div class="layout-wrapper">
+    <div class="wrapper">
 
-        <div class="main-menu">
+        <!-- ========== Topbar ========== -->
+        <header class="app-topbar">
+            <div class="topbar-inner">
+                <div class="d-flex align-items-center gap-3">
+                    <!-- Sidebar Toggle -->
+                    <button type="button" class="btn btn-link p-0 text-dark" id="btn-toggle-sidebar" aria-label="Ouvrir/Fermer le menu">
+                        <i data-lucide="menu" style="width:24px;height:24px;" aria-hidden="true"></i>
+                    </button>
 
-            <!-- Brand Logo -->
-            <div class="logo-box">
-                <!-- Brand Logo Light -->
-                <a class='logo' href="{{route('dashboard')}}">
-                    <img src="{{asset('front/assets/images/logo.png')}}" alt="logo" class="logo-lg" height="22">
-                    <img src="{{asset('front/assets/images/logo.png')}}" alt="logo" class="logo-lg" height="22">
-                </a>
-            </div>
+                    <!-- Page Title -->
+                    <h5 class="mb-0 d-none d-md-block">@yield('page-title', 'Administration')</h5>
+                </div>
 
-            <!--- Menu -->
-            <ul class="app-menu">
-
-                <li class="menu-title">Menu</li>
-
-                <li class="menu-item">
-                    <a class='menu-link waves-effect' href="{{route('dashboard')}}">
-                        <span class="menu-icon"><i class="bx bx-home"></i></span>
-                        <span class="menu-text"> Tableau de bord</span>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a class='menu-link waves-effect' href="{{route('visit')}}">
-                        <span class="menu-icon"><i class="bx bx-car"></i></span>
-                        <span class="menu-text"> Actualités</span>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a class='menu-link waves-effect' href="{{route('contributors')}}">
-                        <span class="menu-icon"><i class="bx bx-user"></i></span>
-                        <span class="menu-text"> Contibuteurs</span>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a class='menu-link waves-effect' href="{{route('message')}}">
-                        <span class="menu-icon"><i class="bx bx-message"></i></span>
-                        <span class="menu-text"> Messages Reçus
-                            @if($total_messages !== 0)
-                                <sup><kbd class="bg-danger text-white rounded-circle">{{$total_messages}}</kbd></sup>
-                            @endif
-                        </span>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a class='menu-link waves-effect' target="_blank" href="https://tawk.io">
-                        <span class="menu-icon"><i class="bx bx-message-rounded"></i></span>
-                        <span class="menu-text"> Chatbox</span>
-                    </a>
-                </li>
-
-                <li class="menu-item">
-                    <a class='menu-link waves-effect' target="_blank" href="https://analytics.google.com/analytics/web/">
-                        <span class="menu-icon"><i class="bx bx-chart"></i></span>
-                        <span class="menu-text"> Statistiques</span>
-                    </a>
-                </li>
-
-
-            </ul>
-            <!--- End Menu -->
-        </div>
-
-        <!-- ============================================================== -->
-        <!-- Start Page Content here -->
-        <!-- ============================================================== -->
-
-        <div class="page-content">
-
-            <!-- ========== Topbar Start ========== -->
-            <div class="navbar-custom">
-                <div class="topbar">
-                    <div class="topbar-menu d-flex align-items-center gap-lg-2 gap-1">
-
-                        <!-- Brand Logo -->
-                        <div class="logo-box">
-                            <!-- Brand Logo Dark -->
-                            <a class='logo-dark' href="{{route('dashboard')}}">
-                                <img src="{{asset('front/assets/images/logo.png')}}" alt="logo" class="logo-lg" height="40">
-                            </a>
-                        </div>
-
-                        <!-- Sidebar Menu Toggle Button -->
-                        <button class="button-toggle-menu">
-                            <i class="mdi mdi-menu"></i>
-                        </button>
+                <div class="d-flex align-items-center gap-3">
+                    <!-- User Dropdown -->
+                    <div class="dropdown">
+                        <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-sm me-2">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</div>
+                            <span class="d-none d-md-inline fw-medium">{{ Auth::user()->name }}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><h6 class="dropdown-header">Bienvenue !</h6></li>
+                            <li><a class="dropdown-item" href="{{ route('profile.edit') }}"><i data-lucide="user" class="me-2" style="width:16px;height:16px;"></i>Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ route('home') }}" target="_blank"><i data-lucide="external-link" class="me-2" style="width:16px;height:16px;"></i>Voir le site</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-danger">
+                                        <i data-lucide="log-out" class="me-2" style="width:16px;height:16px;"></i>Déconnexion
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
-
-                    <ul class="topbar-menu d-flex align-items-center gap-4">
-
-                        <li class="dropdown">
-                            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fa fa-user-circle" aria-hidden="true"></i>
-                                <span class="ms-1 d-none d-md-inline-block">
-                                    {{ Auth::user()->name }}<i class="mdi mdi-chevron-down"></i>
-                                </span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                <!-- item-->
-                                <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Bienvenue !</h6>
-                                </div>
-
-                                <!-- item-->
-                                <a href="{{route('profile.edit')}}" class="dropdown-item notify-item">
-                                    <i data-lucide="user" class="font-size-16 me-2"></i>
-                                    <span>Profil</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="{{route('home')}}" class="dropdown-item notify-item" target="_blank">
-                                    <i data-lucide="home" class="font-size-16 me-2"></i>
-                                    <span>Visiter le site</span>
-                                </a>
-
-                                <div class="dropdown-divider"></div>
-
-                                <!-- item-->
-                                <a class='dropdown-item notify-item' href="">
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-dropdown-link :href="route('logout')"
-                                            onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                            <i data-lucide="log-out" class="font-size-16 me-2"></i> {{ __('Déconnexion') }}
-                                        </x-dropdown-link>
-                                    </form>
-
-                                </a>
-
-                            </div>
-                        </li>
-
-                    </ul>
                 </div>
             </div>
-            <!-- ========== Topbar End ========== -->
+        </header>
+        <!-- ========== End Topbar ========== -->
 
-            <!-- Start Content-->
-            @yield('content')
+        <!-- ========== Sidebar ========== -->
+        <div class="sidenav-menu">
+            @include('layout.partials.admin-sidebar')
+        </div>
+        <div class="sidebar-overlay"></div>
+        <!-- ========== End Sidebar ========== -->
 
-            <!-- Footer Start -->
+        <!-- ========== Content ========== -->
+        <div class="content-page">
+            <div class="container-fluid">
+
+                <!-- Breadcrumb -->
+                @yield('breadcrumb')
+
+                <!-- Page Content -->
+                @yield('content')
+
+            </div>
+
+            <!-- Footer -->
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6">
-                            <div>
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> © AYENAH
-                            </div>
+                            {{ date('Y') }} &copy; AYENAH
                         </div>
-                        <div class="col-md-6">
-                            <div class="d-none d-md-flex gap-4 align-item-center justify-content-md-end">
-                                <p class="mb-0">Design & Develop by <a href="https://level-si.com" target="_blank">Level-si</a> </p>
-                            </div>
+                        <div class="col-md-6 text-end d-none d-md-block">
+                            Design & Develop by <a href="https://level-si.com" target="_blank">Level-si</a>
                         </div>
                     </div>
                 </div>
             </footer>
-            <!-- end Footer -->
-
         </div>
-
-        <!-- ============================================================== -->
-        <!-- End Page content -->
-        <!-- ============================================================== -->
-
+        <!-- ========== End Content ========== -->
 
     </div>
-    <!-- END wrapper -->
 
-    <!-- Toasts Bootstrap -->
-    <div class="toast-container position-fixed top-0 end-0 p-3">
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index:9999;" role="region" aria-live="polite" aria-label="Notifications">
         @if(session('success'))
-            <div class="toast show align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast show align-items-center text-bg-success border-0" role="alert" data-autohide="true">
                 <div class="d-flex">
-                    <div class="toast-body">
-                        {{ session('success') }}
-                    </div>
-                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <div class="toast-body">{{ session('success') }}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
                 </div>
             </div>
         @endif
 
         @if(session('error'))
-            <div class="toast show align-items-center text-bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast show align-items-center text-bg-danger border-0" role="alert" data-autohide="true">
+                <div class="d-flex">
+                    <div class="toast-body">{{ session('error') }}</div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        @endif
+
+        @if($errors->any())
+            <div class="toast show align-items-center text-bg-warning border-0" role="alert" data-autohide="true">
                 <div class="d-flex">
                     <div class="toast-body">
-                        {{ session('error') }}
+                        <ul class="mb-0 ps-3">
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                     </div>
-                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
                 </div>
             </div>
         @endif
     </div>
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.344.0"></script>
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Summernote -->
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-bs5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/lang/summernote-fr-FR.min.js"></script>
+
+    <!-- Admin Custom JS -->
+    <script src="{{ asset('admin/assets/js/admin.js') }}"></script>
+
+    <!-- DataTables Init -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-            var toastList = toastElList.map(function (toastEl) {
-                return new bootstrap.Toast(toastEl, { delay: 5000 }); // Toast auto-fermant après 5 secondes
+        $(document).ready(function() {
+            var dtConfig = {
+                responsive: true,
+                dom: '<"d-flex justify-content-between align-items-center mb-3"<"d-flex align-items-center"lB>f>rtip',
+                buttons: [
+                    { extend: 'csv', className: 'btn btn-sm btn-outline-secondary' },
+                    { extend: 'excel', className: 'btn btn-sm btn-outline-secondary' },
+                    { extend: 'print', className: 'btn btn-sm btn-outline-secondary' }
+                ],
+                language: {
+                    search: "Rechercher :",
+                    lengthMenu: "Afficher _MENU_ entrées",
+                    info: "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
+                    infoEmpty: "Aucune entrée",
+                    infoFiltered: "(filtré de _MAX_ entrées)",
+                    zeroRecords: "Aucun résultat trouvé",
+                    paginate: { previous: "Précédent", next: "Suivant" }
+                }
+            };
+
+            $('table[id^="dt-"]').each(function() {
+                if (!$.fn.DataTable.isDataTable(this)) {
+                    $(this).DataTable(dtConfig);
+                }
             });
-            toastList.forEach(toast => toast.show());
         });
     </script>
 
-    <!-- App js -->
-    <script src="{{ asset ('admin/assets/js/vendor.min.js')}}"></script>
-    <script src="{{ asset ('admin/assets/js/app.js')}}"></script>
-
-    <script src="{{ asset ('admin/assets/libs/morris.js/morris.min.js')}}"></script>
-
-    <script src="{{ asset ('admin/assets/libs/raphael/raphael.min.js')}}"></script>
-
-    <!-- third party js -->
-    <script src="{{ asset ('admin/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/datatables.net-select/js/dataTables.select.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-    <!-- Plugins Js -->
-    <script src="{{ asset ('admin/assets/libs/selectize/js/standalone/selectize.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/mohithg-switchery/switchery.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/multiselect/js/jquery.multi-select.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/jquery.quicksearch/jquery.quicksearch.min.html') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/select2/js/select2.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
-    <script src="{{ asset ('admin/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
-
-    <!-- Demo js -->
-    <script src="{{ asset ('admin/assets/js/pages/form-advanced.js')}}"></script>
-    <!-- third party js ends -->
-
-    <!-- Datatables js -->
-    <script src="{{ asset ('admin/assets/js/pages/datatables.js') }}"></script>
-    <!-- Dashboard init-->
-    <script src="{{ asset ('admin/assets/js/pages/dashboard.js')}}"></script>
-    <!-- Plugins js -->
-    <script src="{{ asset ('admin/assets/libs/quill/quill.min.js') }}"></script>
-
-    <!-- Plugins js -->
-    <script src="{{ asset ('admin/assets/libs/dropzone/min/dropzone.min.js')}}"></script>
-
-    <!-- Demo js-->
-    <script src="{{ asset ('admin/assets/js/pages/form-fileuploads.js')}}"></script>
-
-    <!-- Demo js-->
-    <script src="{{ asset ('admin/assets/js/pages/form-quilljs.js') }}"></script>
-
-
+    @stack('scripts')
 
 </body>
-
 </html>
