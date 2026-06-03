@@ -3,139 +3,91 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreVisiteRequest;
+use App\Http\Requests\UpdateVisiteRequest;
 use App\Models\Visite;
-use Illuminate\Http\Request;
+use App\Traits\LogsActivity;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
+use Mews\Purifier\Facades\Purifier;
 
 class VisiteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    use LogsActivity;
     public function index()
     {
-        $visites = Visite::orderBy('created_at', 'desc');
+        $visites = Visite::orderBy('created_at', 'desc')->get();
         return view('admin.visit', compact('visites'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(StoreVisiteRequest $request)
     {
-        // Validation des données
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'region' => 'required|string|max:255',
-            'dateVisited' => 'required|string',
-            'description' => 'required|string',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg',
-            'image1' => 'required|image|mimes:jpeg,png,jpg',
-            'image2' => 'required|image|mimes:jpeg,png,jpg',
-            'image3' => 'required|image|mimes:jpeg,png,jpg',
-            'image4' => 'required|image|mimes:jpeg,png,jpg',
-        ]);
+        $validated = $request->validated();
 
-        // Traitement des images
-        $imageFields = ['cover_image', 'image1', 'image2', 'image3', 'image4'];
-        foreach ($imageFields as $field) {
-            if ($request->hasFile($field)) {
-                $validated[$field] = $request->file($field)->store('visites', 'public');
+        DB::transaction(function () use ($request, &$validated) {
+            $validated['description'] = Purifier::clean($validated['description']);
+
+            $imageFields = ['cover_image', 'image1', 'image2', 'image3', 'image4'];
+            foreach ($imageFields as $field) {
+                if ($request->hasFile($field)) {
+                    $validated[$field] = $request->file($field)->store('visites', 'public');
+                }
             }
-        }
 
+            $visite = Visite::create($validated);
+            $this->logAction('create', $visite, 'Création de l\'actualité : ' . $visite->title);
+        });
 
-        // Création de la visite
-        Visite::create($validated);
-        session()->flash('success', 'Visite ajoutée avec succès !');
-        // Redirection avec message de succès
-        return redirect()->route('visit');
+        return redirect()->route('visit')->with('success', 'Visite ajoutée avec succès !');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        $visite = Visite::findOrFail($id);
-        return view('front.visit', compact('visite'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $visite = Visite::findOrFail($id);
-        return view('visit', compact('visite'));
+        return view('admin.visit', compact('visite'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateVisiteRequest $request, string $id)
     {
-        // Récupération de la visite
         $visite = Visite::findOrFail($id);
+        $validated = $request->validated();
 
-        // Validation des données
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'region' => 'required|string|max:255',
-            'dateVisited' => 'required|string',
-            'description' => 'required|string',
-            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg',
-            'image1' => 'nullable|image|mimes:jpeg,png,jpg',
-            'image2' => 'nullable|image|mimes:jpeg,png,jpg',
-            'image3' => 'nullable|image|mimes:jpeg,png,jpg',
-            'image4' => 'nullable|image|mimes:jpeg,png,jpg',
-        ]);
+        DB::transaction(function () use ($request, $visite, &$validated) {
+            $validated['description'] = Purifier::clean($validated['description']);
 
-        // Traitement des images
-        $imageFields = ['cover_image', 'image1', 'image2', 'image3', 'image4'];
-        foreach ($imageFields as $field) {
-            if ($request->hasFile($field)) {
-                // Suppression de l'ancienne image si elle existe
-                if ($visite->$field && Storage::disk('public')->exists($visite->$field)) {
-                    Storage::disk('public')->delete($visite->$field);
-                }
-                $validated[$field] = $request->file($field)->store('visites', 'public');
-            }
-        }
-
-        // Mise à jour de la visite
-        $visite->update($validated);
-        session()->flash('success', 'Visite mise à jour avec succès !');
-        // Redirection avec message de succès
-        return redirect()->route('visit')->with('success', 'Visite mise à jour avec succès.');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        try {
-            // Récupération de la visite
-            $visite = Visite::findOrFail($id);
-
-            // Suppression des fichiers associés
             $imageFields = ['cover_image', 'image1', 'image2', 'image3', 'image4'];
             foreach ($imageFields as $field) {
-                if ($visite->$field && Storage::disk('public')->exists($visite->$field)) {
+                if ($request->hasFile($field)) {
+                    if ($visite->$field && !str_contains($visite->$field, '..') && Storage::disk('public')->exists($visite->$field)) {
+                        Storage::disk('public')->delete($visite->$field);
+                    }
+                    $validated[$field] = $request->file($field)->store('visites', 'public');
+                }
+            }
+
+            $visite->update($validated);
+            $this->logAction('update', $visite, 'Modification de l\'actualité : ' . $visite->title);
+        });
+
+        return redirect()->route('visit')->with('success', 'Visite mise à jour avec succès !');
+    }
+
+    public function destroy(string $id)
+    {
+        $visite = Visite::findOrFail($id);
+
+        DB::transaction(function () use ($visite) {
+            $imageFields = ['cover_image', 'image1', 'image2', 'image3', 'image4'];
+            foreach ($imageFields as $field) {
+                if ($visite->$field && !str_contains($visite->$field, '..') && Storage::disk('public')->exists($visite->$field)) {
                     Storage::disk('public')->delete($visite->$field);
                 }
             }
 
-            // Suppression de la visite
+            $this->logAction('delete', $visite, 'Suppression de l\'actualité : ' . $visite->title);
             $visite->delete();
+        });
 
-            session()->flash('error', 'Actualité supprimée avec succès !');
-            return redirect()->route('visit');
-        } catch (\Exception $e) {
-            session()->flash('error', 'Erreur lors de la suppression de l\'actualité !');
-            return redirect()->back();
-        }
+        return redirect()->route('visit')->with('success', 'Actualité supprimée avec succès !');
     }
 }
