@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" fill="none" role="img" aria-label="AYENAH">
+  <!-- Accent bar -->
+  <rect x="0" y="10" width="4" height="28" rx="2" fill="#6a9755"/>
+  <!-- Wordmark -->
+  <text
+    x="14"
+    y="35"
+    font-family="'Plus Jakarta Sans', 'Nunito Sans', Arial, sans-serif"
+    font-size="28"
+    font-weight="800"
+    letter-spacing="2"
+    fill="#1a2e1a">AYENAH</text>
+  <!-- Tagline -->
+  <text
+    x="15"
+    y="46"
+    font-family="'Plus Jakarta Sans', Arial, sans-serif"
+    font-size="7"
+    font-weight="500"
+    letter-spacing="1.5"
+    fill="#6a9755">DIASPORA · DÉVELOPPEMENT</text>
+</svg>
