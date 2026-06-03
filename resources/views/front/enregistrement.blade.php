@@ -289,22 +289,26 @@
                             </div>
                         </div>
 
-                        <!-- Budget — visible seulement Volet 1 -->
-                        <div class="col-md-6" id="champ-budget" style="{{ old('volet') === 'volet_2_expertise' ? 'display:none;' : '' }}">
+                        <!-- Budget — Volet 1 -->
+                        <div class="col-md-6" id="champ-budget">
                             <div class="simple-form__group">
                                 <label for="amount">Contribution financière de votre association (€) <span>*</span></label>
                                 <div class="simple-form__input-wrap">
                                     <i class="fa fa-euro-sign simple-form__input-icon"></i>
                                     <input type="number" name="amount" id="amount"
                                         placeholder="Ex : 15 000"
+                                        min="0"
                                         max="50000"
                                         value="{{ old('amount') }}"
                                         class="simple-form__input--icon">
                                 </div>
-                                <p class="simple-form__hint">
-                                    <i class="fa fa-info-circle"></i>
-                                    Votre association doit assurer <strong>min. 30 % du budget total</strong> du projet (cofinancement obligatoire). La subvention AYENAH couvre max. 50 000 € et max. 70 % du budget.
-                                </p>
+                                <div style="margin-top:8px;display:flex;gap:8px;align-items:flex-start;background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 12px;">
+                                    <i class="fa fa-info-circle" style="color:#d97706;margin-top:2px;flex-shrink:0;"></i>
+                                    <div style="font-size:12px;color:#78350f;line-height:1.5;">
+                                        Votre association doit couvrir <strong>au minimum 30 % du budget total</strong> du projet.<br>
+                                        La subvention AYENAH finance <strong>max. 70 %</strong> du budget, plafonnée à <strong>50 000 €</strong>.
+                                    </div>
+                                </div>
                                 @error('amount')<p class="simple-form__error">{{ $message }}</p>@enderror
                             </div>
                         </div>
