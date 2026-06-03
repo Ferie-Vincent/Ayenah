@@ -32,16 +32,13 @@
     <!-- Admin Custom CSS -->
     <link href="{{ asset('admin/assets/css/admin-custom.css') }}?v={{ filemtime(public_path('admin/assets/css/admin-custom.css')) }}" rel="stylesheet">
 
-    <!-- Table force override — inline, no cache -->
+    <!-- Table overrides — box-shadow kill + collapse -->
     <style>
         table.dataTable { border-collapse: collapse !important; border-spacing: 0 !important; }
-        table.dataTable thead th,
-        table.dataTable thead td { background: #f1f5f9 !important; color: #475569 !important; border-top: none !important; border-bottom: 2px solid #cbd5e1 !important; font-size: 10.5px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: .06em !important; padding: 10px 14px !important; }
-        table.dataTable tbody tr td { padding: 9px 14px !important; vertical-align: middle !important; border-top: none !important; border-bottom: 1px solid #e2e8f0 !important; font-size: 13px !important; }
-        table.dataTable tbody tr:nth-child(odd) td  { background: #f8fafc !important; }
-        table.dataTable tbody tr:nth-child(even) td { background: #ffffff !important; }
+        table.dataTable thead th { background: #f1f5f9 !important; color: #475569 !important; border-bottom: 2px solid #cbd5e1 !important; border-top: none !important; font-size: 10.5px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: .06em !important; padding: 10px 14px !important; box-shadow: none !important; }
+        table.dataTable tbody td { padding: 10px 14px !important; vertical-align: middle !important; border-top: none !important; border-bottom: 1px solid #e2e8f0 !important; font-size: 13px !important; box-shadow: none !important; --bs-table-accent-bg: transparent !important; }
         table.dataTable tbody tr:last-child td { border-bottom: none !important; }
-        table.dataTable tbody tr:hover td { background: #f0fdf4 !important; }
+        table.dataTable tbody tr:hover td { background-color: #f0fdf4 !important; box-shadow: none !important; }
     </style>
 
     @stack('styles')
@@ -196,6 +193,38 @@
 
     <!-- DataTables Init -->
     <script>
+        function applyTableStyles(tableNode) {
+            // Force styles directly on DOM after DataTables render
+            $(tableNode).find('thead th').each(function() {
+                this.style.setProperty('background', '#f1f5f9', 'important');
+                this.style.setProperty('color', '#475569', 'important');
+                this.style.setProperty('border-bottom', '2px solid #cbd5e1', 'important');
+                this.style.setProperty('border-top', 'none', 'important');
+                this.style.setProperty('font-size', '10.5px', 'important');
+                this.style.setProperty('font-weight', '700', 'important');
+                this.style.setProperty('text-transform', 'uppercase', 'important');
+                this.style.setProperty('letter-spacing', '.06em', 'important');
+                this.style.setProperty('padding', '10px 14px', 'important');
+                this.style.setProperty('box-shadow', 'none', 'important');
+            });
+            $(tableNode).find('tbody tr').each(function(i) {
+                var bg = (i % 2 === 0) ? '#f8fafc' : '#ffffff';
+                $(this).find('td').each(function() {
+                    this.style.setProperty('padding', '9px 14px', 'important');
+                    this.style.setProperty('border-bottom', '1px solid #e2e8f0', 'important');
+                    this.style.setProperty('border-top', 'none', 'important');
+                    this.style.setProperty('vertical-align', 'middle', 'important');
+                    this.style.setProperty('font-size', '13px', 'important');
+                    this.style.setProperty('box-shadow', 'none', 'important');
+                    this.style.setProperty('background-color', bg, 'important');
+                });
+            });
+            // Remove border from last row
+            $(tableNode).find('tbody tr:last-child td').each(function() {
+                this.style.setProperty('border-bottom', 'none', 'important');
+            });
+        }
+
         $(document).ready(function() {
             var dtConfig = {
                 responsive: true,
@@ -213,13 +242,30 @@
                     infoFiltered: "(filtré de _MAX_ entrées)",
                     zeroRecords: "Aucun résultat trouvé",
                     paginate: { previous: "Précédent", next: "Suivant" }
+                },
+                drawCallback: function() {
+                    applyTableStyles(this.api().table().node());
                 }
             };
 
             $('table[id^="dt-"]').each(function() {
                 if (!$.fn.DataTable.isDataTable(this)) {
-                    $(this).DataTable(dtConfig);
+                    var dt = $(this).DataTable(dtConfig);
+                    applyTableStyles(this);
                 }
+            });
+
+            // Hover via event delegation — CSS !important still handles it
+            $(document).on('mouseenter', 'table.dataTable tbody tr', function() {
+                $(this).find('td').each(function() {
+                    this.style.setProperty('background-color', '#f0fdf4', 'important');
+                });
+            }).on('mouseleave', 'table.dataTable tbody tr', function() {
+                var i = $(this).index();
+                var bg = (i % 2 === 0) ? '#f8fafc' : '#ffffff';
+                $(this).find('td').each(function() {
+                    this.style.setProperty('background-color', bg, 'important');
+                });
             });
         });
     </script>
