@@ -2,6 +2,8 @@
 
 @section('title', 'AYENAH | Accueil - Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')
 
+@section('meta_description', 'AYENAH mobilise la diaspora ivoirienne pour le développement de la Côte d\'Ivoire. Financez vos projets jusqu\'à 50 000 EUR ou proposez votre expertise.')
+
 @section('content')
 
 <!-- ==== banner start ==== -->
@@ -20,10 +22,6 @@
                                     <a href="{{route('enregistrement')}}" aria-label="Enregistrement" title="Enregistrez-vous"
                                         class="btn--tertiary">J'ai un Projet 🎉<i
                                             class="fa-solid fa-arrow-right"></i></a>
-                                    <!-- <a onclick="inscription()" aria-label="Projet" title="Projet" class="btn--primary">
-                                        Présentez votre projet
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </a> -->
                                 </div>
                             </div>
                         </div>
@@ -46,12 +44,12 @@
         <div class="row align-items-center">
             <div class="col-12 col-lg-5 mb-4 mb-lg-0">
                 <div class="difference-three__thumb text-center text-lg-start">
-                    <div class="difference-three__thumb-inner">
-                        <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/gaoussou.jpg')}}" alt="Dr. Gaoussou Karamoko - Directeur Général des Ivoiriens de l'Extérieur" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <div class="difference-three__thumb-inner photo-3d-float">
+                        <div class="photo-3d-float__inner thumb-lg" data-aos="fade-right" data-aos-duration="1000">
+                            <img src="{{ asset ('front/assets/images/gaoussou.jpg')}}" alt="Dr. Gaoussou Karamoko - Directeur Général des Ivoiriens de l'Extérieur" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);" loading="lazy">
                         </div>
                         <div class="line">
-                            <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="Image">
+                            <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="AYENAH - décoration" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -60,23 +58,17 @@
                 <div class="difference-three__content">
                     <div class="section__content">
                         <h2 class="title-animation"><span>Dr. GAOUSSOU KARAMOKO</span> Directeur Général des
-                            Ivoiriens Extérieur</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum deserunt fugit
-                            molestias ipsum ad incidunt consequatur, necessitatibus, delectus quia atque, nulla
-                            veniam reprehenderit culpa rem aliquam. Nulla quae molestias neque.
+                            Ivoiriens de l'Extérieur</h2>
+                        <p style="text-align: justify;">
+                            La Direction Générale des Ivoiriens de l'Extérieur (DGIE) a pour mission de renforcer les liens entre la Côte d'Ivoire et sa diaspora. Avec plus de 1,2 million d'Ivoiriens répartis dans le monde, nous avons un potentiel immense à mobiliser pour le développement de notre nation.
                         </p>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, dolores, eum
-                            amet, dolor rerum reprehenderit rem quibusdam perspiciatis sit repellat numquam
-                            ratione porro illo aliquam incidunt id similique. Veniam, incidunt?
+                        <p style="text-align: justify;">
+                            Le projet AYENAH représente une avancée majeure dans notre stratégie de mobilisation de la diaspora. Il offre un cadre structuré et sécurisé pour transformer l'engagement de nos compatriotes de l'extérieur en actions concrètes sur le terrain.
                         </p>
                     </div>
                     <div class="differnce-quote">
                         <blockquote>
-                            <q><span>Lorem ipsum dolor</span>
-                                sit amet consectetur adipisicing elit. Officiis consequatur aperiam laborum
-                                tempore ipsum officia dolorum omnis iste natus.
+                            <q><span>AYENAH</span> incarne notre vision d'une diaspora pleinement intégrée dans le processus de développement national. Ensemble, construisons l'avenir de la Côte d'Ivoire.
                             </q>
                         </blockquote>
                     </div>
@@ -87,7 +79,7 @@
 </section>
 <!-- ==== / DG GAOUSSOU KARAMOKO end ==== -->
 
-<div class="w-50 mx-auto text-center" style="color: green;">
+<div class="w-50 mx-auto text-center divider-green" style="color: green;">
     <hr>
 </div>
 
@@ -121,9 +113,9 @@
             </div>
             <div class="col-12 col-lg-5">
                 <div class="difference-three__thumb text-center text-lg-end">
-                    <div class="difference-three__thumb-inner">
-                        <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/bamadi.jpg')}}" alt="M. Bamadi Sanokho - Chef de Projet CRPM2" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <div class="difference-three__thumb-inner photo-3d-float">
+                        <div class="photo-3d-float__inner thumb-lg" data-aos="fade-right" data-aos-duration="1000">
+                            <img src="{{ asset ('front/assets/images/bamadi.jpg')}}" alt="M. Bamadi Sanokho - Chef de Projet CRPM2" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -133,7 +125,7 @@
 </section>
 <!-- ==== / Bamadi Sanokho end ==== -->
 
-<div class="w-50 mx-auto text-center" style="color: green;">
+<div class="w-50 mx-auto text-center divider-green" style="color: green;">
     <hr>
 </div>
 
@@ -143,12 +135,12 @@
         <div class="row align-items-center">
             <div class="col-12 col-lg-5">
                 <div class="difference-three__thumb text-center text-lg-end">
-                    <div class="difference-three__thumb-inner">
-                        <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
-                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Mme Diabaté Omignan. - Coordinatrice du Projet AYENAH" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                    <div class="difference-three__thumb-inner photo-3d-float">
+                        <div class="photo-3d-float__inner thumb-lg" data-aos="fade-right" data-aos-duration="1000">
+                            <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Mme Diabaté Omignan - Coordinatrice du Projet AYENAH" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);" loading="lazy">
                         </div>
                         <div class="line">
-                            <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="Image">
+                            <img src="{{ asset ('front/assets/images/difference/line.png') }}" alt="AYENAH - décoration" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -178,7 +170,7 @@
                     <div class="differnce-quote">
                         <blockquote>
                             <q>Avec <span> AYENAH</span>
-                            Prenez part à une nouvelle dynamique de DÉVELOPPEMENT LOCALE
+                            Prenez part à une nouvelle dynamique de DÉVELOPPEMENT LOCAL
                             </q>
                         </blockquote>
                     </div>
@@ -189,7 +181,7 @@
 </section>
 <!-- ==== / DIABATÉ OMIGNAN end ==== -->
 
-<div class="w-50 mx-auto text-center" style="color: green;">
+<div class="w-50 mx-auto text-center divider-green" style="color: green;">
     <hr>
 </div>
 
@@ -245,18 +237,88 @@
                         <p>Maximum: <span class="goal">50,000 €</span></p>
                     </div>
                     <div class="cta">
-                        <a href="" class="btn--primary">Participez </a>
+                        <a href="{{ route('enregistrement') }}" class="btn--primary">Participez </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="donation-bg">
-        <img src="{{asset('front/assets/images/banner/bg-1.png')}}" alt="Image" class="parallax-image">
-        <img src="{{asset('front/assets/images/donation/shape.png')}}" alt="Image" class="shape">
+        <img src="{{asset('front/assets/images/banner/bg-1.png')}}" alt="AYENAH - arrière-plan" class="parallax-image">
+        <img src="{{asset('front/assets/images/donation/shape.png')}}" alt="" class="shape" loading="lazy">
     </div>
 </section>
 <!-- ==== / Présentation AYENAH end ==== -->
+
+<!-- ==== Les 3 Piliers Section ==== -->
+<section class="section-padding" style="background: linear-gradient(180deg, #f8faf8 0%, #ffffff 100%);">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up" data-aos-duration="1000">
+            <span class="section-header__subtitle">PROGRAMME</span>
+            <h2 class="section-header__title">Les 3 Piliers du Programme <span>AYENAH</span></h2>
+            <p class="section-header__desc">Trois façons de contribuer au développement de la Côte d'Ivoire</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                <div class="pilier-card-3d">
+                    <div class="pilier-card-3d__inner">
+                        <div class="pilier-card pilier-card--green text-center">
+                            <div class="pilier-card__icon">
+                                <i class="fa fa-hand-holding-heart"></i>
+                            </div>
+                            <span class="pilier-card__number">Pilier 1</span>
+                            <h4 class="pilier-card__title">Initiatives Locales</h4>
+                            <p class="pilier-card__text">Cofinancement de projets de développement portés conjointement par la diaspora et des structures locales</p>
+                            <div class="pilier-card__badge">
+                                <span>Jusqu'à 50 000 EUR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="pilier-card-3d">
+                    <div class="pilier-card-3d__inner">
+                        <div class="pilier-card pilier-card--orange text-center">
+                            <div class="pilier-card__icon">
+                                <i class="fa fa-user-tie"></i>
+                            </div>
+                            <span class="pilier-card__number">Pilier 2</span>
+                            <h4 class="pilier-card__title">Expertise Diaspora</h4>
+                            <p class="pilier-card__text">Mobilisation des compétences professionnelles pour des missions d'appui technique en Côte d'Ivoire</p>
+                            <div class="pilier-card__badge">
+                                <span>Missions prises en charge</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <div class="pilier-card-3d">
+                    <div class="pilier-card-3d__inner">
+                        <div class="pilier-card pilier-card--coral text-center">
+                            <div class="pilier-card__icon">
+                                <i class="fa fa-comments"></i>
+                            </div>
+                            <span class="pilier-card__number">Pilier 3</span>
+                            <h4 class="pilier-card__title">Dialogue Institutionnel</h4>
+                            <p class="pilier-card__text">Renforcement du cadre d'échange entre l'État ivoirien et sa diaspora à travers des forums</p>
+                            <div class="pilier-card__badge">
+                                <span>Forums & Ateliers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up" data-aos-duration="1000">
+            <a href="{{ route('piliers') }}" class="btn-ayenah btn-ayenah--primary">
+                <i class="fa fa-arrow-right"></i> Découvrir les 3 piliers en détail
+            </a>
+        </div>
+    </div>
+</section>
+<!-- ==== / Les 3 Piliers Section end ==== -->
 
 <!-- ==== Liste de Projets start ==== -->
  <!-- <section class="cause cause-three" id="causeSection">
@@ -269,11 +331,11 @@
             </div>
             <div class="col-12 col-md-4 col-xl-5">
                 <div class="slider-navigation">
-                    <button type="button" aria-label="prev slide" title="prev slide"
+                    <button type="button" aria-label="diapositive précédente" title="diapositive précédente"
                         class="prev-cause slider-btn">
                         <i class="fa-solid fa-arrow-left"></i>
                     </button>
-                    <button type="button" aria-label="next slide" title="next slide"
+                    <button type="button" aria-label="diapositive suivante" title="diapositive suivante"
                         class="next-cause slider-btn slider-btn-next">
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
@@ -290,7 +352,7 @@
                                     <div class="cause__slider-single">
                                         <div class="thumb">
                                             <a>
-                                                <img src="https://placehold.co/291x212" alt="Image">
+                                                <img src="https://placehold.co/291x212" alt="Image" loading="lazy">
                                             </a>
                                             <div class="tag">
                                                 <a href="our-causes.html">Agro-industrie</a>
@@ -314,7 +376,7 @@
                                                 <hr>
                                                 <div class="cause-progress__bar">
                                                     <p>
-                                                        Nom de la structure porteur de projet : <span class="goal"> COVEFAH </span>
+                                                        Nom de la structure porteuse de projet : <span class="goal"> COVEFAH </span>
                                                     </p>
                                                     <p>
                                                         Partenaire de la DIASPORA : <span class="goal"> NOVAIS COSMETICS </span>
@@ -333,7 +395,7 @@
                                     <div class="cause__slider-single">
                                         <div class="thumb">
                                             <a>
-                                                <img src="https://placehold.co/291x212" alt="Image">
+                                                <img src="https://placehold.co/291x212" alt="Image" loading="lazy">
                                             </a>
                                             <div class="tag">
                                                 <a href="our-causes.html">Développement durable</a>
@@ -359,7 +421,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                                 <hr>
                                                 <div class="cause-progress__bar">
                                                     <p>
-                                                        Nom de la structure porteur de projet : <span class="goal"> SK GROUP AFRICA </span>
+                                                        Nom de la structure porteuse de projet : <span class="goal"> SK GROUP AFRICA </span>
                                                     </p>
                                                     <p>
                                                         Partenaire de la DIASPORA: <span class="goal"> DIASPERE PER LA PACE </span>
@@ -380,7 +442,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
         <div class="row">
             <div class="col-12">
                 <div class="section__cta cta text-center">
-                    <a href="{{route('projects')}}" aria-label="contact" title="contact"
+                    <a href="{{route('projects')}}" aria-label="voir les projets soutenus" title="voir les projets soutenus"
                         class="btn--primary">Voir la liste des projets
                         <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
@@ -389,7 +451,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
     </div>
 
     <div class="spade">
-        <img src="{{asset('front/assets/images/help/spade.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/help/spade.png')}}" alt="" loading="lazy">
     </div>
 </section> -->
 <!-- ==== / Liste de Projets end ==== -->
@@ -411,7 +473,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                     <div class="team__single van-tilt">
                         <div class="team__single-thumb">
                             <a href="team-details.html">
-                                <img src="https://placehold.co/315x350" alt="Image">
+                                <img src="https://placehold.co/315x350" alt="Image" loading="lazy">
                             </a>
                         </div>
                         <div class="team__single-content">
@@ -426,7 +488,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                     <div class="team__single van-tilt">
                         <div class="team__single-thumb">
                             <a href="team-details.html">
-                                <img src="https://placehold.co/315x350" alt="Image">
+                                <img src="https://placehold.co/315x350" alt="Image" loading="lazy">
                             </a>
                         </div>
                         <div class="team__single-content">
@@ -441,7 +503,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                     <div class="team__single van-tilt">
                         <div class="team__single-thumb">
                             <a href="team-details.html">
-                                <img src="https://placehold.co/315x350" alt="Image">
+                                <img src="https://placehold.co/315x350" alt="Image" loading="lazy">
                             </a>
                         </div>
                         <div class="team__single-content">
@@ -456,7 +518,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                     <div class="team__single van-tilt">
                         <div class="team__single-thumb">
                             <a href="team-details.html">
-                                <img src="https://placehold.co/315x350" alt="Image">
+                                <img src="https://placehold.co/315x350" alt="Image" loading="lazy">
                             </a>
                         </div>
                         <div class="team__single-content">
@@ -470,8 +532,8 @@ et Commercialisation Modernes dans la Région du Grand Est et
         <div class="row">
             <div class="col-12">
                 <div class="section__cta cta text-center">
-                    <a href="{{route('contact')}}" aria-label="contact" title="contact"
-                        class="btn--primary">Écrivez nous si vous voulez en faire partir
+                    <a href="{{route('contact')}}" aria-label="nous contacter" title="nous contacter"
+                        class="btn--primary">Écrivez nous si vous voulez en faire partie
                         <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -496,7 +558,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                             </div>
                             <div class="col-12 col-lg-4 col-xxl-5">
                                 <div class="help-cta">
-                                    <a href="{{route('about')}}" aria-label="about" title="about"
+                                    <a href="{{route('about')}}" aria-label="en savoir plus" title="en savoir plus"
                                         class="btn--primary">En savoir plus<i
                                             class="fa-solid fa-arrow-right"></i>
                                     </a>
@@ -570,7 +632,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                 </div>
                             </div>
                         </div>
-                        <img src="{{asset('front/assets/images/v-line.png')}}" alt="Image" class="v-line d-none d-xxl-block">
+                        <img src="{{asset('front/assets/images/v-line.png')}}" alt="" class="v-line d-none d-xxl-block" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -581,8 +643,8 @@ et Commercialisation Modernes dans la Région du Grand Est et
     <div class="help-three-bg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
         <!-- <img src="assets/images/bg-one.png" alt="Image" class="bg-help"> -->
         <div class="poor-boy">
-            <img src="{{asset('front/assets/images/critere.png')}}" alt="Image" class="poor">
-            <img src="{{asset('front/assets/images/shape-three.png')}}" alt="Image" class="shape">
+            <img src="{{asset('front/assets/images/critere.png')}}" alt="Critères d'éligibilité AYENAH" class="poor" loading="lazy">
+            <img src="{{asset('front/assets/images/shape-three.png')}}" alt="" class="shape" loading="lazy">
         </div>
     </div>
 </section>
@@ -597,52 +659,52 @@ et Commercialisation Modernes dans la Région du Grand Est et
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Agence Française de Développement (AFD)">
+                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Agence Française de Développement (AFD)" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Coopération Régionale des Politiques Migratoires - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Coopération Régionale des Politiques Migratoires - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/dgie.png')}}" alt="Direction Générale des Ivoiriens de l'Extérieur - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/dgie.png')}}" alt="Direction Générale des Ivoiriens de l'Extérieur - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/ae.png')}}" alt="Ministère des Affaires Étrangères de l'Intégration Africaine, et des Ivoiriens de l'Extérieur - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Agence Française de Développement (AFD)">
+                                <img src="{{asset('front/assets/images/sponsor/afd.png')}}" alt="Agence Française de Développement (AFD)" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Coopération Régionale des Politiques Migratoires - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/crpm.png')}}" alt="Coopération Régionale des Politiques Migratoires - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/ef.png')}}" alt="Expertise France - Ayenah" loading="lazy">
                             </div>
                         </div>
                         <div class="swiper-slide">
                             <div class="partner__slider-single">
-                                <img src="{{asset('front/assets/images/sponsor/dgie.png')}}" alt="Direction Générale des Ivoiriens de l'Extérieur - Ayenah">
+                                <img src="{{asset('front/assets/images/sponsor/dgie.png')}}" alt="Direction Générale des Ivoiriens de l'Extérieur - Ayenah" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -728,17 +790,17 @@ et Commercialisation Modernes dans la Région du Grand Est et
                                     <button class="accordion-button collapsed" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                         aria-expanded="false" aria-controls="collapseFour">
-                                        4. Lorem ipsum dolor sit amet, consectetur adipisicing elit ?
+                                        4. Quel est le montant maximum de financement ?
                                     </button>
                                 </h6>
                                 <div id="collapseFour" class="accordion-collapse collapse"
                                     aria-labelledby="headingFour" data-bs-parent="#accordion">
                                     <div class="accordion-body">
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum iste
-                                            ipsa quod delectus, vel dicta, quidem, explicabo quaerat repudiandae
-                                            eaque minus nobis impedit quo.
-                                        </p>
+                                        <ul>
+                                            <li>Subvention maximale : <strong>50 000 EUR</strong> par projet</li>
+                                            <li>AYENAH finance jusqu'à <strong>70%</strong> du coût total</li>
+                                            <li>Les bénéficiaires doivent apporter au moins <strong>30%</strong></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -750,7 +812,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="faq__thumb d-none d-lg-block">
                     <div class="faq__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                            <img src="{{asset('front/assets/images/faq.png')}}" alt="FAQs - Ayenah">
+                            <img src="{{asset('front/assets/images/faq.png')}}" alt="FAQs - Ayenah" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -758,7 +820,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
         </div>
     </div>
     <div class="shape d-none d-lg-block">
-        <img src="{{asset('front/assets/images/faq/shape.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/faq/shape.png')}}" alt="" loading="lazy">
     </div>
 </section>
 <!-- ==== / faq section end ==== -->
@@ -780,7 +842,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
                         <a href="{{route('event', $visite->id)}}">
-                            <img src="{{asset('storage/' .$visite->cover_image)}}" alt="{{ $visite->title }}" >
+                            <img src="{{asset('storage/' .$visite->cover_image)}}" alt="{{ $visite->title }}" loading="lazy">
                         </a>
                     </div>
                     <div class="content">
@@ -803,7 +865,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
                         <a href="{{route('event', $visites->first()->id)}}">
-                            <img src="https://placehold.co/870x400" alt="Image">
+                            <img src="https://placehold.co/870x400" alt="Image" loading="lazy">
                         </a>
                     </div>
                     <div class="content">
@@ -824,7 +886,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
                         <a href="{{route('event', $visites->first()->id)}}">
-                            <img src="https://placehold.co/870x400" alt="Image">
+                            <img src="https://placehold.co/870x400" alt="Image" loading="lazy">
                         </a>
                     </div>
                     <div class="content">
@@ -845,7 +907,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
                     <div class="thumb">
                         <a href="{{route('event', $visites->first()->id)}}">
-                            <img src="https://placehold.co/870x400" alt="Image">
+                            <img src="https://placehold.co/870x400" alt="Image" loading="lazy">
                         </a>
                     </div>
                     <div class="content">
@@ -866,7 +928,7 @@ et Commercialisation Modernes dans la Région du Grand Est et
         <div class="row">
             <div class="col-12">
                 <div class="section__cta cta text-center">
-                    <a href="{{route('events')}}" aria-label="our events" title="our events"
+                    <a href="{{route('events')}}" aria-label="nos actualités" title="nos actualités"
                         class="btn--primary">Découvrir plus<i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div>
