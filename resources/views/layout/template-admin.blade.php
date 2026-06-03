@@ -32,6 +32,18 @@
     <!-- Admin Custom CSS -->
     <link href="{{ asset('admin/assets/css/admin-custom.css') }}?v={{ filemtime(public_path('admin/assets/css/admin-custom.css')) }}" rel="stylesheet">
 
+    <!-- Table force override — inline, no cache -->
+    <style>
+        table.dataTable { border-collapse: collapse !important; border-spacing: 0 !important; }
+        table.dataTable thead th,
+        table.dataTable thead td { background: #f1f5f9 !important; color: #475569 !important; border-top: none !important; border-bottom: 2px solid #cbd5e1 !important; font-size: 10.5px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: .06em !important; padding: 10px 14px !important; }
+        table.dataTable tbody tr td { padding: 9px 14px !important; vertical-align: middle !important; border-top: none !important; border-bottom: 1px solid #e2e8f0 !important; font-size: 13px !important; }
+        table.dataTable tbody tr:nth-child(odd) td  { background: #f8fafc !important; }
+        table.dataTable tbody tr:nth-child(even) td { background: #ffffff !important; }
+        table.dataTable tbody tr:last-child td { border-bottom: none !important; }
+        table.dataTable tbody tr:hover td { background: #f0fdf4 !important; }
+    </style>
+
     @stack('styles')
 </head>
 
