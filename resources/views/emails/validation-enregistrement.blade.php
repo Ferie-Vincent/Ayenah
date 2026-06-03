@@ -24,12 +24,14 @@
     .step-next { background: #e2e8f0; color: #64748b; }
     .step-content h4 { font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 2px; }
     .step-content p { font-size: 13px; color: #64748b; }
-    .cta-section { text-align: center; margin: 32px 0; }
-    .cta-button { display: inline-block; background: linear-gradient(135deg, #6a9755, #8bb369); color: white; text-decoration: none; padding: 16px 36px; border-radius: 30px; font-weight: 700; font-size: 16px; box-shadow: 0 8px 25px rgba(106,151,85,0.35); }
-    .cta-note { font-size: 12px; color: #94a3b8; margin-top: 10px; }
-    .warning-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; font-size: 13px; color: #92400e; }
+    .info-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: 18px 20px; margin-bottom: 24px; }
+    .info-box p { font-size: 14px; color: #1e40af; margin: 0; }
+    .docs-reminder { background: #fefce8; border: 1px solid #fde68a; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px; font-size: 13px; color: #92400e; }
+    .contact-section { text-align: center; margin: 28px 0; }
+    .contact-button { display: inline-block; background: linear-gradient(135deg, #6a9755, #8bb369); color: white; text-decoration: none; padding: 14px 32px; border-radius: 30px; font-weight: 600; font-size: 15px; }
     .footer { background: #f8fdf8; padding: 24px 30px; text-align: center; border-top: 1px solid rgba(106,151,85,0.15); font-size: 12px; color: #94a3b8; }
     .footer strong { color: #6a9755; }
+    .footer a { color: #6a9755; }
   </style>
 </head>
 <body>
@@ -46,7 +48,7 @@
     <p class="greeting">Bonjour <span class="name">{{ $enregistrement->firstname }} {{ $enregistrement->lastname }}</span>,</p>
 
     <div class="message-box">
-      <p>Votre enregistrement pour le projet <strong>« {{ $enregistrement->project_name }} »</strong> a été validé. Vous pouvez maintenant soumettre votre <strong>Formulaire de Requête de Financement</strong> — l'étape décisive de votre candidature.</p>
+      <p>Votre enregistrement pour le projet <strong>« {{ $enregistrement->project_name }} »</strong> a été validé par la Cellule de Coordination de la DGIE. Votre candidature est retenue pour la suite du processus d'instruction.</p>
     </div>
 
     <div class="steps">
@@ -61,38 +63,48 @@
       </div>
 
       <div class="step">
-        <div class="step-number step-current">2</div>
+        <div class="step-number step-done">✓</div>
         <div class="step-content">
-          <h4>Étape 2 — Formulaire de Requête de Financement</h4>
-          <p>À compléter maintenant — cliquez sur le bouton ci-dessous</p>
+          <h4>Étape 2 — Validation par la Cellule de Coordination</h4>
+          <p>Validé le {{ $enregistrement->validated_at->format('d/m/Y') }}</p>
         </div>
       </div>
 
       <div class="step">
-        <div class="step-number step-next">3</div>
+        <div class="step-number step-current">3</div>
         <div class="step-content">
-          <h4>Étape 3 — Examen par le Comité de Sélection</h4>
-          <p>Après soumission, votre dossier sera évalué par la Cellule de Coordination puis soumis au Comité</p>
+          <h4>Étape 3 — Instruction et dépôt du dossier complet</h4>
+          <p>L'équipe AYENAH vous contactera pour vous guider dans la constitution de votre dossier complet</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number step-next">4</div>
+        <div class="step-content">
+          <h4>Étape 4 — Examen par le Comité de Sélection</h4>
+          <p>Après soumission, votre dossier sera évalué par le Comité</p>
         </div>
       </div>
     </div>
 
-    <div class="warning-box">
-      ⚠️ <strong>Important :</strong> Ce lien est personnel et unique. Ne le partagez pas. Il expire dans <strong>30 jours</strong>. Avant de commencer, assurez-vous d'avoir lu la fiche d'instruction reçue lors de votre enregistrement.
+    <div class="info-box">
+      <p>📋 <strong>Prochaine étape :</strong> Un membre de la Cellule de Coordination vous contactera prochainement par email ou par téléphone pour vous communiquer les instructions relatives au dépôt de votre dossier complet.</p>
     </div>
 
-    <div class="cta-section">
-      <a href="{{ url('/demande-financement?token=' . $enregistrement->validation_token) }}" class="cta-button">
-        Remplir mon Formulaire de Requête →
-      </a>
-      <p class="cta-note">Lien valide 30 jours · Sauvegarde automatique</p>
+    <div class="docs-reminder">
+      📎 <strong>Rappel :</strong> Les fiches AYENAH (fiche d'instruction et fiche technique) vous ont été transmises en pièce jointe lors de votre email de confirmation d'inscription. Prenez-en connaissance dès maintenant pour préparer votre dossier.
+    </div>
+
+    <div class="contact-section">
+      <p style="font-size:14px;color:#64748b;margin-bottom:16px;">Une question ? Contactez l'équipe AYENAH</p>
+      <a href="mailto:infos@ayenah.ci" class="contact-button">infos@ayenah.ci</a>
     </div>
 
   </div>
 
   <div class="footer">
     <p>Envoyé par <strong>l'équipe AYENAH</strong> — Programme de mobilisation de la diaspora ivoirienne</p>
-    <p style="margin-top:6px;">En cas de problème : <a href="mailto:infos@ayenah.ci" style="color:#6a9755;">infos@ayenah.ci</a></p>
+    <p style="margin-top:6px;">Direction Générale des Ivoiriens de l'Extérieur (DGIE)</p>
   </div>
 
 </div>

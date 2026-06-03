@@ -25,6 +25,22 @@
 </section>
 <!-- ==== / banner section end ==== -->
 
+<!-- ==== Bandeau V1 ==== -->
+<section class="py-4" style="background:#eff6ff;border-bottom:2px solid #bfdbfe;">
+    <div class="container">
+        <div class="d-flex align-items-start gap-3">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;color:white;font-size:18px;font-weight:700;">i</div>
+            <div>
+                <p style="font-size:15px;font-weight:700;color:#1e40af;margin-bottom:4px;">Parcours V1 — Inscription en ligne</p>
+                <p style="font-size:14px;color:#1e40af;margin:0;">
+                    Actuellement, la plateforme AYENAH collecte les <strong>inscriptions de préqualification</strong>. La soumission complète du dossier (formulaire de requête, annexes, budget) se fait en dehors de la plateforme après instruction par la Cellule de Coordination. Pour démarrer, inscrivez-vous via le formulaire de candidature.
+                    <a href="{{ route('enregistrement') }}" style="color:#1d4ed8;font-weight:600;text-decoration:underline;">S'inscrire →</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ==== Les 4 étapes ==== -->
 <section class="section-padding">
     <div class="container">

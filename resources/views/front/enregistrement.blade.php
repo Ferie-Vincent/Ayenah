@@ -453,4 +453,15 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 @endif
 
+@if(session('info'))
+<script>
+    Swal.fire({
+        title: "Information",
+        text: "{{ session('info') }}",
+        icon: "info",
+        confirmButtonColor: "#009E60"
+    });
+</script>
+@endif
+
 @endsection

@@ -86,8 +86,8 @@
                                         @else
                                             <form action="{{ route('admin.enregistrements.validate', $enregistrement->id) }}" method="POST">
                                                 @csrf
-                                                <button type="submit" class="btn btn-success btn-sm" title="Valider et envoyer le lien de candidature"
-                                                    onclick="return confirm('Valider et envoyer le lien /demande-financement à {{ $enregistrement->email }} ?')">
+                                                <button type="submit" class="btn btn-success btn-sm" title="Valider et notifier le candidat par email"
+                                                    onclick="return confirm('Valider la candidature de {{ $enregistrement->firstname }} {{ $enregistrement->lastname }} et envoyer un email de confirmation à {{ $enregistrement->email }} ?')">
                                                     <i data-lucide="check-circle" style="width:14px;height:14px;"></i>
                                                 </button>
                                             </form>
