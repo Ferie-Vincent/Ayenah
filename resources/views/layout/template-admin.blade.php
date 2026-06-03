@@ -30,7 +30,7 @@
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 
     <!-- Admin Custom CSS -->
-    <link href="{{ asset('admin/assets/css/admin-custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/css/admin-custom.css') }}?v={{ filemtime(public_path('admin/assets/css/admin-custom.css')) }}" rel="stylesheet">
 
     @stack('styles')
 </head>
