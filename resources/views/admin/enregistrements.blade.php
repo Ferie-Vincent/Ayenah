@@ -1,10 +1,10 @@
 @extends('layout/template-admin')
 
-@section('title', 'Inscriptions')
-@section('page-title', 'Inscriptions')
+@section('title', 'Candidatures Diaspora')
+@section('page-title', 'Candidatures Diaspora')
 
 @section('breadcrumb')
-<x-admin-breadcrumb :items="[['label' => 'Inscriptions']]" />
+<x-admin-breadcrumb :items="[['label' => 'Candidatures Diaspora']]" />
 @endsection
 
 @section('content')
@@ -18,16 +18,16 @@
                         <thead>
                             <tr>
                                 <th style="width:40px">#</th>
-                                <th>Inscrit</th>
+                                <th>Candidat</th>
                                 <th>Email</th>
-                                <th>Téléphone</th>
-                                <th>Profession</th>
-                                <th>Localisation</th>
+                                <th>Volet</th>
+                                <th>Statut</th>
                                 <th>Projet</th>
                                 <th>Montant</th>
                                 <th>Thématique</th>
+                                <th>Localisation</th>
                                 <th>Date</th>
-                                <th style="width:100px">Actions</th>
+                                <th style="width:110px">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,12 +45,34 @@
                                     </div>
                                 </td>
                                 <td><span style="color:#475569;font-size:13px;">{{ $enregistrement->email }}</span></td>
-                                <td><span style="color:#475569;font-size:13px;">{{ $enregistrement->phone }}</span></td>
-                                <td><span class="badge rounded-pill px-2 py-1" style="background:#eff6ff;color:#2563eb;font-size:11px;">{{ $enregistrement->profession }}</span></td>
-                                <td><span style="color:#475569;font-size:13px;">{{ $enregistrement->location }}</span></td>
-                                <td><span style="color:#475569;font-size:13px;">{{ Str::limit($enregistrement->project_name, 20) }}</span></td>
-                                <td><span class="fw-bold" style="color:#16a34a;">{{ number_format($enregistrement->amount, 0, ',', ' ') }} €</span></td>
+                                <td>
+                                    @if($enregistrement->volet === 'volet_2_expertise')
+                                        <span class="badge rounded-pill px-2 py-1" style="background:#eff6ff;color:#2563eb;font-size:11px;">Expertise</span>
+                                    @else
+                                        <span class="badge rounded-pill px-2 py-1" style="background:#fef3c7;color:#d97706;font-size:11px;">Financement</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($enregistrement->isValidated())
+                                        <span class="badge rounded-pill px-2 py-1" style="background:#dcfce7;color:#16a34a;font-size:11px;" title="Validée le {{ $enregistrement->validated_at->format('d/m/Y') }}">
+                                            <i data-lucide="check-circle" style="width:10px;height:10px;"></i> Validée
+                                        </span>
+                                    @else
+                                        <span class="badge rounded-pill px-2 py-1" style="background:#fef9c3;color:#ca8a04;font-size:11px;">
+                                            <i data-lucide="clock" style="width:10px;height:10px;"></i> En attente
+                                        </span>
+                                    @endif
+                                </td>
+                                <td><span style="color:#475569;font-size:13px;">{{ Str::limit($enregistrement->project_name, 22) }}</span></td>
+                                <td>
+                                    @if($enregistrement->volet !== 'volet_2_expertise')
+                                        <span class="fw-bold" style="color:#16a34a;">{{ number_format($enregistrement->amount, 0, ',', ' ') }} €</span>
+                                    @else
+                                        <span class="text-muted" style="font-size:12px;">—</span>
+                                    @endif
+                                </td>
                                 <td><span class="badge rounded-pill px-2 py-1" style="background:#ecfdf5;color:#059669;font-size:11px;">{{ Str::limit($enregistrement->thematique, 15) }}</span></td>
+                                <td><span style="color:#475569;font-size:13px;">{{ $enregistrement->location }}</span></td>
                                 <td><span style="color:#64748b;font-size:12px;">{{ $enregistrement->created_at->format('d/m/Y') }}</span></td>
                                 <td>
                                     <div class="d-flex align-items-center gap-1">
