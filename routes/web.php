@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\EnregistrementController as AdminEnregistrementCo
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\PageContentController;
+use App\Http\Controllers\SetupController;
 use Spatie\Sitemap\SitemapGenerator;
 
 
@@ -90,6 +91,8 @@ Route::middleware(['auth', 'admin'])->group(function(){
         'update'  => 'projets.update',
         'destroy' => 'projets.destroy',
     ]);
+    Route::get('/projets/{projet}/presentation', [ProjetController::class, 'downloadPresentation'])
+        ->name('admin.projets.presentation.download');
     Route::resource('visites', VisiteController::class)->except(['show']);
     Route::resource('messages', MessageController::class);
 
@@ -126,5 +129,10 @@ Route::get('/telecharger/fiche-instruction', function () {
     return response()->download($path);
 })->name('fiche-instruction.download');
 
+
+Route::middleware('guest')->group(function () {
+    Route::get('/setup', [SetupController::class, 'create'])->name('setup');
+    Route::post('/setup', [SetupController::class, 'store'])->name('setup.store')->middleware('throttle:5,10');
+});
 
 require __DIR__.'/auth.php';

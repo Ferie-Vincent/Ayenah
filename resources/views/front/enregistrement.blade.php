@@ -110,24 +110,14 @@
                         </div>
                     </div>
 
-                    <!-- Encart deux volets -->
+                    <!-- Encart volet actif -->
                     <div class="mb-4 p-3 rounded" style="background:#f0fdf4;border:1px solid #bbf7d0;">
                         <h6 style="color:#166534;font-weight:700;margin-bottom:8px;">
-                            <i class="fa fa-info-circle me-1"></i> Le projet AYENAH soutient deux formes de contribution
+                            <i class="fa fa-info-circle me-1"></i> Volet ouvert à la candidature
                         </h6>
-                        <div class="row g-2">
-                            <div class="col-md-6">
-                                <div style="background:#fff;border-radius:8px;padding:12px;border:1px solid #d1fae5;">
-                                    <strong style="color:#059669;">VOLET 1 — Financement</strong>
-                                    <p style="font-size:13px;color:#374151;margin:4px 0 0;">Subvention jusqu'à <strong>50 000 €</strong> (max. 70 % du budget total) pour un projet porté en <strong>partenariat</strong> entre une association de la diaspora et un porteur local en Côte d'Ivoire.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div style="background:#fff;border-radius:8px;padding:12px;border:1px solid #d1fae5;">
-                                    <strong style="color:#059669;">VOLET 2 — Expertise</strong>
-                                    <p style="font-size:13px;color:#374151;margin:4px 0 0;">Mission d'expertise technique au profit d'acteurs ivoiriens sur des sujets d'intérêt général où les compétences locales font défaut.</p>
-                                </div>
-                            </div>
+                        <div style="background:#fff;border-radius:8px;padding:12px;border:1px solid #d1fae5;">
+                            <strong style="color:#059669;">VOLET 1 — Financement</strong>
+                            <p style="font-size:13px;color:#374151;margin:4px 0 0;">Subvention jusqu'à <strong>50 000 €</strong> (max. 70 % du budget total) pour un projet porté en <strong>partenariat</strong> entre une association de la diaspora et un porteur local en Côte d'Ivoire.</p>
                         </div>
                         <p style="font-size:12px;color:#6b7280;margin:8px 0 0;">
                             <i class="fa fa-exclamation-circle" style="color:#d97706;"></i>
@@ -230,30 +220,32 @@
                         <i class="fa fa-lightbulb colorOrange"></i> Votre contribution
                     </h4>
 
-                    <!-- Choix du volet -->
+                    <!-- Volet sélectionné (Volet 1 uniquement — Volet 2 désactivé) -->
+                    <input type="hidden" name="volet" value="volet_1_financement">
                     <div class="simple-form__group">
-                        <label>Type de contribution <span>*</span></label>
-                        <div class="row g-3 mt-1" id="volet-cards">
+                        <label>Type de contribution</label>
+                        <div class="row g-3 mt-1">
+                            {{-- Volet 1 : actif --}}
                             <div class="col-md-6">
-                                <label class="volet-card {{ old('volet', 'volet_1_financement') === 'volet_1_financement' ? 'volet-card--selected' : '' }}" for="volet_1" style="cursor:pointer;display:block;padding:14px;border-radius:10px;border:2px solid {{ old('volet', 'volet_1_financement') === 'volet_1_financement' ? '#059669' : '#e5e7eb' }};background:{{ old('volet', 'volet_1_financement') === 'volet_1_financement' ? '#f0fdf4' : '#fff' }};">
-                                    <input type="radio" name="volet" id="volet_1" value="volet_1_financement" {{ old('volet', 'volet_1_financement') === 'volet_1_financement' ? 'checked' : '' }} style="display:none;">
+                                <div style="display:block;padding:14px;border-radius:10px;border:2px solid #059669;background:#f0fdf4;">
                                     <strong style="color:#059669;display:block;margin-bottom:4px;"><i class="fa fa-hand-holding-usd me-1"></i> VOLET 1 — Financement</strong>
                                     <span style="font-size:12px;color:#6b7280;">Votre association de la diaspora cofinance un projet porté par une structure locale ivoirienne (ONG, coopérative, collectivité). Subvention jusqu'à 50 000 € — durée max 12 mois.</span>
-                                </label>
+                                    <span class="badge ms-1" style="background:#dcfce7;color:#16a34a;font-size:10px;">Ouvert</span>
+                                </div>
                             </div>
+                            {{-- Volet 2 : désactivé (à réactiver ultérieurement) --}}
                             <div class="col-md-6">
-                                <label class="volet-card {{ old('volet') === 'volet_2_expertise' ? 'volet-card--selected' : '' }}" for="volet_2" style="cursor:pointer;display:block;padding:14px;border-radius:10px;border:2px solid {{ old('volet') === 'volet_2_expertise' ? '#059669' : '#e5e7eb' }};background:{{ old('volet') === 'volet_2_expertise' ? '#f0fdf4' : '#fff' }};">
-                                    <input type="radio" name="volet" id="volet_2" value="volet_2_expertise" {{ old('volet') === 'volet_2_expertise' ? 'checked' : '' }} style="display:none;">
-                                    <strong style="color:#059669;display:block;margin-bottom:4px;"><i class="fa fa-graduation-cap me-1"></i> VOLET 2 — Expertise</strong>
-                                    <span style="font-size:12px;color:#6b7280;">Mission d'expertise technique au profit d'acteurs ivoiriens.</span>
-                                </label>
+                                <div style="display:block;padding:14px;border-radius:10px;border:2px solid #e5e7eb;background:#f9fafb;opacity:.55;pointer-events:none;user-select:none;">
+                                    <strong style="color:#9ca3af;display:block;margin-bottom:4px;"><i class="fa fa-graduation-cap me-1"></i> VOLET 2 — Expertise</strong>
+                                    <span style="font-size:12px;color:#9ca3af;">Mission d'expertise technique au profit d'acteurs ivoiriens.</span>
+                                    <span class="badge ms-1" style="background:#f3f4f6;color:#6b7280;font-size:10px;">Bientôt disponible</span>
+                                </div>
                             </div>
                         </div>
-                        @error('volet')<p class="simple-form__error">{{ $message }}</p>@enderror
                     </div>
 
                     <!-- Alerte partenariat Volet 1 -->
-                    <div id="alerte-partenariat" style="{{ old('volet') === 'volet_2_expertise' ? 'display:none;' : '' }}margin-bottom:16px;">
+                    <div id="alerte-partenariat" style="margin-bottom:16px;">
                         <div style="background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:12px 14px;">
                             <p style="font-size:13px;color:#92400e;margin:0;">
                                 <i class="fa fa-exclamation-triangle me-1" style="color:#d97706;"></i>
@@ -273,8 +265,7 @@
                         </div>
                         <p class="simple-form__hint" id="hint-project-name" style="font-size:12px;color:#6b7280;">
                             <i class="fa fa-info-circle"></i>
-                            <span id="hint-volet1">Volet 1 : le projet est porté par une structure locale ivoirienne (ONG, association, coopérative, collectivité territoriale). Votre association de la diaspora en est le partenaire cosignataire.</span>
-                            <span id="hint-volet2" style="display:none;">Volet 2 : intitulé de la mission d'expertise technique que vous proposez d'accomplir en Côte d'Ivoire.</span>
+                            Le projet est porté par une structure locale ivoirienne (ONG, association, coopérative, collectivité territoriale). Votre association de la diaspora en est le partenaire cosignataire.
                         </p>
                         @error('project_name')<p class="simple-form__error">{{ $message }}</p>@enderror
                     </div>
@@ -449,6 +440,17 @@ document.addEventListener('DOMContentLoaded', function () {
         text: "{{ session('warning') }}",
         icon: "warning",
         confirmButtonColor: "#ff7f00"
+    });
+</script>
+@endif
+
+@if(session('info'))
+<script>
+    Swal.fire({
+        title: "Information",
+        text: "{{ session('info') }}",
+        icon: "info",
+        confirmButtonColor: "#009E60"
     });
 </script>
 @endif
