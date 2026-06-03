@@ -13,11 +13,10 @@ class CleanOrphanFiles extends Command
                             {--dry-run : Lister les fichiers orphelins sans les supprimer}
                             {--force : Supprimer sans demander confirmation}';
 
-    protected $description = 'Supprime les fichiers orphelins du storage public (non référencés en base de données)';
+    protected $description = 'Supprime les fichiers orphelins du storage (non référencés en base de données)';
 
     public function handle(): int
     {
-        $disk = Storage::disk('public');
         $dryRun = $this->option('dry-run');
         $orphans = [];
 
@@ -27,29 +26,37 @@ class CleanOrphanFiles extends Command
         // Collecter les fichiers référencés en BDD (incluant les soft-deleted)
         $referencedFiles = $this->getReferencedFiles();
 
-        // Scanner les dossiers de stockage
-        $directories = ['visites', 'projets/documents', 'projets/images'];
+        // Scanner les dossiers de stockage par disque.
+        $directoriesByDisk = [
+            'public' => ['visites', 'projets/images', 'projets/documents'],
+            'local' => ['projets/documents'],
+        ];
 
-        foreach ($directories as $directory) {
-            if (!$disk->exists($directory)) {
-                continue;
-            }
+        foreach ($directoriesByDisk as $diskName => $directories) {
+            $disk = Storage::disk($diskName);
 
-            $files = $disk->files($directory);
-
-            foreach ($files as $file) {
-                if (basename($file) === '.gitignore') {
+            foreach ($directories as $directory) {
+                if (!$disk->exists($directory)) {
                     continue;
                 }
 
-                if (!in_array($file, $referencedFiles)) {
-                    $size = $disk->size($file);
-                    $lastModified = date('Y-m-d H:i:s', $disk->lastModified($file));
-                    $orphans[] = [
-                        'path' => $file,
-                        'size' => $this->formatSize($size),
-                        'last_modified' => $lastModified,
-                    ];
+                $files = $disk->files($directory);
+
+                foreach ($files as $file) {
+                    if (basename($file) === '.gitignore') {
+                        continue;
+                    }
+
+                    if (!in_array($file, $referencedFiles)) {
+                        $size = $disk->size($file);
+                        $lastModified = date('Y-m-d H:i:s', $disk->lastModified($file));
+                        $orphans[] = [
+                            'disk' => $diskName,
+                            'path' => $file,
+                            'size' => $this->formatSize($size),
+                            'last_modified' => $lastModified,
+                        ];
+                    }
                 }
             }
         }
@@ -63,7 +70,7 @@ class CleanOrphanFiles extends Command
         $this->warn(count($orphans) . ' fichier(s) orphelin(s) trouvé(s) :');
         $this->newLine();
         $this->table(
-            ['Fichier', 'Taille', 'Dernière modification'],
+            ['Disque', 'Fichier', 'Taille', 'Dernière modification'],
             $orphans
         );
 
@@ -81,11 +88,11 @@ class CleanOrphanFiles extends Command
         // Suppression
         $deleted = 0;
         foreach ($orphans as $orphan) {
-            if ($disk->delete($orphan['path'])) {
+            if (Storage::disk($orphan['disk'])->delete($orphan['path'])) {
                 $deleted++;
-                $this->line("  <fg=red>✗</> Supprimé : {$orphan['path']}");
+                $this->line("  <fg=red>✗</> Supprimé : {$orphan['disk']}:{$orphan['path']}");
             } else {
-                $this->error("  Échec de suppression : {$orphan['path']}");
+                $this->error("  Échec de suppression : {$orphan['disk']}:{$orphan['path']}");
             }
         }
 

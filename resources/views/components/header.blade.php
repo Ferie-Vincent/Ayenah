@@ -79,7 +79,7 @@
     <!-- Données structurées JSON-LD -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "Organization",
         "name": "AYENAH",
         "url": "https://ayenah.ci",
@@ -113,14 +113,6 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2KZ3T6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-
-    <!--[if lt IE 9]>
-        <p class="browserupgrade">
-            You are using an <strong>outdated</strong> browser. Please
-            <a href="https://browsehappy.com/">upgrade your browser</a> to improve
-            your experience and security.
-        </p>
-    <![endif]-->
 
     <div class="page-wrapper">
 

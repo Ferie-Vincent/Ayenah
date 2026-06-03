@@ -316,7 +316,7 @@
                         <div class="row g-3 align-items-center">
                             @if($projet->fichier_presentation)
                             <div class="col-md-6">
-                                <a href="{{ asset('storage/' . $projet->fichier_presentation) }}" class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none" style="background:#eff6ff;color:#2563eb;font-weight:500;font-size:13px;" download>
+                                <a href="{{ route('admin.projets.presentation.download', $projet) }}" class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3 text-decoration-none" style="background:#eff6ff;color:#2563eb;font-weight:500;font-size:13px;">
                                     <i data-lucide="download" style="width:16px;height:16px;"></i> Télécharger le fichier
                                 </a>
                             </div>
@@ -726,7 +726,7 @@
                                     <input class="form-control" type="file" name="fichier_presentation" accept=".pdf,.docx">
                                     @if($projet->fichier_presentation)
                                     <small class="text-muted mt-1 d-block">
-                                        Actuel : <a href="{{ asset('storage/' . $projet->fichier_presentation) }}" target="_blank" style="color:#2563eb;">Voir</a>
+                                        Actuel : <a href="{{ route('admin.projets.presentation.download', $projet) }}" target="_blank" style="color:#2563eb;">Voir</a>
                                     </small>
                                     @endif
                                 </div>

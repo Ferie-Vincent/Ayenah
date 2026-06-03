@@ -99,7 +99,7 @@
     <script src="{{ asset ('front/assets/js/custom.js') }}"></script>
     <script>
     function inscription() {
-        const RegisterRoute = "{{ route('register') }}";
+        const RegisterRoute = "{{ route('enregistrement') }}";
 
         Swal.fire({
             icon: "info",

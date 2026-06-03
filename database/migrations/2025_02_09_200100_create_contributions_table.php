@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('profession');
             $table->string('location');
             $table->decimal('amount', 10, 2);
-            $table->foreignId('projet_id')->constrained('projets');
+            $table->foreignId('projet_id')->constrained('projets')->cascadeOnDelete();
             $table->text('message')->nullable();
             $table->timestamps();
         });

@@ -28,7 +28,7 @@ class ProjetController extends Controller
             $validated['inscription_active'] = $request->boolean('inscription_active');
 
             if ($request->hasFile('fichier_presentation')) {
-                $validated['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'public');
+                $validated['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'local');
             }
 
             if ($request->hasFile('photo_logo')) {
@@ -52,9 +52,9 @@ class ProjetController extends Controller
 
             if ($request->hasFile('fichier_presentation')) {
                 if ($projet->fichier_presentation) {
-                    Storage::disk('public')->delete($projet->fichier_presentation);
+                    $this->deletePresentationFile($projet->fichier_presentation);
                 }
-                $validated['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'public');
+                $validated['fichier_presentation'] = $request->file('fichier_presentation')->store('projets/documents', 'local');
             }
 
             if ($request->hasFile('photo_logo')) {
@@ -77,7 +77,7 @@ class ProjetController extends Controller
 
         DB::transaction(function () use ($projet) {
             if ($projet->fichier_presentation) {
-                Storage::disk('public')->delete($projet->fichier_presentation);
+                $this->deletePresentationFile($projet->fichier_presentation);
             }
 
             if ($projet->photo_logo) {
@@ -89,5 +89,41 @@ class ProjetController extends Controller
         });
 
         return redirect()->route('admin.projets.index')->with('success', 'Projet supprimé avec succès !');
+    }
+
+    public function downloadPresentation(Projet $projet)
+    {
+        abort_unless($this->isProjectDocumentPath($projet->fichier_presentation), 404);
+
+        if (Storage::disk('local')->exists($projet->fichier_presentation)) {
+            return Storage::disk('local')->download($projet->fichier_presentation);
+        }
+
+        if (Storage::disk('public')->exists($projet->fichier_presentation)) {
+            return Storage::disk('public')->download($projet->fichier_presentation);
+        }
+
+        abort(404);
+    }
+
+    private function deletePresentationFile(?string $path): void
+    {
+        if (! $this->isProjectDocumentPath($path)) {
+            return;
+        }
+
+        if (Storage::disk('local')->exists($path)) {
+            Storage::disk('local')->delete($path);
+            return;
+        }
+
+        Storage::disk('public')->delete($path);
+    }
+
+    private function isProjectDocumentPath(?string $path): bool
+    {
+        return is_string($path)
+            && str_starts_with($path, 'projets/documents/')
+            && ! str_contains($path, '..');
     }
 }

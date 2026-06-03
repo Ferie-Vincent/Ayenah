@@ -861,69 +861,6 @@ et Commercialisation Modernes dans la Région du Grand Est et
                 </div>
             </div>
             @endforeach
-            <!-- <div class="col-12 col-lg-6">
-                <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="thumb">
-                        <a href="{{route('event', $visites->first()->id)}}">
-                            <img src="https://placehold.co/870x400" alt="Image" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="content">
-                        <div class="award__content">
-                            <h5><a href="{{route('event', $visites->first()->id)}}">Lorem ipsum dolor sit amet.</a></h5>
-                            <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
-                                | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
-                        </div>
-                        <div class="award__thumb">
-                            <a href="{{route('event', $visites->first()->id)}}">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="thumb">
-                        <a href="{{route('event', $visites->first()->id)}}">
-                            <img src="https://placehold.co/870x400" alt="Image" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="content">
-                        <div class="award__content">
-                            <h5><a href="{{route('event', $visites->first()->id)}}">Lorem ipsum dolor sit amet.</a></h5>
-                            <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
-                                | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
-                        </div>
-                        <div class="award__thumb">
-                            <a href="{{route('event', $visites->first()->id)}}">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="thumb">
-                        <a href="{{route('event', $visites->first()->id)}}">
-                            <img src="https://placehold.co/870x400" alt="Image" loading="lazy">
-                        </a>
-                    </div>
-                    <div class="content">
-                        <div class="award__content">
-                            <h5><a href="{{route('event', $visites->first()->id)}}">Lorem ipsum dolor sit amet.</a></h5>
-                            <p> <i class="fa fa-calendar" aria-hidden="true"></i> <span>October 19, 2025</span>
-                                | <i class="fa-solid fa-location-dot"></i> Région de la wèh</p>
-                        </div>
-                        <div class="award__thumb">
-                            <a href="{{route('event', $visites->first()->id)}}">
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
         <div class="row">
             <div class="col-12">
