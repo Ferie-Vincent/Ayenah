@@ -1,0 +1,24 @@
+/* Styles pour les images sur mobile */
+@media (max-width: 991.98px) {
+    .difference-three__thumb .thumb-lg {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+    .difference-three__thumb .thumb-lg img {
+        max-height: 300px;
+        width: auto;
+        object-fit: cover;
+    }
+}
+
+/* Ajustements supplémentaires pour les très petits écrans */
+@media (max-width: 575.98px) {
+    .difference-three__thumb .thumb-lg {
+        max-width: 90%;
+    }
+    
+    .difference-three__thumb .thumb-lg img {
+        max-height: 250px;
+    }
+}

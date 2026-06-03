@@ -44,8 +44,8 @@
 <section class="difference-three" id="aboutSection">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-5">
-                <div class="difference-three__thumb d-none d-lg-block">
+            <div class="col-12 col-lg-5 mb-4 mb-lg-0">
+                <div class="difference-three__thumb text-center text-lg-start">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
                             <img src="{{ asset ('front/assets/images/gaoussou.jpg')}}" alt="Dr. Gaoussou Karamoko - Directeur Général des Ivoiriens de l'Extérieur" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-5">
-                <div class="difference-three__thumb d-none d-lg-block">
+                <div class="difference-three__thumb text-center text-lg-end">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
                             <img src="{{ asset ('front/assets/images/bamadi.jpg')}}" alt="M. Bamadi Sanokho - Chef de Projet CRPM2" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
@@ -142,7 +142,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-lg-5">
-                <div class="difference-three__thumb d-none d-lg-block">
+                <div class="difference-three__thumb text-center text-lg-end">
                     <div class="difference-three__thumb-inner">
                         <div class="thumb-lg" data-aos="fade-right" data-aos-duration="1000">
                             <img src="{{ asset ('front/assets/images/omi.jpg') }}" alt="Mme Diabaté Omignan. - Coordinatrice du Projet AYENAH" width="100%" class="shadow" style="border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">

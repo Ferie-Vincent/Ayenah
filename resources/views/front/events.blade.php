@@ -1,6 +1,8 @@
 @extends('layout/template')
 
-@section('title', 'AYENAH | Évènements - Mobiliser la diaspora pour le développement de la Côte d\'Ivoire')
+@section('title', 'AYENAH | Actualités - Les activités du programme')
+
+@section('meta_description', 'Suivez les actualités du programme AYENAH : missions de terrain, forums diaspora, ateliers de sensibilisation et événements en Côte d\'Ivoire et à l\'étranger.')
 
 @section('content')
 
@@ -14,10 +16,10 @@
         </div>
     </div>
     <div class="banner-bg">
-        <img src="{{asset('front/assets/images/actualities.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/actualities.png')}}" alt="Actualités AYENAH">
     </div>
     <div class="shape">
-        <img src="{{asset('front/assets/images/shape.png')}}" alt="Image">
+        <img src="{{asset('front/assets/images/shape.png')}}" alt="AYENAH">
     </div>
 </section>
 <!-- ==== / banner section end ==== -->
@@ -34,7 +36,7 @@
                             <div class="blog__single van-tilt">
                                 <div class="blog__single-thumb">
                                     <a href="{{route('event', $visite->id)}}">
-                                        <img src="{{asset('storage/' . $visite->cover_image)}}" alt="Image">
+                                        <img src="{{asset('storage/' . $visite->cover_image)}}" alt="{{ $visite->title }}" loading="lazy">
                                     </a>
                                 </div>
                                 <div class="blog__single-inner">
@@ -50,8 +52,8 @@
                                         </h5>
                                     </div>
                                     <div class="blog__single-cta">
-                                        <a href="{{route('event', $visite->id)}}" aria-label="blog details"
-                                            title="blog details">Lire Plus<i
+                                        <a href="{{route('event', $visite->id)}}" aria-label="lire l'article"
+                                            title="lire l'article">Lire Plus<i
                                                 class="fa-solid fa-circle-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -60,6 +62,13 @@
                     </div>
                     @endforeach
                 </div>
+                @if ($visites->hasPages())
+                <div class="row mt-4">
+                    <div class="col-12 d-flex justify-content-center">
+                        {{ $visites->links() }}
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
