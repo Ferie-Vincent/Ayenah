@@ -139,7 +139,19 @@
 
     <div class="mt-5 container">
         <div class="row">
-            <iframe class="rounded shadow" src="https://maps.google.com/maps?q=Direction+G%C3%A9n%C3%A9rale+des+Ivoiriens+de+l%27Ext%C3%A9rieur+DGIE+Abidjan&t=&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="col-12">
+                <iframe
+                    class="rounded shadow"
+                    title="Localisation DGIE — Direction Générale des Ivoiriens de l'Extérieur"
+                    src="{{ App\Models\Setting::get('contact_map_url', 'https://maps.google.com/maps?q=Direction+G%C3%A9n%C3%A9rale+des+Ivoiriens+de+l%27Ext%C3%A9rieur+DGIE+Abidjan&t=&z=17&ie=UTF8&iwloc=&output=embed') }}"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
     </div>
 

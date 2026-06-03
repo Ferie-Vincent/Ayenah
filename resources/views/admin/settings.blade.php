@@ -42,11 +42,18 @@
                         </label>
                         <input type="text" class="form-control" id="contact_phone_2" name="contact_phone_2" value="{{ $settings['contact']->firstWhere('key', 'contact_phone_2')->value ?? '' }}">
                     </div>
-                    <div class="mb-0">
+                    <div class="mb-3">
                         <label for="contact_address" class="form-label">
                             <i data-lucide="map-pin" style="width:13px;height:13px;" class="me-1 text-muted"></i>Adresse
                         </label>
                         <input type="text" class="form-control" id="contact_address" name="contact_address" value="{{ $settings['contact']->firstWhere('key', 'contact_address')->value ?? '' }}">
+                    </div>
+                    <div class="mb-0">
+                        <label for="contact_map_url" class="form-label">
+                            <i data-lucide="map" style="width:13px;height:13px;" class="me-1 text-muted"></i>URL embed Google Maps
+                        </label>
+                        <input type="url" class="form-control" id="contact_map_url" name="contact_map_url" value="{{ $settings['contact']->firstWhere('key', 'contact_map_url')->value ?? '' }}" placeholder="https://maps.google.com/maps?q=...&output=embed">
+                        <small class="text-muted mt-1 d-block">URL d'intégration depuis Google Maps → Partager → Intégrer une carte</small>
                     </div>
                 </div>
             </div>
