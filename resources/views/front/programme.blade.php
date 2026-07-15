@@ -33,7 +33,7 @@
                 <span class="section-header__subtitle">DÉFINITION</span>
                 <h2 class="section-header__title" style="text-align: left;">Qu'est-ce qu'<span>AYENAH</span> ?</h2>
                 <p class="text-dark mb-4" style="font-size: 17px; line-height: 1.8;">
-                    {!! $contents['definition'] ?? '<strong class="colorVert">AYENAH</strong> est un mot issu de la langue <strong>Malinké</strong> qui signifie <strong>« aide-moi »</strong>. Ce nom symbolise l\'esprit de solidarité et d\'entraide qui anime le programme. AYENAH est un <strong>programme pilote</strong> mis en place par l\'État de Côte d\'Ivoire pour permettre aux Ivoiriens vivant à l\'étranger de participer concrètement au développement de leur pays d\'origine...' !!}
+                    {!! $contents['definition'] ?? '<strong class="colorVert">AYENAH</strong> est un mot issu de la langue <strong>Malinké</strong> qui signifie <strong>« Revenez »</strong>. Ce nom symbolise l\'esprit de solidarité et d\'entraide qui anime le programme. AYENAH est un <strong>programme pilote</strong> mis en place par l\'État de Côte d\'Ivoire pour permettre aux Ivoiriens vivant à l\'étranger de participer concrètement au développement de leur pays d\'origine...' !!}
                 </p>
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">

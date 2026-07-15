@@ -197,7 +197,7 @@
                             en vidéo.
                         </h2>
                         <div class="video-btn-wrapper">
-                            <a href="https://www.youtube.com/watch?v=RvreULjnzFo" target="_blank"
+                            <a href="https://youtu.be/MRTcA2TSfec" target="_blank"
                                 title="video Player" class="open-video-popup">
                                 <i class="icon-play"></i>
                             </a>
