@@ -197,10 +197,15 @@
                             en vidéo.
                         </h2>
                         <div class="video-btn-wrapper">
-                            <a href="https://www.youtube.com/embed/MRTcA2TSfec" target="_blank"
+                            <a href="#video-popup-ayenah"
                                 title="video Player" class="open-video-popup">
                                 <i class="icon-play"></i>
                             </a>
+                        </div>
+                        <div id="video-popup-ayenah" class="mfp-hide">
+                            <video id="ayenah-popup-video" controls style="width:100%;height:auto;">
+                                <source src="{{ asset('videos/ayenah-presentation.mp4') }}" type="video/mp4">
+                            </video>
                         </div>
                     </div>
                 </div>
